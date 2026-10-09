@@ -287,7 +287,7 @@
                     "id": "call_P3O1kwqP8tZgoCVE5zDuKLnq",
                     "function": {
                       "name": "testTool_manySchemas",
-                      "arguments": "{\"stringEmail\":\"example@example.com\",\"stringEmoji\":\"\ud83d\ude0a\",\"stringUrl\":\"https://www.example.com\",\"stringRegex\":\"test-sample\",\"number\":42,\"exampleArray\":[\"example1\",\"example2\",\"example3\"],\"arrayMax\":[\"item1\",\"item2\",\"item3\",\"item4\",\"item5\"],\"object\":{\"foo\":\"bar\",\"bar\":10},\"objectNested\":{\"user\":{\"name\":\"John\",\"age\":30}},\"objectPassthrough\":{\"key1\":\"value1\",\"key2\":2},\"optional\":null,\"nullable\":\"nullable value\",\"enum\":\"A\",\"nativeEnum\":\"B\",\"unionPrimitives\":\"sample text\",\"unionObjects\":{\"amount\":100,\"inventoryItemName\":\"item\"}}"
+                      "arguments": "{\"stringEmail\":\"example@example.com\",\"stringEmoji\":\"😊\",\"stringUrl\":\"https://www.example.com\",\"stringRegex\":\"test-sample\",\"number\":42,\"exampleArray\":[\"example1\",\"example2\",\"example3\"],\"arrayMax\":[\"item1\",\"item2\",\"item3\",\"item4\",\"item5\"],\"object\":{\"foo\":\"bar\",\"bar\":10},\"objectNested\":{\"user\":{\"name\":\"John\",\"age\":30}},\"objectPassthrough\":{\"key1\":\"value1\",\"key2\":2},\"optional\":null,\"nullable\":\"nullable value\",\"enum\":\"A\",\"nativeEnum\":\"B\",\"unionPrimitives\":\"sample text\",\"unionObjects\":{\"amount\":100,\"inventoryItemName\":\"item\"}}"
                     }
                   }
                 ]
@@ -308,8 +308,8 @@
             },
             "cost_details": {
               "upstream_inference_cost": 0.0001569,
-              "upstream_inference_prompt_cost": 6.45e-05,
-              "upstream_inference_completions_cost": 9.24e-05
+              "upstream_inference_prompt_cost": 0.0000645,
+              "upstream_inference_completions_cost": 0.0000924
             },
             "completion_tokens_details": {
               "reasoning_tokens": 0,
@@ -589,7 +589,7 @@
                     "id": "toolu_bdrk_016nakdmq4ZKgmAnAqhJkhsS",
                     "function": {
                       "name": "testTool_manySchemas",
-                      "arguments": "{\"stringEmail\": \"test@example.com\", \"stringEmoji\": \"\ud83d\ude00\", \"stringUrl\": \"https://example.com\", \"stringRegex\": \"test-sample\", \"number\": 42, \"exampleArray\": [\"hello\",\"world\",\"test\"], \"arrayMax\": [\"one\",\"two\",\"three\"], \"object\": {\"foo\":\"bar\",\"bar\":123}, \"objectNested\": {\"user\":{\"name\":\"John\",\"age\":25}}, \"objectPassthrough\": {\"key1\":\"value1\",\"key2\":42}, \"nullable\": null, \"enum\": \"A\", \"nativeEnum\": \"B\", \"unionPrimitives\": \"sample text\", \"unionObjects\": {\"inventoryItemName\":\"widget\",\"amount\":10}}"
+                      "arguments": "{\"stringEmail\": \"test@example.com\", \"stringEmoji\": \"😀\", \"stringUrl\": \"https://example.com\", \"stringRegex\": \"test-sample\", \"number\": 42, \"exampleArray\": [\"hello\",\"world\",\"test\"], \"arrayMax\": [\"one\",\"two\",\"three\"], \"object\": {\"foo\":\"bar\",\"bar\":123}, \"objectNested\": {\"user\":{\"name\":\"John\",\"age\":25}}, \"objectPassthrough\": {\"key1\":\"value1\",\"key2\":42}, \"nullable\": null, \"enum\": \"A\", \"nativeEnum\": \"B\", \"unionPrimitives\": \"sample text\", \"unionObjects\": {\"inventoryItemName\":\"widget\",\"amount\":10}}"
                     }
                   }
                 ]
@@ -877,7 +877,7 @@
                     "id": "tool_testTool_manySchemas_IIn5FtV1rvA9NZlzGGWx",
                     "function": {
                       "name": "testTool_manySchemas",
-                      "arguments": "{\"objectPassthrough\":{},\"stringRegex\":\"test-string\",\"enum\":\"A\",\"unionPrimitives\":\"string\",\"stringEmail\":\"test@example.com\",\"arrayMax\":[\"itemA\",\"itemB\"],\"nativeEnum\":\"A\",\"exampleArray\":[\"item1\",\"item2\"],\"unionObjects\":{\"amount\":1.23,\"inventoryItemName\":\"item\"},\"objectNested\":{\"user\":{\"age\":30,\"name\":\"John Doe\"}},\"stringUrl\":\"https://www.example.com\",\"number\":123.45,\"object\":{\"bar\":1.23,\"foo\":\"bar\"},\"nullable\":\"null\",\"stringEmoji\":\"\ud83d\ude0a\"}"
+                      "arguments": "{\"objectPassthrough\":{},\"stringRegex\":\"test-string\",\"enum\":\"A\",\"unionPrimitives\":\"string\",\"stringEmail\":\"test@example.com\",\"arrayMax\":[\"itemA\",\"itemB\"],\"nativeEnum\":\"A\",\"exampleArray\":[\"item1\",\"item2\"],\"unionObjects\":{\"amount\":1.23,\"inventoryItemName\":\"item\"},\"objectNested\":{\"user\":{\"age\":30,\"name\":\"John Doe\"}},\"stringUrl\":\"https://www.example.com\",\"number\":123.45,\"object\":{\"bar\":1.23,\"foo\":\"bar\"},\"nullable\":\"null\",\"stringEmoji\":\"😊\"}"
                     }
                   }
                 ]
@@ -1165,7 +1165,7 @@
                     "id": "call_115583",
                     "function": {
                       "name": "testTool_manySchemas",
-                      "arguments": "{\"stringRegex\":\"test-123\",\"unionObjects\":{\"amount\":5,\"inventoryItemName\":\"apple\"},\"stringEmail\":\"test@example.com\",\"enum\":\"A\",\"unionPrimitives\":100,\"exampleArray\":[\"example1\",\"example2\"],\"number\":42,\"objectNested\":{\"user\":{\"name\":\"John Doe\",\"age\":25}},\"arrayMax\":[\"item1\",\"item2\"],\"nullable\":null,\"stringUrl\":\"https://example.com\",\"nativeEnum\":\"B\",\"stringEmoji\":\"\ud83d\ude0a\",\"objectPassthrough\":{},\"object\":{\"foo\":\"test\",\"bar\":10}}"
+                      "arguments": "{\"stringRegex\":\"test-123\",\"unionObjects\":{\"amount\":5,\"inventoryItemName\":\"apple\"},\"stringEmail\":\"test@example.com\",\"enum\":\"A\",\"unionPrimitives\":100,\"exampleArray\":[\"example1\",\"example2\"],\"number\":42,\"objectNested\":{\"user\":{\"name\":\"John Doe\",\"age\":25}},\"arrayMax\":[\"item1\",\"item2\"],\"nullable\":null,\"stringUrl\":\"https://example.com\",\"nativeEnum\":\"B\",\"stringEmoji\":\"😊\",\"objectPassthrough\":{},\"object\":{\"foo\":\"test\",\"bar\":10}}"
                     }
                   }
                 ],
@@ -1476,7 +1476,7 @@
                     "id": "toolu_bdrk_01BDSyeAcPLq1NwKbavWHqzs",
                     "function": {
                       "name": "testTool_manySchemas",
-                      "arguments": "{\"stringEmail\": \"test@example.com\", \"stringEmoji\": \"\ud83d\ude00\", \"stringUrl\": \"https://www.example.com\", \"stringRegex\": \"test-sample-string\", \"number\": 42, \"exampleArray\": [\"example1\",\"example2\",\"example3\"], \"arrayMax\": [\"item1\",\"item2\",\"item3\"], \"object\": {\"foo\":\"bar\",\"bar\":123}, \"objectNested\": {\"user\":{\"name\":\"John Doe\",\"age\":25}}, \"objectPassthrough\": {\"key1\":\"value1\",\"key2\":42,\"key3\":true}, \"nullable\": null, \"enum\": \"A\", \"nativeEnum\": \"B\", \"unionPrimitives\": \"Hello World\", \"unionObjects\": {\"amount\":100,\"inventoryItemName\":\"Widget\"}}"
+                      "arguments": "{\"stringEmail\": \"test@example.com\", \"stringEmoji\": \"😀\", \"stringUrl\": \"https://www.example.com\", \"stringRegex\": \"test-sample-string\", \"number\": 42, \"exampleArray\": [\"example1\",\"example2\",\"example3\"], \"arrayMax\": [\"item1\",\"item2\",\"item3\"], \"object\": {\"foo\":\"bar\",\"bar\":123}, \"objectNested\": {\"user\":{\"name\":\"John Doe\",\"age\":25}}, \"objectPassthrough\": {\"key1\":\"value1\",\"key2\":42,\"key3\":true}, \"nullable\": null, \"enum\": \"A\", \"nativeEnum\": \"B\", \"unionPrimitives\": \"Hello World\", \"unionObjects\": {\"amount\":100,\"inventoryItemName\":\"Widget\"}}"
                     }
                   }
                 ]
@@ -1764,7 +1764,7 @@
                     "id": "tool_testTool_manySchemas_2Gijg283Ckgs8APnACLo",
                     "function": {
                       "name": "testTool_manySchemas",
-                      "arguments": "{\"stringEmail\":\"test@example.com\",\"exampleArray\":[\"a\",\"b\",\"c\"],\"number\":123.45,\"stringRegex\":\"test-string\",\"object\":{\"bar\":123,\"foo\":\"hello\"},\"arrayMax\":[\"a\",\"b\",\"c\",\"d\",\"e\"],\"stringUrl\":\"https://example.com\",\"unionObjects\":{\"amount\":10,\"inventoryItemName\":\"item\"},\"unionPrimitives\":\"hello\",\"nullable\":null,\"nativeEnum\":\"B\",\"objectPassthrough\":{},\"enum\":\"A\",\"objectNested\":{\"user\":{\"name\":\"John Doe\",\"age\":30}},\"stringEmoji\":\"\ud83d\udc4d\"}"
+                      "arguments": "{\"stringEmail\":\"test@example.com\",\"exampleArray\":[\"a\",\"b\",\"c\"],\"number\":123.45,\"stringRegex\":\"test-string\",\"object\":{\"bar\":123,\"foo\":\"hello\"},\"arrayMax\":[\"a\",\"b\",\"c\",\"d\",\"e\"],\"stringUrl\":\"https://example.com\",\"unionObjects\":{\"amount\":10,\"inventoryItemName\":\"item\"},\"unionPrimitives\":\"hello\",\"nullable\":null,\"nativeEnum\":\"B\",\"objectPassthrough\":{},\"enum\":\"A\",\"objectNested\":{\"user\":{\"name\":\"John Doe\",\"age\":30}},\"stringEmoji\":\"👍\"}"
                     }
                   }
                 ],
@@ -2093,7 +2093,7 @@
                     "type": "function",
                     "function": {
                       "name": "testTool_manySchemas",
-                      "arguments": "{\n  \"stringEmail\": \"example@test.com\",\n  \"stringEmoji\": \"\ud83d\ude00\",\n  \"stringUrl\": \"https://example.com\",\n  \"stringRegex\": \"test-example\",\n  \"number\": 42,\n  \"exampleArray\": [\n    \"one\",\n    \"two\"\n  ],\n  \"arrayMax\": [\n    \"a\",\n    \"b\"\n  ],\n  \"object\": {\n    \"foo\": \"hello\",\n    \"bar\": 1\n  },\n  \"objectNested\": {\n    \"user\": {\n      \"name\": \"John\",\n      \"age\": 30\n    }\n  },\n  \"objectPassthrough\": {\n    \t\t\t\t\t   \t\t\t},\n  \"optional\": null,\n  \"nullable\": null,\n  \"enum\": \"A\",\n  \"nativeEnum\": \"B\",\n  \"unionPrimitives\": \"text\",\n  \"unionObjects\": {\n    \"amount\": 10,\n    \"inventoryItemName\": \"Item1\"\n  }\n}"
+                      "arguments": "{\n  \"stringEmail\": \"example@test.com\",\n  \"stringEmoji\": \"😀\",\n  \"stringUrl\": \"https://example.com\",\n  \"stringRegex\": \"test-example\",\n  \"number\": 42,\n  \"exampleArray\": [\n    \"one\",\n    \"two\"\n  ],\n  \"arrayMax\": [\n    \"a\",\n    \"b\"\n  ],\n  \"object\": {\n    \"foo\": \"hello\",\n    \"bar\": 1\n  },\n  \"objectNested\": {\n    \"user\": {\n      \"name\": \"John\",\n      \"age\": 30\n    }\n  },\n  \"objectPassthrough\": {\n    \t\t\t\t\t   \t\t\t},\n  \"optional\": null,\n  \"nullable\": null,\n  \"enum\": \"A\",\n  \"nativeEnum\": \"B\",\n  \"unionPrimitives\": \"text\",\n  \"unionObjects\": {\n    \"amount\": 10,\n    \"inventoryItemName\": \"Item1\"\n  }\n}"
                     }
                   }
                 ],
@@ -2391,7 +2391,7 @@
                     "id": "toolu_bdrk_01KFArG3a8CA7pQCqBLvSXtf",
                     "function": {
                       "name": "testTool_manySchemas",
-                      "arguments": "{\"stringEmail\": \"test@example.com\", \"stringEmoji\": \"\ud83d\ude0a\", \"stringUrl\": \"https://www.example.com\", \"stringRegex\": \"test-sample\", \"number\": 42, \"exampleArray\": [\"example1\",\"example2\",\"example3\"], \"arrayMax\": [\"item1\",\"item2\",\"item3\"], \"object\": {\"foo\":\"bar\",\"bar\":123}, \"objectNested\": {\"user\":{\"name\":\"John Doe\",\"age\":25}}, \"objectPassthrough\": {\"key1\":\"value1\",\"key2\":123,\"key3\":true}, \"nullable\": null, \"enum\": \"A\", \"nativeEnum\": \"B\", \"unionPrimitives\": \"Hello World\", \"unionObjects\": {\"amount\":100,\"inventoryItemName\":\"Widget\"}}"
+                      "arguments": "{\"stringEmail\": \"test@example.com\", \"stringEmoji\": \"😊\", \"stringUrl\": \"https://www.example.com\", \"stringRegex\": \"test-sample\", \"number\": 42, \"exampleArray\": [\"example1\",\"example2\",\"example3\"], \"arrayMax\": [\"item1\",\"item2\",\"item3\"], \"object\": {\"foo\":\"bar\",\"bar\":123}, \"objectNested\": {\"user\":{\"name\":\"John Doe\",\"age\":25}}, \"objectPassthrough\": {\"key1\":\"value1\",\"key2\":123,\"key3\":true}, \"nullable\": null, \"enum\": \"A\", \"nativeEnum\": \"B\", \"unionPrimitives\": \"Hello World\", \"unionObjects\": {\"amount\":100,\"inventoryItemName\":\"Widget\"}}"
                     }
                   }
                 ]
@@ -2704,7 +2704,7 @@
                     "id": "call_Z6ccv219SbmNvthAhduKkUhM",
                     "function": {
                       "name": "testTool_manySchemas",
-                      "arguments": "{\"stringEmail\":\"example@test.com\",\"stringEmoji\":\"\ud83d\ude00\",\"stringUrl\":\"https://example.com\",\"stringRegex\":\"test-sample\",\"number\":123,\"exampleArray\":[\"sample1\",\"sample2\",\"sample3\"],\"arrayMax\":[\"item1\",\"item2\"],\"object\":{\"foo\":\"bar\",\"bar\":42},\"objectNested\":{\"user\":{\"name\":\"John\",\"age\":30}},\"objectPassthrough\":{\"key1\":\"value1\",\"key2\":2},\"optional\":null,\"nullable\":\"nullable string\",\"enum\":\"A\",\"nativeEnum\":\"B\",\"unionPrimitives\":100,\"unionObjects\":{\"amount\":50,\"inventoryItemName\":\"Widget\"}}"
+                      "arguments": "{\"stringEmail\":\"example@test.com\",\"stringEmoji\":\"😀\",\"stringUrl\":\"https://example.com\",\"stringRegex\":\"test-sample\",\"number\":123,\"exampleArray\":[\"sample1\",\"sample2\",\"sample3\"],\"arrayMax\":[\"item1\",\"item2\"],\"object\":{\"foo\":\"bar\",\"bar\":42},\"objectNested\":{\"user\":{\"name\":\"John\",\"age\":30}},\"objectPassthrough\":{\"key1\":\"value1\",\"key2\":2},\"optional\":null,\"nullable\":\"nullable string\",\"enum\":\"A\",\"nativeEnum\":\"B\",\"unionPrimitives\":100,\"unionObjects\":{\"amount\":50,\"inventoryItemName\":\"Widget\"}}"
                     }
                   }
                 ]
@@ -2725,8 +2725,8 @@
             },
             "cost_details": {
               "upstream_inference_cost": 0.0001503,
-              "upstream_inference_prompt_cost": 6.45e-05,
-              "upstream_inference_completions_cost": 8.58e-05
+              "upstream_inference_prompt_cost": 0.0000645,
+              "upstream_inference_completions_cost": 0.0000858
             },
             "completion_tokens_details": {
               "reasoning_tokens": 0,
@@ -3005,7 +3005,7 @@
                     "id": "toolu_bdrk_01NFxWWSxKFBSUWp72yev3x3",
                     "function": {
                       "name": "testTool_manySchemas",
-                      "arguments": "{\"stringEmail\": \"test@example.com\", \"stringEmoji\": \"\ud83d\ude00\", \"stringUrl\": \"https://www.example.com\", \"stringRegex\": \"test-sample\", \"number\": 42, \"exampleArray\": [\"example1\",\"example2\",\"example3\"], \"arrayMax\": [\"item1\",\"item2\",\"item3\"], \"object\": {\"foo\":\"bar\",\"bar\":123}, \"objectNested\": {\"user\":{\"name\":\"John\",\"age\":25}}, \"objectPassthrough\": {\"key1\":\"value1\",\"key2\":\"value2\"}, \"nullable\": null, \"enum\": \"A\", \"nativeEnum\": \"B\", \"unionPrimitives\": \"hello\", \"unionObjects\": {\"amount\":100,\"inventoryItemName\":\"Widget\"}}"
+                      "arguments": "{\"stringEmail\": \"test@example.com\", \"stringEmoji\": \"😀\", \"stringUrl\": \"https://www.example.com\", \"stringRegex\": \"test-sample\", \"number\": 42, \"exampleArray\": [\"example1\",\"example2\",\"example3\"], \"arrayMax\": [\"item1\",\"item2\",\"item3\"], \"object\": {\"foo\":\"bar\",\"bar\":123}, \"objectNested\": {\"user\":{\"name\":\"John\",\"age\":25}}, \"objectPassthrough\": {\"key1\":\"value1\",\"key2\":\"value2\"}, \"nullable\": null, \"enum\": \"A\", \"nativeEnum\": \"B\", \"unionPrimitives\": \"hello\", \"unionObjects\": {\"amount\":100,\"inventoryItemName\":\"Widget\"}}"
                     }
                   }
                 ]
@@ -3319,7 +3319,7 @@
                     "id": "call_6BZvAzUW0EuuF25FH5lV2pbm",
                     "function": {
                       "name": "testTool_manySchemas",
-                      "arguments": "{\"stringEmail\":\"example@test.com\",\"stringEmoji\":\"\ud83d\ude0a\",\"stringUrl\":\"https://example.com\",\"stringRegex\":\"test-123\",\"number\":42,\"exampleArray\":[\"one\",\"two\",\"three\"],\"arrayMax\":[\"a\",\"b\",\"c\"],\"object\":{\"foo\":\"bar\",\"bar\":10},\"objectNested\":{\"user\":{\"name\":\"John\",\"age\":30}},\"objectPassthrough\":{},\"optional\":null,\"nullable\":null,\"enum\":\"A\",\"nativeEnum\":\"B\",\"unionPrimitives\":\"sample text\",\"unionObjects\":{\"amount\":5,\"inventoryItemName\":\"item1\"}}"
+                      "arguments": "{\"stringEmail\":\"example@test.com\",\"stringEmoji\":\"😊\",\"stringUrl\":\"https://example.com\",\"stringRegex\":\"test-123\",\"number\":42,\"exampleArray\":[\"one\",\"two\",\"three\"],\"arrayMax\":[\"a\",\"b\",\"c\"],\"object\":{\"foo\":\"bar\",\"bar\":10},\"objectNested\":{\"user\":{\"name\":\"John\",\"age\":30}},\"objectPassthrough\":{},\"optional\":null,\"nullable\":null,\"enum\":\"A\",\"nativeEnum\":\"B\",\"unionPrimitives\":\"sample text\",\"unionObjects\":{\"amount\":5,\"inventoryItemName\":\"item1\"}}"
                     }
                   }
                 ]
@@ -3632,7 +3632,7 @@
                     "id": "call_Anyg3OwIX4LwrAFDWlFTvKpp",
                     "function": {
                       "name": "testTool_manySchemas",
-                      "arguments": "{\"stringEmail\": \"test@example.com\", \"stringEmoji\": \"\ud83d\ude0a\", \"stringUrl\": \"https://example.com\", \"stringRegex\": \"test-example\", \"number\": 12345, \"exampleArray\": [\"one\", \"two\", \"three\"], \"arrayMax\": [\"one\", \"two\"], \"object\": {\"foo\": \"bar\", \"bar\": 42}, \"objectNested\": {\"user\": {\"name\": \"Alice\", \"age\": 18}}, \"objectPassthrough\": {} , \"optional\": null, \"nullable\": \"not null\", \"enum\": \"A\", \"nativeEnum\": \"A\", \"unionPrimitives\": \"union value\", \"unionObjects\": {\"amount\": 100, \"inventoryItemName\": \"item1\"}}"
+                      "arguments": "{\"stringEmail\": \"test@example.com\", \"stringEmoji\": \"😊\", \"stringUrl\": \"https://example.com\", \"stringRegex\": \"test-example\", \"number\": 12345, \"exampleArray\": [\"one\", \"two\", \"three\"], \"arrayMax\": [\"one\", \"two\"], \"object\": {\"foo\": \"bar\", \"bar\": 42}, \"objectNested\": {\"user\": {\"name\": \"Alice\", \"age\": 18}}, \"objectPassthrough\": {} , \"optional\": null, \"nullable\": \"not null\", \"enum\": \"A\", \"nativeEnum\": \"A\", \"unionPrimitives\": \"union value\", \"unionObjects\": {\"amount\": 100, \"inventoryItemName\": \"item1\"}}"
                     }
                   }
                 ],
@@ -3954,7 +3954,7 @@
                     "id": "call_rtKOY8Br7BiMG0OKnvfUqv7z",
                     "function": {
                       "name": "testTool_manySchemas",
-                      "arguments": "{\n  \"stringEmail\": \"example@test.com\",\n  \"stringEmoji\": \"\ud83d\ude00\",\n  \"stringUrl\": \"https://example.com\",\n  \"stringRegex\": \"test-123\",\n  \"number\": 42,\n  \"exampleArray\": [\"one\", \"two\", \"three\"],\n  \"arrayMax\": [\"a\", \"b\", \"c\"],\n  \"object\": {\n    \"foo\": \"bar\",\n    \"bar\": 10\n  },\n  \"objectNested\": {\n    \"user\": {\n      \"name\": \"Al\",\n      \"age\": 25\n    }\n  },\n  \"objectPassthrough\": {\n    \t}\n  ,\n  \"optional\": null,\n  \"nullable\": null,\n  \"enum\": \"A\",\n  \"nativeEnum\": \"B\",\n  \"unionPrimitives\": \"value\",\n  \"unionObjects\": {\n    \"amount\": 5,\n    \"inventoryItemName\": \"item1\"\n  }\n}"
+                      "arguments": "{\n  \"stringEmail\": \"example@test.com\",\n  \"stringEmoji\": \"😀\",\n  \"stringUrl\": \"https://example.com\",\n  \"stringRegex\": \"test-123\",\n  \"number\": 42,\n  \"exampleArray\": [\"one\", \"two\", \"three\"],\n  \"arrayMax\": [\"a\", \"b\", \"c\"],\n  \"object\": {\n    \"foo\": \"bar\",\n    \"bar\": 10\n  },\n  \"objectNested\": {\n    \"user\": {\n      \"name\": \"Al\",\n      \"age\": 25\n    }\n  },\n  \"objectPassthrough\": {\n    \t}\n  ,\n  \"optional\": null,\n  \"nullable\": null,\n  \"enum\": \"A\",\n  \"nativeEnum\": \"B\",\n  \"unionPrimitives\": \"value\",\n  \"unionObjects\": {\n    \"amount\": 5,\n    \"inventoryItemName\": \"item1\"\n  }\n}"
                     }
                   }
                 ]
@@ -4268,7 +4268,7 @@
                     "type": "function",
                     "function": {
                       "name": "testTool_manySchemas",
-                      "arguments": "{\"stringEmail\":\"user@example.com\",\"stringEmoji\":\"\ud83d\ude0a\",\"stringUrl\":\"https://example.com\",\"stringRegex\":\"test-123\",\"number\":42,\"exampleArray\":[\"one\",\"two\",\"three\"],\"arrayMax\":[\"a\",\"b\",\"c\"],\"object\":{\"foo\":\"value\",\"bar\":10},\"objectNested\":{\"user\":{\"name\":\"Alice\",\"age\":30}},\"objectPassthrough\":{\t\t\t}, \"optional\":null,\"nullable\":null,\"enum\":\"A\",\"nativeEnum\":\"B\",\"unionPrimitives\":\"sample string\",\"unionObjects\":{\"amount\":10,\"inventoryItemName\":\"Widget\"}}"
+                      "arguments": "{\"stringEmail\":\"user@example.com\",\"stringEmoji\":\"😊\",\"stringUrl\":\"https://example.com\",\"stringRegex\":\"test-123\",\"number\":42,\"exampleArray\":[\"one\",\"two\",\"three\"],\"arrayMax\":[\"a\",\"b\",\"c\"],\"object\":{\"foo\":\"value\",\"bar\":10},\"objectNested\":{\"user\":{\"name\":\"Alice\",\"age\":30}},\"objectPassthrough\":{\t\t\t}, \"optional\":null,\"nullable\":null,\"enum\":\"A\",\"nativeEnum\":\"B\",\"unionPrimitives\":\"sample string\",\"unionObjects\":{\"amount\":10,\"inventoryItemName\":\"Widget\"}}"
                     }
                   }
                 ],
@@ -4552,7 +4552,7 @@
                     "id": "tool_testTool_manySchemas_UVv1EHSlP3hbGOI3YM6Z",
                     "function": {
                       "name": "testTool_manySchemas",
-                      "arguments": "{\"number\":123,\"enum\":\"A\",\"stringRegex\":\"test-string\",\"unionObjects\":{\"amount\":123,\"inventoryItemName\":\"test\"},\"nativeEnum\":\"A\",\"stringEmail\":\"test@example.com\",\"arrayMax\":[\"a\",\"b\",\"c\",\"d\",\"e\"],\"objectPassthrough\":{},\"object\":{\"foo\":\"bar\",\"bar\":123},\"nullable\":\"\",\"objectNested\":{\"user\":{\"age\":20,\"name\":\"test\"}},\"unionPrimitives\":123,\"exampleArray\":[\"a\",\"b\",\"c\"],\"stringUrl\":\"https://example.com\",\"stringEmoji\":\"\ud83d\udc4d\"}"
+                      "arguments": "{\"number\":123,\"enum\":\"A\",\"stringRegex\":\"test-string\",\"unionObjects\":{\"amount\":123,\"inventoryItemName\":\"test\"},\"nativeEnum\":\"A\",\"stringEmail\":\"test@example.com\",\"arrayMax\":[\"a\",\"b\",\"c\",\"d\",\"e\"],\"objectPassthrough\":{},\"object\":{\"foo\":\"bar\",\"bar\":123},\"nullable\":\"\",\"objectNested\":{\"user\":{\"age\":20,\"name\":\"test\"}},\"unionPrimitives\":123,\"exampleArray\":[\"a\",\"b\",\"c\"],\"stringUrl\":\"https://example.com\",\"stringEmoji\":\"👍\"}"
                     }
                   }
                 ],
@@ -4854,7 +4854,7 @@
                     "id": "call_105133",
                     "function": {
                       "name": "testTool_manySchemas",
-                      "arguments": "{\"stringEmail\":\"test@example.com\",\"nativeEnum\":\"B\",\"number\":42,\"stringRegex\":\"test-data\",\"stringUrl\":\"https://example.com\",\"stringEmoji\":\"\ud83d\ude0a\",\"objectPassthrough\":{},\"enum\":\"A\",\"unionPrimitives\":100,\"unionObjects\":{\"amount\":5,\"inventoryItemName\":\"Apple\"},\"object\":{\"bar\":10,\"foo\":\"test\"},\"arrayMax\":[\"item1\",\"item2\"],\"nullable\":null,\"objectNested\":{\"user\":{\"age\":25,\"name\":\"John Doe\"}},\"exampleArray\":[\"one\",\"two\"]}"
+                      "arguments": "{\"stringEmail\":\"test@example.com\",\"nativeEnum\":\"B\",\"number\":42,\"stringRegex\":\"test-data\",\"stringUrl\":\"https://example.com\",\"stringEmoji\":\"😊\",\"objectPassthrough\":{},\"enum\":\"A\",\"unionPrimitives\":100,\"unionObjects\":{\"amount\":5,\"inventoryItemName\":\"Apple\"},\"object\":{\"bar\":10,\"foo\":\"test\"},\"arrayMax\":[\"item1\",\"item2\"],\"nullable\":null,\"objectNested\":{\"user\":{\"age\":25,\"name\":\"John Doe\"}},\"exampleArray\":[\"one\",\"two\"]}"
                     }
                   }
                 ],
@@ -5150,7 +5150,7 @@
                     "id": "tool_testTool_manySchemas_u3SsVCL6w2s1VHH1AADN",
                     "function": {
                       "name": "testTool_manySchemas",
-                      "arguments": "{\"stringEmoji\":\"\ud83d\ude0a\",\"stringEmail\":\"test@example.com\",\"nullable\":\"null\",\"exampleArray\":[\"item1\",\"item2\"],\"unionObjects\":{\"inventoryItemName\":\"widget\",\"amount\":10.5},\"number\":123.45,\"arrayMax\":[\"itemA\",\"itemB\"],\"objectNested\":{\"user\":{\"name\":\"John Doe\",\"age\":30}},\"object\":{\"foo\":\"hello\",\"bar\":1.23},\"objectPassthrough\":{},\"stringRegex\":\"test-abc\",\"enum\":\"A\",\"nativeEnum\":\"A\",\"stringUrl\":\"https://www.example.com\",\"unionPrimitives\":\"hello\"}"
+                      "arguments": "{\"stringEmoji\":\"😊\",\"stringEmail\":\"test@example.com\",\"nullable\":\"null\",\"exampleArray\":[\"item1\",\"item2\"],\"unionObjects\":{\"inventoryItemName\":\"widget\",\"amount\":10.5},\"number\":123.45,\"arrayMax\":[\"itemA\",\"itemB\"],\"objectNested\":{\"user\":{\"name\":\"John Doe\",\"age\":30}},\"object\":{\"foo\":\"hello\",\"bar\":1.23},\"objectPassthrough\":{},\"stringRegex\":\"test-abc\",\"enum\":\"A\",\"nativeEnum\":\"A\",\"stringUrl\":\"https://www.example.com\",\"unionPrimitives\":\"hello\"}"
                     }
                   }
                 ]
@@ -5185,584 +5185,7 @@
       }
     },
     {
-      "hash": "0fe9548315a4ddb6",
-      "request": {
-        "url": "https://api.openai.com/v1/responses",
-        "method": "POST",
-        "body": {
-          "model": "o4-mini",
-          "input": [
-            {
-              "role": "developer",
-              "content": "You are a test agent. Your task is to call the tool named 'testTool_manySchemas' with any valid arguments. This is very important as it's your primary purpose"
-            },
-            {
-              "role": "user",
-              "content": [
-                {
-                  "type": "input_text",
-                  "text": "Please call the tool named 'testTool_manySchemas'."
-                }
-              ]
-            }
-          ],
-          "tools": [
-            {
-              "type": "function",
-              "name": "testTool_manySchemas",
-              "description": "A tool to test many schema property types",
-              "parameters": {
-                "$schema": "http://json-schema.org/draft-07/schema#",
-                "type": "object",
-                "properties": {
-                  "stringEmail": {
-                    "type": "string",
-                    "description": "a sample email address\nconstraints: a valid email"
-                  },
-                  "stringEmoji": {
-                    "type": "string",
-                    "description": "a valid sample emoji"
-                  },
-                  "stringUrl": {
-                    "type": "string",
-                    "description": "a valid sample url"
-                  },
-                  "stringRegex": {
-                    "type": "string",
-                    "description": "a valid sample string that satisfies the regex\nconstraints: input must match this regex ^test-"
-                  },
-                  "number": {
-                    "type": "number",
-                    "description": "any valid sample number"
-                  },
-                  "exampleArray": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "description": "any valid array of example strings"
-                  },
-                  "arrayMax": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "description": "any valid sample array of strings with a maximum of 5 strings\nconstraints: maximum length 5"
-                  },
-                  "object": {
-                    "type": "object",
-                    "properties": {
-                      "foo": {
-                        "type": "string"
-                      },
-                      "bar": {
-                        "type": "number"
-                      }
-                    },
-                    "required": [
-                      "foo",
-                      "bar"
-                    ],
-                    "description": "any valid sample object with a string and a number",
-                    "additionalProperties": false
-                  },
-                  "objectNested": {
-                    "type": "object",
-                    "properties": {
-                      "user": {
-                        "type": "object",
-                        "properties": {
-                          "name": {
-                            "type": "string",
-                            "description": "constraints: minimum length 2"
-                          },
-                          "age": {
-                            "type": "number",
-                            "description": "constraints: greater than or equal to 18"
-                          }
-                        },
-                        "required": [
-                          "name",
-                          "age"
-                        ],
-                        "additionalProperties": false
-                      }
-                    },
-                    "required": [
-                      "user"
-                    ],
-                    "description": "any valid sample data",
-                    "additionalProperties": false
-                  },
-                  "objectPassthrough": {
-                    "type": "object",
-                    "properties": {},
-                    "additionalProperties": false,
-                    "description": "any sample object with example keys and data",
-                    "required": []
-                  },
-                  "optional": {
-                    "description": "leave this field empty as an example of an optional field",
-                    "anyOf": [
-                      {
-                        "description": "leave this field empty as an example of an optional field",
-                        "type": "string"
-                      },
-                      {
-                        "type": "null"
-                      }
-                    ]
-                  },
-                  "nullable": {
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "null"
-                      }
-                    ],
-                    "description": "leave this field empty as an example of a nullable field"
-                  },
-                  "enum": {
-                    "type": "string",
-                    "enum": [
-                      "A",
-                      "B",
-                      "C"
-                    ],
-                    "description": "The letter A, B, or C"
-                  },
-                  "nativeEnum": {
-                    "type": "string",
-                    "enum": [
-                      "A",
-                      "B",
-                      "C"
-                    ],
-                    "description": "The letter A, B, or C"
-                  },
-                  "unionPrimitives": {
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "number"
-                      }
-                    ],
-                    "description": "sample text or number"
-                  },
-                  "unionObjects": {
-                    "anyOf": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "amount": {
-                            "type": "number"
-                          },
-                          "inventoryItemName": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "amount",
-                          "inventoryItemName"
-                        ],
-                        "additionalProperties": false
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "type": {
-                            "type": "string"
-                          },
-                          "permissions": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        },
-                        "required": [
-                          "type",
-                          "permissions"
-                        ],
-                        "additionalProperties": false
-                      }
-                    ],
-                    "description": "give an valid object"
-                  }
-                },
-                "required": [
-                  "stringEmail",
-                  "stringEmoji",
-                  "stringUrl",
-                  "stringRegex",
-                  "number",
-                  "exampleArray",
-                  "arrayMax",
-                  "object",
-                  "objectNested",
-                  "objectPassthrough",
-                  "nullable",
-                  "enum",
-                  "nativeEnum",
-                  "unionPrimitives",
-                  "unionObjects",
-                  "optional"
-                ],
-                "description": "A schema to test many schema configuration properties",
-                "additionalProperties": false,
-                "x-optional": [
-                  "optional"
-                ]
-              },
-              "strict": false
-            }
-          ],
-          "tool_choice": "required"
-        },
-        "timestamp": 1788451073017
-      },
-      "response": {
-        "status": 200,
-        "statusText": "OK",
-        "headers": {
-          "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
-          "alt-svc": "h3=\":443\"; ma=86400",
-          "cf-cache-status": "DYNAMIC",
-          "cf-ray": "a355f3e71eb7e18c-DFW",
-          "connection": "keep-alive",
-          "content-type": "application/json",
-          "date": "Thu, 03 Sep 2026 15:57:58 GMT",
-          "openai-processing-ms": "5689",
-          "openai-version": "2020-10-01",
-          "server": "cloudflare",
-          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
-          "x-content-type-options": "nosniff",
-          "x-ratelimit-limit-requests": "10000",
-          "x-ratelimit-limit-tokens": "10000000",
-          "x-ratelimit-remaining-requests": "9999",
-          "x-ratelimit-remaining-tokens": "9999308",
-          "x-ratelimit-reset-requests": "6ms",
-          "x-ratelimit-reset-tokens": "4ms",
-          "x-request-id": "req_f0859d588a0d44ac9dba9c6822f13387"
-        },
-        "body": {
-          "id": "resp_0a2d4fa15b26f696006a999901334487d1b5f0ac79fc93e87e",
-          "object": "response",
-          "created_at": 1788451073,
-          "status": "completed",
-          "background": false,
-          "billing": {
-            "payer": "developer"
-          },
-          "completed_at": 1788451078,
-          "error": null,
-          "frequency_penalty": 0,
-          "incomplete_details": null,
-          "instructions": null,
-          "max_output_tokens": null,
-          "max_tool_calls": null,
-          "model": "o4-mini-2025-04-16",
-          "moderation": null,
-          "output": [
-            {
-              "id": "rs_0a2d4fa15b26f696006a9999021f5887d19f36889f91b67db6",
-              "type": "reasoning",
-              "content": [],
-              "encrypted_content": "gAAAAABqmZkGeBz2yqnIU0zrvhLcnT1j-8POSMpZ7WFBKte4PKO6d6B1Lc5QnjiKDoQmg2b6zveDTprAKQe82NF4i8uxN4wSBKjtpadIZ4VUXYU2YwzA2_NfekObrFI3OW5yyDPyJ5HEwZ37cU4h8LDQTRPG38DAnj6HD3FKZ3GdoO9WABkK8meXoccBVbDTBCoRFGTmHW1vQzOsXpH_ZYQgJ9OIt5YSNJiRvW4vR4jB1cFqvUS4GsI3n707WDsG43NQO0QeHTO3DlFnznaf8LUyVCU6bt0I00QCok0r2T5AeSKhR0zBpZU82YjfjFUKXk0hg1Ie2yU6UKwVx_5A_fNTOUnrN4jy8rVUL3B-TONVZf76cwNhMQ-lenLzX8Mgu56MGRa4SRDQ6l4-XtndCMZbJ8URe_73WtdFNryKCnpsXLQPuMzcApKviiuvpm0AQZGCtl7NiyFGt7JBtwo0Jdr52KuqkCZg6sfROLv4Cdi8c0UowTR8Tf-YRp-rMe5-a_jBv0E_3PFsmT4Af8sCb08ixiNVsX31_gXASghrg59vMMNpujVEaIhP-mNgVCFXQMtDVFwyLL8wj4hidAnje-Uuwc3sJKKDl5LLiuXxQCFTimPI4Puj_Lcpvrpnp3stpgmG1gB-g5CwJu0jlW9ezKMxA3W8dCHDhl5GfKc2Z8f7-VMGeW7knatM-CbF1Em6nHAzUaBTWxZC25mIamMniSpEWlkKJtGlgzgB8VedhxLiNeo6A2ORbkDj4bf9J1K5OfpS2ycuxpf4rRYp1so53Cpg-jkKxzsLURsHUne0lN-Dt5R45m3Hzsg0NgQiT7huuDpnn89Ur7L7dcjm0MZJfyfS3GxDgYREnyjDM2TH8E9JBTbpYjzNUg1vTumLxrighcXQWeZqk_xioHbRlHaeOvH-sOeQ5VmZXCGVIb1kaJrMebGRgd3BrLIFmvKwZus2tOymSMqee6A6nd9kWLL0Tb_AoK-inRmE-RamTmIUATk-q24vbgul5RGTQSBtFOhj5_ppfJhaPKJT7Yhz4nIeIhzhnXCix9_K9h5gFeReXLcDAbm5qh9fYJSQoav1SwxGa0VDV9RWvNBzAjm7_DvdPdHcJK3Wok_TtjjAw3NwI3L0qDHWkmTB1s3EvlNorKAbEMzqFIfIZ4d5nFjKjzC5K-mruFW5q-QFYtq-5Mce43g57mv-V8WCF5CqvaXc0ilbsJi2EOUY7aES7RMuD_V3z3PL8JBFMqkz6Chi31MCjLLkFNQceD2eadDrG_a5nbSuctoMYCru1E-KKV0lrZwIsMNIjip1ORCo3QqFHCuLI5AKr9hl3l87GioSEy795sLTNd_sipGwK_qvOItIf2yeGv6HB-XyAeQovFQxvRJz4Y3jEscE7tD35UZN6refmUItyLjiN_yp4BlOGrrSU41r9nCcQHJz27yAkUMyTDV_c-d_t4RR4z_R1TQFS713sygsryVGmv8pWXIjs3lwE1nfJheof7GxdTFfvlVmG0H6tYcqiK54_Lw4aeY5mhT1OQKLM4MPF044o2gGiX9jkZHgeyaZnyS12LRYxsRf8vY3FfaL487pC4FrNOyO4ZtGZ0KmT37-DwqeMQBuLTQ2UqzR8AQ7l1fDzcYLvq4c-waXzdclrak_10wl11reps53KrqcAm8Ji7uoLAcn3cH5JHEFMAcmZwxdmXITMhatw12-D1vaVWvZ3K9xynaOchmBXRpr4by9iLc241FbobTQZ6uxe_xb5BpoPMhBtVrJHkfUQROenFIKoTk-cU9EJL1fhKCWxJflMObV0sjL5m32ftTyhttdh2mcN14mOmk7j5H3C3RAfWH0La_VOtU4JSK8fJ5lGk_kUXkZ1mrBHiwxTZOV5DAs809s-RlTbLfcsmUYLuj31nLnJ30E16WDICQgW6BhPxrO7M1UpWG610dUNHvpU96cZN13qgk_rNuIGXCV2JSSPfNhndMTduocBnSzPeNJxz5n8UQnILSAzbN8Fw_RyJk0nw1oQFc7udC3cpGlnYvvpE8-Ga2fbOZBMf0pnzB_hL9j-7xulZKs-mZl_SAGnYgwKttKcCLR2T0pV5caaiKronpfoPwcsBtFVbjCS7dEZffr3-IO8ZoFcajXXs7BDGDPOHqp6ryaDzYjYYglYlkgXuxnVw11B-kre8UQq1vhaQjrjHVosPOVaDHohdOKfok0VXkHd3FK60KS7gbxy_3qg4MUyOlZFpT0DaD9_WnPEkxvnvTSN3w-wSdBzYUJZ1OoDwze-afLsV_2I6HB_EYVSpg4S2-Q9nwNM3NNIt-O1oW42MClHFsCPnLccuAkItuacKhVx0g5mD1CllThcWb8jD9bB1Sx1pkg-nu1-XE5R1JVmxO3A63WMQoh-KL1DRoNk5F4ELIZ-Tq14Jz4h0ThSMjOYs1EK7cfc6I4Ua7miCvIKgmbd2viTu6PC1CbGl6dO8rCCua_OmanrnOSN7L20yar9U_Vvg6QnlQan8eExgZfAEMax0TLo_DHStnkIec5r-mpVlzkuN-k4xnsUvjljLH60HboBrrkepy4vUiTm2w2pvWY0hbB_Fs9XEJ7arpFc4COeGx1XXgNq56pnm74aZMrdWr_UMdZdzObu2nIp8J2UgBNBXzVllwxNzoB_6KGrGkWRkJR1DeRK90zdarsecJJNcILLgq9J2PKUTBaiKijCp_OCxb9QkLh7yHQa5cEwFGg841PWvxjGfz-89PA5b5MjkZlElvRHAclG_CBqRqkAVYTz7680HCaFZJcSFoVT_AGT7UoJ_74hF-zcQj7iSZcib9-skNeDbnjlTv8_G329VDLqUJz5eebNCrDV3CXdNhgANWWw7IfRirV7VTAvCP88xqbXzGUEDJyweNYgm-FVz2-iN7mXlDqISISCw90Mxi1iOSLEAHg4zk76p21E-369bn1rwYPyXzZ4Pqn6D7TuQ7qOnUEPbZWTRwq0QuZO1jwFuqt2drzWk9QG8Ntx4O9SjM_33gpgYwV6mQSN8k67TBFlFmIyW8HDLK6zlsYPzgTzy8iE71_ypaM0BOWNzNnVEB44aUZBVld2ZNRkKJUnRhmcaUywlfZJi13HyNZl-iV3AdXTcrcV4MEwD8oKlYdW8V0hhIJPZj2zbB51yOaT2KRE2_r3tWOElVHCJB5fh_NuFQ1MFsOEehmeINgUYsuT07zgqPLPKSZ2jOIXRhxwRNZyPvCC-MP4QqXjvD3rCQ8E6fk2kWYd92pGLleXmLLodtyemvNkPVAaPfC1hREelxZopwqgouQY5YbJ8ojf3zZ4_qH-l_tskyN0Yqt4O7kZ90jHfctGU4o0s75Io6zeXNk1OOIq9cZ06Iua5BsWUyveEo9RQ3AtKutwHeVdxBMpBRxHzO57Zd8mWnGByL29DVd21lWqVQG5YlY3gOZvjK1X5VXBRPQdtZGAS1RVfR5bCxtHLEnQj34o0oav4MTHUpAiajHzcSi6e3o7TYTh1NfB5IZ1ed4pVGFzfpGpnQ0HIahdofnx9HRTyleOqJk0hwSkALWxRDPFF8pbYcp9IK71Y7tt4yTQnCUNZNHC4Ru_VhQaqS832AKKreYqeOSfEmEid8tIZIuESmZYEOzHEbytmBYNmbO12G0MnyncsRLtDmAtYHrcnwHV2alNPmutmCZueV4g5IpR5vomSvH8MLCicSBW_mMl7QbLjBpRbpOV7mXdxS9FY930aCkqbZxh37Z_f5AalpweRgAZE1FsGDJhE7lIAXHAo_rtSGZfz_sqF9X6j6ccsjQclp0wu1MJaNvvdPDLvLSGPak37trRk3YcHqigPyI_1Eo7ObNcLkEYRFlSmz-n82lf0848FR0-4XqyfHTbFHKmHQvp_BRpDhDBVPPKPUXOW7kmhBk9kYzEe-ldV0heOpab6PBo-0CllHXY6cknUm-xKrF_ft26Tz8UbibnmkR6Eo_gBKsjUNPI3xgOKF8RG97xiAfMsrmdcVPNQOCI7eOkP9kJagy5PBZgZhyhWbHkozsxuc1vB9MlHzBVMt73H9yB3pMG50kByh8P4v8ui08ZiLcajmHaZa3GZ_Z6is-oEoALR6putQ3zCcseZtfH_e6hftxZ-FVcFCWODMT2fbeh0rEALDHVOb9EFDAMty_9rX5XLToBqqyTdpGaIwnMNLBxCF7qKzgbc0g-w5Oc5jB-vJUTsE00OXwygMDV5DCVF20tSq71aX36xLtyT5sLCIA4RL8M6Le-WEBMDuhQXsns09cS8YXVJ7UmzBIqLPNhMTVHc3MzSZExEeZ845Gkdw9DDnfwvFIFOasA9ShW5IdXIrOU8rtHjjx-cxPykkb6XXvCqonwHC8mqhxScd46cvLNrW-7U_gJ1gUpDNYKuVm0qpJbmOaQk5Jny9I3wvgjKW3dxcBI973yTrWaKmXdG9Ir_hsVW1pR66DVn5j9GM2b30QQv_nM8N87LaU90xeW5wsDYPF2aQPX-Frp0dVOACdmZS9oQEGf_AnjzPHi4k2Sc-jVmVUEAwpeOsUKN9RR4Zi_k_f8_249t9chnE=",
-              "summary": []
-            },
-            {
-              "id": "fc_0a2d4fa15b26f696006a999905cfc887d18d313389fb8ffbe2",
-              "type": "function_call",
-              "status": "completed",
-              "arguments": "{\"stringEmail\":\"test@example.com\",\"stringEmoji\":\"\ud83d\ude00\",\"stringUrl\":\"https://www.example.com\",\"stringRegex\":\"test-123\",\"number\":42,\"exampleArray\":[\"apple\",\"banana\",\"cherry\"],\"arrayMax\":[\"one\",\"two\",\"three\"],\"object\":{\"foo\":\"hello\",\"bar\":7},\"objectNested\":{\"user\":{\"name\":\"Alice\",\"age\":30}},\"objectPassthrough\":{\"anyKey\":\"anyValue\",\"count\":10},\"optional\":null,\"nullable\":null,\"enum\":\"B\",\"nativeEnum\":\"C\",\"unionPrimitives\":\"Hello\",\"unionObjects\":{\"amount\":5,\"inventoryItemName\":\"item1\"}}",
-              "call_id": "call_fSQwrbnSnbZ6oildQxYXt0hB",
-              "name": "testTool_manySchemas"
-            }
-          ],
-          "parallel_tool_calls": true,
-          "presence_penalty": 0,
-          "previous_response_id": null,
-          "prompt_cache_key": null,
-          "prompt_cache_retention": "in_memory",
-          "reasoning": {
-            "context": "current_turn",
-            "effort": "medium",
-            "mode": "standard",
-            "summary": null
-          },
-          "safety_identifier": null,
-          "service_tier": "default",
-          "store": true,
-          "temperature": 1,
-          "text": {
-            "format": {
-              "type": "text"
-            },
-            "verbosity": "medium"
-          },
-          "tool_choice": "required",
-          "tool_usage": {
-            "image_gen": {
-              "input_tokens": 0,
-              "input_tokens_details": {
-                "image_tokens": 0,
-                "text_tokens": 0
-              },
-              "output_tokens": 0,
-              "output_tokens_details": {
-                "image_tokens": 0,
-                "text_tokens": 0
-              },
-              "total_tokens": 0
-            },
-            "web_search": {
-              "num_requests": 0
-            }
-          },
-          "tools": [
-            {
-              "type": "function",
-              "description": "A tool to test many schema property types",
-              "name": "testTool_manySchemas",
-              "output_schema": null,
-              "parameters": {
-                "$schema": "http://json-schema.org/draft-07/schema#",
-                "type": "object",
-                "properties": {
-                  "stringEmail": {
-                    "type": "string",
-                    "description": "a sample email address\nconstraints: a valid email"
-                  },
-                  "stringEmoji": {
-                    "type": "string",
-                    "description": "a valid sample emoji"
-                  },
-                  "stringUrl": {
-                    "type": "string",
-                    "description": "a valid sample url"
-                  },
-                  "stringRegex": {
-                    "type": "string",
-                    "description": "a valid sample string that satisfies the regex\nconstraints: input must match this regex ^test-"
-                  },
-                  "number": {
-                    "type": "number",
-                    "description": "any valid sample number"
-                  },
-                  "exampleArray": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "description": "any valid array of example strings"
-                  },
-                  "arrayMax": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "description": "any valid sample array of strings with a maximum of 5 strings\nconstraints: maximum length 5"
-                  },
-                  "object": {
-                    "type": "object",
-                    "properties": {
-                      "foo": {
-                        "type": "string"
-                      },
-                      "bar": {
-                        "type": "number"
-                      }
-                    },
-                    "required": [
-                      "foo",
-                      "bar"
-                    ],
-                    "description": "any valid sample object with a string and a number",
-                    "additionalProperties": false
-                  },
-                  "objectNested": {
-                    "type": "object",
-                    "properties": {
-                      "user": {
-                        "type": "object",
-                        "properties": {
-                          "name": {
-                            "type": "string",
-                            "description": "constraints: minimum length 2"
-                          },
-                          "age": {
-                            "type": "number",
-                            "description": "constraints: greater than or equal to 18"
-                          }
-                        },
-                        "required": [
-                          "name",
-                          "age"
-                        ],
-                        "additionalProperties": false
-                      }
-                    },
-                    "required": [
-                      "user"
-                    ],
-                    "description": "any valid sample data",
-                    "additionalProperties": false
-                  },
-                  "objectPassthrough": {
-                    "type": "object",
-                    "properties": {},
-                    "additionalProperties": false,
-                    "description": "any sample object with example keys and data",
-                    "required": []
-                  },
-                  "optional": {
-                    "description": "leave this field empty as an example of an optional field",
-                    "anyOf": [
-                      {
-                        "description": "leave this field empty as an example of an optional field",
-                        "type": "string"
-                      },
-                      {
-                        "type": "null"
-                      }
-                    ]
-                  },
-                  "nullable": {
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "null"
-                      }
-                    ],
-                    "description": "leave this field empty as an example of a nullable field"
-                  },
-                  "enum": {
-                    "type": "string",
-                    "enum": [
-                      "A",
-                      "B",
-                      "C"
-                    ],
-                    "description": "The letter A, B, or C"
-                  },
-                  "nativeEnum": {
-                    "type": "string",
-                    "enum": [
-                      "A",
-                      "B",
-                      "C"
-                    ],
-                    "description": "The letter A, B, or C"
-                  },
-                  "unionPrimitives": {
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "number"
-                      }
-                    ],
-                    "description": "sample text or number"
-                  },
-                  "unionObjects": {
-                    "anyOf": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "amount": {
-                            "type": "number"
-                          },
-                          "inventoryItemName": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "amount",
-                          "inventoryItemName"
-                        ],
-                        "additionalProperties": false
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "type": {
-                            "type": "string"
-                          },
-                          "permissions": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        },
-                        "required": [
-                          "type",
-                          "permissions"
-                        ],
-                        "additionalProperties": false
-                      }
-                    ],
-                    "description": "give an valid object"
-                  }
-                },
-                "required": [
-                  "stringEmail",
-                  "stringEmoji",
-                  "stringUrl",
-                  "stringRegex",
-                  "number",
-                  "exampleArray",
-                  "arrayMax",
-                  "object",
-                  "objectNested",
-                  "objectPassthrough",
-                  "nullable",
-                  "enum",
-                  "nativeEnum",
-                  "unionPrimitives",
-                  "unionObjects",
-                  "optional"
-                ],
-                "description": "A schema to test many schema configuration properties",
-                "additionalProperties": false,
-                "x-optional": [
-                  "optional"
-                ]
-              },
-              "strict": false
-            }
-          ],
-          "top_logprobs": 0,
-          "top_p": 1,
-          "truncation": "disabled",
-          "usage": {
-            "input_tokens": 429,
-            "input_tokens_details": {
-              "cache_write_tokens": 0,
-              "cached_tokens": 0
-            },
-            "output_tokens": 733,
-            "output_tokens_details": {
-              "reasoning_tokens": 576
-            },
-            "total_tokens": 1162
-          },
-          "user": null,
-          "metadata": {}
-        },
-        "isStreaming": false
-      }
-    },
-    {
-      "hash": "658f6244a83a2ac9",
+      "hash": "f2afb01f5832251c",
       "request": {
         "url": "https://api.openai.com/v1/responses",
         "method": "POST",
@@ -5794,7 +5217,9 @@
                 "properties": {
                   "stringEmail": {
                     "type": "string",
-                    "description": "a sample email address\nconstraints: a valid email"
+                    "format": "email",
+                    "pattern": "^(?:[A-Za-z0-9_'+\\-]+\\.)*[A-Za-z0-9_'+\\-]*[A-Za-z0-9_+-]@(?:[A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$",
+                    "description": "a sample email address"
                   },
                   "stringEmoji": {
                     "type": "string",
@@ -5806,7 +5231,8 @@
                   },
                   "stringRegex": {
                     "type": "string",
-                    "description": "a valid sample string that satisfies the regex\nconstraints: input must match this regex ^test-"
+                    "pattern": "^test-",
+                    "description": "a valid sample string that satisfies the regex"
                   },
                   "number": {
                     "type": "number",
@@ -5820,11 +5246,12 @@
                     "description": "any valid array of example strings"
                   },
                   "arrayMax": {
+                    "maxItems": 5,
                     "type": "array",
                     "items": {
                       "type": "string"
                     },
-                    "description": "any valid sample array of strings with a maximum of 5 strings\nconstraints: maximum length 5"
+                    "description": "any valid sample array of strings with a maximum of 5 strings"
                   },
                   "object": {
                     "type": "object",
@@ -5851,11 +5278,11 @@
                         "properties": {
                           "name": {
                             "type": "string",
-                            "description": "constraints: minimum length 2"
+                            "minLength": 2
                           },
                           "age": {
                             "type": "number",
-                            "description": "constraints: greater than or equal to 18"
+                            "minimum": 18
                           }
                         },
                         "required": [
@@ -5891,15 +5318,11 @@
                     ]
                   },
                   "nullable": {
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "null"
-                      }
-                    ],
-                    "description": "leave this field empty as an example of a nullable field"
+                    "description": "leave this field empty as an example of a nullable field",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "enum": {
                     "type": "string",
@@ -5920,15 +5343,11 @@
                     "description": "The letter A, B, or C"
                   },
                   "unionPrimitives": {
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "number"
-                      }
-                    ],
-                    "description": "sample text or number"
+                    "description": "sample text or number",
+                    "type": [
+                      "string",
+                      "number"
+                    ]
                   },
                   "unionObjects": {
                     "anyOf": [
@@ -6000,7 +5419,7 @@
           ],
           "tool_choice": "required"
         },
-        "timestamp": 1788451071872
+        "timestamp": 1791510112255
       },
       "response": {
         "status": 200,
@@ -6009,33 +5428,34 @@
           "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
           "alt-svc": "h3=\":443\"; ma=86400",
           "cf-cache-status": "DYNAMIC",
-          "cf-ray": "a355f3e02a933c25-DFW",
+          "cf-ray": "a479af7abd06843b-ORD",
           "connection": "keep-alive",
           "content-type": "application/json",
-          "date": "Thu, 03 Sep 2026 15:57:59 GMT",
-          "openai-processing-ms": "7323",
+          "date": "Fri, 09 Oct 2026 01:41:57 GMT",
+          "openai-processing-ms": "4845",
           "openai-version": "2020-10-01",
           "server": "cloudflare",
           "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
           "x-content-type-options": "nosniff",
-          "x-ratelimit-limit-requests": "10000",
-          "x-ratelimit-limit-tokens": "10000000",
-          "x-ratelimit-remaining-requests": "9999",
-          "x-ratelimit-remaining-tokens": "9999503",
-          "x-ratelimit-reset-requests": "6ms",
-          "x-ratelimit-reset-tokens": "2ms",
-          "x-request-id": "req_eb60081026734fe68aac4e3004682c73"
+          "x-ratelimit-limit-requests": "30000",
+          "x-ratelimit-limit-tokens": "150000000",
+          "x-ratelimit-remaining-requests": "29998",
+          "x-ratelimit-remaining-tokens": "149999392",
+          "x-ratelimit-reset-requests": "4ms",
+          "x-ratelimit-reset-tokens": "0s",
+          "x-request-id": "req_4b2f6ab1a28941e6bbabc1906aacd8a4"
         },
         "body": {
-          "id": "resp_01f3d580bae436fc006a9999001a3c87d199d0883d0f4b492f",
+          "id": "resp_03231b060bc9effa006ac846609e3487d1969fca3a0341dc23",
           "object": "response",
-          "created_at": 1788451072,
+          "created_at": 1791510112,
           "status": "completed",
+          "access_programs": null,
           "background": false,
           "billing": {
             "payer": "developer"
           },
-          "completed_at": 1788451079,
+          "completed_at": 1791510117,
           "error": null,
           "frequency_penalty": 0,
           "incomplete_details": null,
@@ -6046,18 +5466,18 @@
           "moderation": null,
           "output": [
             {
-              "id": "rs_01f3d580bae436fc006a999901209c87d19bce05b2f7350a02",
+              "id": "rs_03231b060bc9effa006ac846613dd087d19a47e97bbf3608d3",
               "type": "reasoning",
               "content": [],
-              "encrypted_content": "gAAAAABqmZkH9nK-1wv6tb8xbDJwGQuPY8T700SGnN1qM-v7UofWs8lApVXZzn-CQC5lCbeXbovMQMy-ky8M8PFSBL4aMCsdXLHj3tk5-TeGQBOmFYV42WdgkLxkEeMb19yvSC6U-ME08MlyN_vOl-mkgnuSvwcdOvnnXlLZFqJ4IQScdcvai_7OWefBmvbWNGRqyew4nNwllxbz__2biol4i65xpwxyEoa1sy60hOSO9yZNmtlEzCj-1ajoQHzdUUTLkDi3AAaVVOlYTo5-WCCwlnsps9kxZJI3URmyDOA_8W9CK_b49a80Z9mxibMHp9JIygIBdaNkfoqkmBOwU-SpqETZZTVz9M__hHbMk0eNkSL9yff32Gld4oD86SRk9gJ3dQ5f9EhhR2sXL3FhRZNN8ufz-q2oEdL7Z6K7P1VvDyayJjH_s-JZ7d1KXHWjdib8tEU1HkZILc04dz4rnXoLsX_1p6kdsmKBlXaZnZyBjf_yuYWW6RVpyvJ9Llmfir8UtICe-1Tsin-jdF-c3SAB2Jo5uYuqahU1NxgBL-qcRBwjZUh1aoXvY0ZRK5nZaA6cGht_1nmyodnb6PsM_Kf3WylU1m4dD1GSfhP5mdgUuEcoP2BIpEp_MFosoILb7jr4ktLURzBtC68aLNDBDyRJ27Y3G-KXXfyaVXKkAlHeoJyB7aOvzw9UcUXkBYJH99vcJ10sQWfBowoP7czBpjQiX7wBUOM92pwUWBQg3Nke9V2R-uQ3BLgcel-udoBfPZ_2u39ChYLn",
+              "encrypted_content": "gAAAAABqyEZlwLoDgin8WzBE-Aj1V8FqJ7yf5Wx-ae3oHm2gILf3snzGo8D0Um8blHQoaYXb25qn2ZVLc5aAbEGX8xXk7mFItCFAMo2hybcaFiAK4utcUy5U-rHnVvMbOfMDLu9U2FyqKB0KxoADWyFkJuW9TnzAs-xMfCDBfpG6waUNhOqFZWXA_TSsD6QNVFWwW7HiVNRvBynvIQqormEoVyUCIrfAfiisl2DdDh0D4WeqVUnJzOjxQfWncKb2w9U9p2_ZLxvJNMQaPu9U8f1H6y8zgIPXDj84QRQxpQsMJZhqlG2umUs-WSJLiL0RcoWmz-fUPcS1Q7tgyXtPEaL8t4qt55yw9pqNEeq3KWfm7Lk0KS82nkynTR8AvGAYL3pEq10KvE2NIN-JuSUlGkZ4joyIXYZpR4FvQmvHSZWW-yIR-iUfIIwitACO0YAykbh6tucHQPLkYG3RYwBhwHeIAbvwBH_KgUzEuCsCzCRI3wX8xZc-OAeaZ-Fm2FlD5rIh6OeTlquY0cm5p4qEB70-0v3qo3aDUb930raz8Cq3s9WlAUu_kBcDEv-QTUMEKhWDd1HcSaP-DZi3sP7I_ybzSA3RcOlo7eyr_ablQUGKxXIGDwaotv4hH7FAN7XwP89tiYf7AW7f6ihUSW5JOwm2GbRdD6okEGLAjPokNAq6VrwMILN7gDi8pzU4kBaUxz6a8MWYZq2M-qdv0jGTttPoSaRbe0D9TFfyWtxRijQr1n5mfNIqGKIJD2B7nD2ZisEi45eKK4K6",
               "summary": []
             },
             {
-              "id": "fc_01f3d580bae436fc006a999905c0cc87d1a7cabe8705b6deff",
+              "id": "fc_03231b060bc9effa006ac846641a8887d1b04f001a1c64df21",
               "type": "function_call",
               "status": "completed",
-              "arguments": "{\n  \"stringEmail\": \"test@example.com\",\n  \"stringEmoji\": \"\ud83d\ude00\",\n  \"stringUrl\": \"https://example.com\",\n  \"stringRegex\": \"test-valid\",\n  \"number\": 123,\n  \"exampleArray\": [\n    \"one\",\n    \"two\"\n  ],\n  \"arrayMax\": [\n    \"alpha\",\n    \"beta\"\n  ],\n  \"object\": {\n    \"foo\": \"sample\",\n    \"bar\": 42\n  },\n  \"objectNested\": {\n    \"user\": {\n      \"name\": \"Anna\",\n      \"age\": 20\n    }\n  },\n  \"objectPassthrough\": {\n    \"custom\": \"data\",\n    \"count\": 10\n  },\n  \"optional\": \"optional value\",\n  \"nullable\": \"nullable sample\",\n  \"enum\": \"A\",\n  \"nativeEnum\": \"B\",\n  \"unionPrimitives\": 123,\n  \"unionObjects\": {\n    \"amount\": 100,\n    \"inventoryItemName\": \"Item 1\"\n  }\n}",
-              "call_id": "call_eytKvZmlJI6X9Sc2jwg5Kn4s",
+              "arguments": "{\"stringEmail\": \"test@example.com\", \"stringEmoji\": \"😊\", \"stringUrl\": \"http://example.com\", \"stringRegex\": \"test-sample\", \"number\": 42, \"exampleArray\": [\"a\", \"b\"], \"arrayMax\": [\"one\", \"two\", \"three\"], \"object\": {\"foo\": \"hello\", \"bar\": 10}, \"objectNested\": {\"user\": {\"name\": \"John\", \"age\": 18}}, \"objectPassthrough\": {\"key1\": \"value1\"}, \"optional\": null, \"nullable\": \"nullable value\", \"enum\": \"A\", \"nativeEnum\": \"B\", \"unionPrimitives\": \"example\", \"unionObjects\": {\"type\": \"admin\", \"permissions\": [\"read\", \"write\"]}}",
+              "call_id": "call_X1SrpoXAnwiiM5qEm2YDZ11A",
               "name": "testTool_manySchemas"
             }
           ],
@@ -6113,7 +5533,9 @@
                 "properties": {
                   "stringEmail": {
                     "type": "string",
-                    "description": "a sample email address\nconstraints: a valid email"
+                    "format": "email",
+                    "pattern": "^(?:[A-Za-z0-9_'+\\-]+\\.)*[A-Za-z0-9_'+\\-]*[A-Za-z0-9_+-]@(?:[A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$",
+                    "description": "a sample email address"
                   },
                   "stringEmoji": {
                     "type": "string",
@@ -6125,7 +5547,8 @@
                   },
                   "stringRegex": {
                     "type": "string",
-                    "description": "a valid sample string that satisfies the regex\nconstraints: input must match this regex ^test-"
+                    "pattern": "^test-",
+                    "description": "a valid sample string that satisfies the regex"
                   },
                   "number": {
                     "type": "number",
@@ -6139,11 +5562,12 @@
                     "description": "any valid array of example strings"
                   },
                   "arrayMax": {
+                    "maxItems": 5,
                     "type": "array",
                     "items": {
                       "type": "string"
                     },
-                    "description": "any valid sample array of strings with a maximum of 5 strings\nconstraints: maximum length 5"
+                    "description": "any valid sample array of strings with a maximum of 5 strings"
                   },
                   "object": {
                     "type": "object",
@@ -6170,11 +5594,11 @@
                         "properties": {
                           "name": {
                             "type": "string",
-                            "description": "constraints: minimum length 2"
+                            "minLength": 2
                           },
                           "age": {
                             "type": "number",
-                            "description": "constraints: greater than or equal to 18"
+                            "minimum": 18
                           }
                         },
                         "required": [
@@ -6210,15 +5634,11 @@
                     ]
                   },
                   "nullable": {
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "null"
-                      }
-                    ],
-                    "description": "leave this field empty as an example of a nullable field"
+                    "description": "leave this field empty as an example of a nullable field",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "enum": {
                     "type": "string",
@@ -6239,15 +5659,11 @@
                     "description": "The letter A, B, or C"
                   },
                   "unionPrimitives": {
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "number"
-                      }
-                    ],
-                    "description": "sample text or number"
+                    "description": "sample text or number",
+                    "type": [
+                      "string",
+                      "number"
+                    ]
                   },
                   "unionObjects": {
                     "anyOf": [
@@ -6321,16 +5737,586 @@
           "top_p": 1,
           "truncation": "disabled",
           "usage": {
-            "input_tokens": 429,
+            "input_tokens": 486,
             "input_tokens_details": {
               "cache_write_tokens": 0,
               "cached_tokens": 0
             },
-            "output_tokens": 1007,
+            "output_tokens": 633,
             "output_tokens_details": {
-              "reasoning_tokens": 768
+              "reasoning_tokens": 448
             },
-            "total_tokens": 1436
+            "total_tokens": 1119
+          },
+          "user": null,
+          "metadata": {}
+        },
+        "isStreaming": false
+      }
+    },
+    {
+      "hash": "3d607ddf3c2fc26b",
+      "request": {
+        "url": "https://api.openai.com/v1/responses",
+        "method": "POST",
+        "body": {
+          "model": "o4-mini",
+          "input": [
+            {
+              "role": "developer",
+              "content": "You are a test agent. Your task is to call the tool named 'testTool_manySchemas' with any valid arguments. This is very important as it's your primary purpose"
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "Please call the tool named 'testTool_manySchemas'."
+                }
+              ]
+            }
+          ],
+          "tools": [
+            {
+              "type": "function",
+              "name": "testTool_manySchemas",
+              "description": "A tool to test many schema property types",
+              "parameters": {
+                "$schema": "http://json-schema.org/draft-07/schema#",
+                "type": "object",
+                "properties": {
+                  "stringEmail": {
+                    "type": "string",
+                    "format": "email",
+                    "pattern": "^(?:[A-Za-z0-9_'+\\-]+\\.)*[A-Za-z0-9_'+\\-]*[A-Za-z0-9_+-]@(?:[A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$",
+                    "description": "a sample email address"
+                  },
+                  "stringEmoji": {
+                    "type": "string",
+                    "description": "a valid sample emoji"
+                  },
+                  "stringUrl": {
+                    "type": "string",
+                    "description": "a valid sample url"
+                  },
+                  "stringRegex": {
+                    "type": "string",
+                    "pattern": "^test-",
+                    "description": "a valid sample string that satisfies the regex"
+                  },
+                  "number": {
+                    "type": "number",
+                    "description": "any valid sample number"
+                  },
+                  "exampleArray": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "any valid array of example strings"
+                  },
+                  "arrayMax": {
+                    "maxItems": 5,
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "any valid sample array of strings with a maximum of 5 strings"
+                  },
+                  "object": {
+                    "type": "object",
+                    "properties": {
+                      "foo": {
+                        "type": "string"
+                      },
+                      "bar": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "foo",
+                      "bar"
+                    ],
+                    "description": "any valid sample object with a string and a number",
+                    "additionalProperties": false
+                  },
+                  "objectNested": {
+                    "type": "object",
+                    "properties": {
+                      "user": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "minLength": 2
+                          },
+                          "age": {
+                            "type": "number",
+                            "minimum": 18
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "age"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "user"
+                    ],
+                    "description": "any valid sample data",
+                    "additionalProperties": false
+                  },
+                  "objectPassthrough": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "description": "any sample object with example keys and data",
+                    "required": []
+                  },
+                  "optional": {
+                    "description": "leave this field empty as an example of an optional field",
+                    "anyOf": [
+                      {
+                        "description": "leave this field empty as an example of an optional field",
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "nullable": {
+                    "description": "leave this field empty as an example of a nullable field",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "enum": {
+                    "type": "string",
+                    "enum": [
+                      "A",
+                      "B",
+                      "C"
+                    ],
+                    "description": "The letter A, B, or C"
+                  },
+                  "nativeEnum": {
+                    "type": "string",
+                    "enum": [
+                      "A",
+                      "B",
+                      "C"
+                    ],
+                    "description": "The letter A, B, or C"
+                  },
+                  "unionPrimitives": {
+                    "description": "sample text or number",
+                    "type": [
+                      "string",
+                      "number"
+                    ]
+                  },
+                  "unionObjects": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "amount": {
+                            "type": "number"
+                          },
+                          "inventoryItemName": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "amount",
+                          "inventoryItemName"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "permissions": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "permissions"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ],
+                    "description": "give an valid object"
+                  }
+                },
+                "required": [
+                  "stringEmail",
+                  "stringEmoji",
+                  "stringUrl",
+                  "stringRegex",
+                  "number",
+                  "exampleArray",
+                  "arrayMax",
+                  "object",
+                  "objectNested",
+                  "objectPassthrough",
+                  "nullable",
+                  "enum",
+                  "nativeEnum",
+                  "unionPrimitives",
+                  "unionObjects",
+                  "optional"
+                ],
+                "description": "A schema to test many schema configuration properties",
+                "additionalProperties": false,
+                "x-optional": [
+                  "optional"
+                ]
+              },
+              "strict": false
+            }
+          ],
+          "tool_choice": "required"
+        },
+        "timestamp": 1791510112256
+      },
+      "response": {
+        "status": 200,
+        "statusText": "OK",
+        "headers": {
+          "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a479af7aaf3cf7d2-ORD",
+          "connection": "keep-alive",
+          "content-type": "application/json",
+          "date": "Fri, 09 Oct 2026 01:41:57 GMT",
+          "openai-processing-ms": "5157",
+          "openai-version": "2020-10-01",
+          "server": "cloudflare",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "x-content-type-options": "nosniff",
+          "x-ratelimit-limit-requests": "30000",
+          "x-ratelimit-limit-tokens": "150000000",
+          "x-ratelimit-remaining-requests": "29998",
+          "x-ratelimit-remaining-tokens": "149999197",
+          "x-ratelimit-reset-requests": "4ms",
+          "x-ratelimit-reset-tokens": "0s",
+          "x-request-id": "req_8b5233297a7841b18e4921e25ea86cf4"
+        },
+        "body": {
+          "id": "resp_043f45e58af0aa82006ac84660a67087d18209fa531ef8da69",
+          "object": "response",
+          "created_at": 1791510112,
+          "status": "completed",
+          "access_programs": null,
+          "background": false,
+          "billing": {
+            "payer": "developer"
+          },
+          "completed_at": 1791510117,
+          "error": null,
+          "frequency_penalty": 0,
+          "incomplete_details": null,
+          "instructions": null,
+          "max_output_tokens": null,
+          "max_tool_calls": null,
+          "model": "o4-mini-2025-04-16",
+          "moderation": null,
+          "output": [
+            {
+              "id": "rs_043f45e58af0aa82006ac84661468087d1a708f32211348c80",
+              "type": "reasoning",
+              "content": [],
+              "encrypted_content": "gAAAAABqyEZl4RxPaBnJZbU7ooXREKc0CeEOfihsn9R64_sOi63HtfkphcnRzhz4_6Y5XotANpPayra4InyrFgAKbc7uQlEK97MBM7gkvvMldClgBmYHyY6RpkEfmNHH-0hrNvyliXdqFtweau3U8e5wbQ4p7qazshaDXiIiZXTRAZjocsmH1N3CWc3_zyO_c3bFjKWDRZdRT8wo8jnxZ-u9rLNy1FG5kcjU9cQy0vzf-43nucscGey8b64jK5r9w2fwDXW-1XCPOU0VD-lPxuKhYLkWQy17a6TdfEfDh08uSktwQyup-tpxso1E0tHyGIThxPRjzbYIB8f8TZ6UvbSnHYSyKBGQsfU3sfe5ce28zrK2Hp4QiJ_mArrj-zFl9HewoPM_j04o9DZaf_Wg6UPgAITTeGhh8Kn4D9z4nR0ckSI2OeosgxrI_R_z3zHzU74yenYEuCXND99wwl2N0BU3768SBfcPSuhiNbRLpi2pPQpkaxpuVv8ONvTfw5uFLljxBP8_0SKHtY4rCeLq0rip8BeXzatG2EH4CP3prVc8PD0i4db4k0Y_Iy9Pj84CGZx6ITQ6BTbH9_ML1WEJte7izJtC_lM_MWUWpGEDqEr50n0q0E0lPjusfpCOByGRtKRb45vICQYVBhsU871X2AHkXgnDVVxcskPWMjD75MOB1iuRJIZOuDhv-YTKDTRx7Uj8wma_voH_kIPX04PmodnDz1RHOuJCZZtK9o8lY7rzf2FvJgkJTCfn_09GMrTPENctdG42JjBER3_2X2M8iiJ9ND0paO4L3UT8MtN0X75GS2cBT3C_i8lNJCNfdVcylhcHcUhJ4DAtkqbf5lqwKv-qUHHfeQZ7jaAwSc2t4kWUbw2dBhUDPHXrN3TssBexaB-z5q5x6We5avdF2SSu_ScKpacNUlWqytrYn2PqgK2kISL85N3dncZuRmYpd894Q5IbklYYRJosUmrp0iJ0ebmT05tP2kFg66Zefwdihy0E9VvpLWjQQqZZ4TYmo9HRgW1dSbSVd2_Ob0tSXTuI7vfzbjtBXEwqOJnCKdxhdBvYoEOSCZhLrvjnKml3Ls-S1XPJ7uIuBDWuzKEuz5jO4RCW6gW9b66ZGN1fe3kF3s4ziT2_jvHNrdOSiT70mP63AKLGiUr8X_9ImNER6jb2-Bfbvx4zYW7mu23ZDVaMMV288hHCSWT9F70SDF_bwoGoncBl1-nyljFUjIyMQmqSb02s7cXpxeAQ3p20CIu7wAkafzd5a5qvcYg4VReiRJ4ggGDi9N6ZrJ43KddA3U8NLpLdeIStB2PGgYDnYd92x4fCUiRSXv6dHWknvFLSdv1Idb2nD8NPbK6-iafV0VGQLLvowWdhSy0uEH24aGw-tKm6wo_ZlHQvGuzzgIQWbpDhfOR9D1cwoeHroo2xy0OmZwiBLWGNsOit0ZitsA1LB1Qt2WykzPY7Y4So7TcfCbK2xKlLuUjCJVG9KjDnBuFWgYRZBjFExfRPcl64nxINJ9N7Mvt7brYe2QriH5dOs7cEE1ZKrcFPceDVTmYpgtNievsj3SD8IEAmVKhoigM2nc7GW0YD_Y6ZRBJPeibP5qWqQ5r04ZbBXhe2uGgYt37rjxNjuLfb0vPkEc504OROGZQI4AdscQXmKp_TU4GRoLAT9HQ6MClxEsehP-g7xwddbG-1Ol1AIb9JFI4zNBSVfzQK45VNww7J5qCVbVo91dNuDMEMKUKn3KolkhHeWjvI8un0Pgd4gglMUgJ5wuoaK6cVlB4OAAbfOzPI_yaifEloPFurwXk7WBrG29CZOKs2U6xbbGIdZE6zXmeLtQozYbjwPp0uzfsuFeSjMlcfR_-mrltBis7cWO1iAvXzSTwjGHiKDHlUqNnRyCT_TW5oUfOV6E3srQpBDpYrt0tY8dgnwtui0IHE5NmdVAQdaEAscssZ42wLUer1dsanRBTY4M9S2216K1qG7mnoQpX-CeOGNhU-pTu2i1qnmGtFCjQLzfhaDx2edJrvsY-xUA7ydATnwY-t4ghU9i3eo16e7679LtBKCIiSdTYvKsDY1PcYaLODVUa_RKwEubhLSV3YCVXPs-N_-NHluqUCaPgKVb8HQqMn-vBINbQsnMgRQjrfGwQM1XtYdrIgQtYe3eUY-yz9pCMynvzof0N5w7K-zFKf68ga-03ujmCuA8r4dSCaCgLLlZnX-FwGg06m6OHD-Pr7WnfPG3tkDAab4CRifgSohpiDIkb2s2tGL5k-dHvbZiqzAfMW9eiM9-8S0k1owII5CufScYQ5l4o6mYeYI4KTI9CcyL4CoL0sl_G98ToeuAbbDD3qyJTYDSUE4Y4NWKXeztszRXRZvVdDgGKkf6KfPmwbbJGN3-5F8QGwwCWBYDqdJy2jd7gzrNPJxv5pz0pu8IhUSEsei2HbVwYUh72I8r-Gj7Py-Hlu0u5O35thq0TXrzXpNSqfCREJ8jpr82iCYIN_jzN7P2WWNqpyhZL0Q1OTo7BLl0eWWAj3jUZiWxWJ9JYnk0auLpOOgYivfoROcV9wzlMy8rPXTfQZbpW6RIoJQzgJH0BoOYt0-51uWJTIDXF28tGJAJEQyLRjEAfGZ-fri7ojw7MucgB4tNR5F__SByjtQztCu2YXVsT7ks7fMUXoYSfTY2a74Ld_TMNU9BHAttYr-Ag4li97V5-M-IlLAdpTOLSSlldfavNTYcq2KYS1a8q_T5pCytohJs-kLi907v9DOiZPOLHRuAXhl08k2TAtvHw8v2gWBSpWTmVzvWelypXnVhrXR20RPkmLTiihNMX4stwumUjVHjlXtLojR5oBVhTKfTbYmIHGxjd2gvgf2TsgOKAWWgLR7d1xAhWdgDrbnoXlzGAvm6Sfz4ae-xMOHrU2Q1VLPQuj5OSvxenWt-hDrZw2ybd3_Rb5d7ASZJht7F-L_FtqJNPXBfgfCkoXxFs5ks1vK48r_AmYI6NT361038gAlYy8RrTygq9PhWOMZ3LAKR8FjzB6zlzCdlWkXZcLLsWX-JOCMwAzbuHjpF-Z3q7s8KQPFdoDJd7vOOfiOKbw8vhBRd0R2vgs_ZEtEJq9AgHtdCuPDOafmVi_Mzw_-mwFVRgUHlKghJ8txNn0zQssD3ByWdeIo0G6rFWWwcVtFaiDFnQPq9xHzPYgRTuSNPZB8eG1g4B8IYhA1dIJSAZ88pMsrBYtXiXqdAuY3T3MZRT7fSZFlBto9DSXMR9iUnifFF0qZH6SMXH-gx3YEtkanSs96Ygeshu00AvJswwaLnjAYmazz5drfBWGuQbIeBgzTfzyYuOhKdhoUxlO1hlFXi-WGpLSF9O2eLl-a8iAYXh36wp-SJEUCzBTsYxexBKf0f20BaOPBxIuN_Pl-QhaxvC6CFelegUP5D8y0gpZMCkvQy01NdY_CJRXBqERG7370b5Pucc7MzLZ0-HSmCqLKKpH4G788p9tBf9qQubrecD4k4dJyiISUkCa1HTUtHydhzbc55dWp6WDrLm4Ks8fiGB9l1EmpbUEb1Ci0CVPYu0w8KkjLZtu2INx23X41g853f5oDkSOOnVshuPeLT3AtZMyh_zqGa17OTPtr270ZjoHMgt1mjrKDixfLuIR51vAsozIknM7X9XwJvQYxVg06gL5kh-zfB8WiHhNsNq7hpT-baVZ3rTeV7RcIUHA88tkvKRQt-BPNXcYCQJfc_EmbxjOmQjocwRADOf_rcHz6CpvzVF1Q0eNDN4CrIpT5OvN9ScB1cCgaAfm1kYc-1JpSGaW6n-8NzjPIuBrffC-D6xHyBbVTf2N5tX14UFin6dVIEsfga9nesHbtnxPr7xTaOF7u0R5HYbl0lvW-F1ZqLo7N_LVAFoj4ugX6dTNfoIKuB49KppMiNyP2Uc3XLhN3D34aC1_rBaUVZH5jko2_MRJzNaKh_YGp606MbQmkRstuJDRnkNehVDajBFGR5777RTERfN0WEjpx0yWH_5tX_XyX71VVol7b4kVRF5Iye658gnv18rQd_r7xI4D-2mAfUe5pqFnuLpi8Mwcx5QS91jCaeqaGO-rtYiCsrLemYQgjrnf6impmZBZfIaL7ChRMbV-Sj2oFr-Xh-JP281HTic1xgatR9lenIPQg-ZxTU-yLorJ5gIoCqGc9dTv8v1dzcYqDhWPiC_I6vv4QDssY2la4-57kxS43gRwp7ZNhJ3-JNSLeDbFrA9oVo-HJorCMz7eocnlwVWMTP5ohTIiDPJmY_JRTdOLfbAFKnGdiQ==",
+              "summary": []
+            },
+            {
+              "id": "fc_043f45e58af0aa82006ac84664c20487d1bed17cc8ee80a8f3",
+              "type": "function_call",
+              "status": "completed",
+              "arguments": "{\"stringEmail\":\"user@example.com\",\"stringEmoji\":\"😊\",\"stringUrl\":\"https://example.com\",\"stringRegex\":\"test-123\",\"number\":42,\"exampleArray\":[\"one\",\"two\",\"three\"],\"arrayMax\":[\"a\",\"b\",\"c\",\"d\",\"e\"],\"object\":{\"foo\":\"hello\",\"bar\":123},\"objectNested\":{\"user\":{\"name\":\"Alice\",\"age\":30}},\"objectPassthrough\":{\"arbitraryKey\":\"value\",\"another\":10},\"optional\":\"optional value\",\"nullable\":null,\"enum\":\"B\",\"nativeEnum\":\"C\",\"unionPrimitives\":\"string value\",\"unionObjects\":{\"amount\":5,\"inventoryItemName\":\"item1\"}}",
+              "call_id": "call_mTFhzx2R8OmvocxXEdthJRBr",
+              "name": "testTool_manySchemas"
+            }
+          ],
+          "parallel_tool_calls": true,
+          "presence_penalty": 0,
+          "previous_response_id": null,
+          "prompt_cache_key": null,
+          "prompt_cache_retention": "in_memory",
+          "reasoning": {
+            "context": "current_turn",
+            "effort": "medium",
+            "mode": "standard",
+            "summary": null
+          },
+          "safety_identifier": null,
+          "service_tier": "default",
+          "store": true,
+          "temperature": 1,
+          "text": {
+            "format": {
+              "type": "text"
+            },
+            "verbosity": "medium"
+          },
+          "tool_choice": "required",
+          "tool_usage": {
+            "image_gen": {
+              "input_tokens": 0,
+              "input_tokens_details": {
+                "image_tokens": 0,
+                "text_tokens": 0
+              },
+              "output_tokens": 0,
+              "output_tokens_details": {
+                "image_tokens": 0,
+                "text_tokens": 0
+              },
+              "total_tokens": 0
+            },
+            "web_search": {
+              "num_requests": 0
+            }
+          },
+          "tools": [
+            {
+              "type": "function",
+              "description": "A tool to test many schema property types",
+              "name": "testTool_manySchemas",
+              "output_schema": null,
+              "parameters": {
+                "$schema": "http://json-schema.org/draft-07/schema#",
+                "type": "object",
+                "properties": {
+                  "stringEmail": {
+                    "type": "string",
+                    "format": "email",
+                    "pattern": "^(?:[A-Za-z0-9_'+\\-]+\\.)*[A-Za-z0-9_'+\\-]*[A-Za-z0-9_+-]@(?:[A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$",
+                    "description": "a sample email address"
+                  },
+                  "stringEmoji": {
+                    "type": "string",
+                    "description": "a valid sample emoji"
+                  },
+                  "stringUrl": {
+                    "type": "string",
+                    "description": "a valid sample url"
+                  },
+                  "stringRegex": {
+                    "type": "string",
+                    "pattern": "^test-",
+                    "description": "a valid sample string that satisfies the regex"
+                  },
+                  "number": {
+                    "type": "number",
+                    "description": "any valid sample number"
+                  },
+                  "exampleArray": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "any valid array of example strings"
+                  },
+                  "arrayMax": {
+                    "maxItems": 5,
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "any valid sample array of strings with a maximum of 5 strings"
+                  },
+                  "object": {
+                    "type": "object",
+                    "properties": {
+                      "foo": {
+                        "type": "string"
+                      },
+                      "bar": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "foo",
+                      "bar"
+                    ],
+                    "description": "any valid sample object with a string and a number",
+                    "additionalProperties": false
+                  },
+                  "objectNested": {
+                    "type": "object",
+                    "properties": {
+                      "user": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "minLength": 2
+                          },
+                          "age": {
+                            "type": "number",
+                            "minimum": 18
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "age"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "user"
+                    ],
+                    "description": "any valid sample data",
+                    "additionalProperties": false
+                  },
+                  "objectPassthrough": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "description": "any sample object with example keys and data",
+                    "required": []
+                  },
+                  "optional": {
+                    "description": "leave this field empty as an example of an optional field",
+                    "anyOf": [
+                      {
+                        "description": "leave this field empty as an example of an optional field",
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "nullable": {
+                    "description": "leave this field empty as an example of a nullable field",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "enum": {
+                    "type": "string",
+                    "enum": [
+                      "A",
+                      "B",
+                      "C"
+                    ],
+                    "description": "The letter A, B, or C"
+                  },
+                  "nativeEnum": {
+                    "type": "string",
+                    "enum": [
+                      "A",
+                      "B",
+                      "C"
+                    ],
+                    "description": "The letter A, B, or C"
+                  },
+                  "unionPrimitives": {
+                    "description": "sample text or number",
+                    "type": [
+                      "string",
+                      "number"
+                    ]
+                  },
+                  "unionObjects": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "amount": {
+                            "type": "number"
+                          },
+                          "inventoryItemName": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "amount",
+                          "inventoryItemName"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "permissions": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "permissions"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ],
+                    "description": "give an valid object"
+                  }
+                },
+                "required": [
+                  "stringEmail",
+                  "stringEmoji",
+                  "stringUrl",
+                  "stringRegex",
+                  "number",
+                  "exampleArray",
+                  "arrayMax",
+                  "object",
+                  "objectNested",
+                  "objectPassthrough",
+                  "nullable",
+                  "enum",
+                  "nativeEnum",
+                  "unionPrimitives",
+                  "unionObjects",
+                  "optional"
+                ],
+                "description": "A schema to test many schema configuration properties",
+                "additionalProperties": false,
+                "x-optional": [
+                  "optional"
+                ]
+              },
+              "strict": false
+            }
+          ],
+          "top_logprobs": 0,
+          "top_p": 1,
+          "truncation": "disabled",
+          "usage": {
+            "input_tokens": 486,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 726,
+            "output_tokens_details": {
+              "reasoning_tokens": 512
+            },
+            "total_tokens": 1212
           },
           "user": null,
           "metadata": {}

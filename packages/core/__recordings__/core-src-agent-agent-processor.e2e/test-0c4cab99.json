@@ -5,7 +5,7 @@
     "testName": "StructuredOutputProcessor Integration Tests > with real LLM > should convert unstructured text to structured JSON for color analysis",
     "model": "gpt-4o",
     "createdAt": "2026-05-18T10:50:50.809Z",
-    "updatedAt": "2026-09-19T04:36:42.054Z"
+    "updatedAt": "2026-10-09T01:31:33.621Z"
   },
   "recordings": [
     {
@@ -31,7 +31,7 @@
             }
           ]
         },
-        "timestamp": 1789792597260
+        "timestamp": 1791509490896
       },
       "response": {
         "status": 200,
@@ -40,11 +40,11 @@
           "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
           "alt-svc": "h3=\":443\"; ma=86400",
           "cf-cache-status": "DYNAMIC",
-          "cf-ray": "a3d5e3f61e87cbaa-LAX",
+          "cf-ray": "a479a04eac8b61ae-ORD",
           "connection": "keep-alive",
           "content-type": "application/json",
-          "date": "Sat, 19 Sep 2026 04:36:40 GMT",
-          "openai-processing-ms": "3093",
+          "date": "Fri, 09 Oct 2026 01:31:32 GMT",
+          "openai-processing-ms": "1101",
           "openai-version": "2020-10-01",
           "server": "cloudflare",
           "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
@@ -55,18 +55,19 @@
           "x-ratelimit-remaining-tokens": "29999709",
           "x-ratelimit-reset-requests": "6ms",
           "x-ratelimit-reset-tokens": "0s",
-          "x-request-id": "req_bda6050a8c9744d1a35f3e80106d7aa4"
+          "x-request-id": "req_4f5f613805c34ab5b1550487bc2bd2a2"
         },
         "body": {
-          "id": "resp_062c58d00568c9a8006aae1155b53c87d0b0b0b982e5765e49",
+          "id": "resp_0373eb79f19c743c006ac843f3327c87d1ab09e6ce629a8755",
           "object": "response",
-          "created_at": 1789792597,
+          "created_at": 1791509491,
           "status": "completed",
+          "access_programs": null,
           "background": false,
           "billing": {
             "payer": "developer"
           },
-          "completed_at": 1789792600,
+          "completed_at": 1791509492,
           "error": null,
           "frequency_penalty": 0,
           "incomplete_details": null,
@@ -77,7 +78,7 @@
           "moderation": null,
           "output": [
             {
-              "id": "msg_062c58d00568c9a8006aae115806b487d0b3a99eb982752d4a",
+              "id": "msg_0373eb79f19c743c006ac843f3d92887d1ba89396394b695ea",
               "type": "message",
               "status": "completed",
               "content": [
@@ -85,7 +86,7 @@
                   "type": "output_text",
                   "annotations": [],
                   "logprobs": [],
-                  "text": "Sunset Orange is a vibrant, warm hue that combines the energy of red and the cheerfulness of yellow. It evokes feelings of excitement and enthusiasm. The hex code for Sunset Orange is #FF4500."
+                  "text": "Sunset Orange is a vibrant color characterized by its warm and energizing qualities. Its hex code is #FD5E53. This color often evokes feelings of excitement, enthusiasm, and warmth."
                 }
               ],
               "role": "assistant"
@@ -140,11 +141,11 @@
               "cache_write_tokens": 0,
               "cached_tokens": 0
             },
-            "output_tokens": 43,
+            "output_tokens": 40,
             "output_tokens_details": {
               "reasoning_tokens": 0
             },
-            "total_tokens": 315
+            "total_tokens": 312
           },
           "user": null,
           "metadata": {}
@@ -153,7 +154,7 @@
       }
     },
     {
-      "hash": "352cd2ee52a4ff46",
+      "hash": "e16ef59aba2ed3e9",
       "request": {
         "url": "https://api.openai.com/v1/responses",
         "method": "POST",
@@ -169,7 +170,7 @@
               "content": [
                 {
                   "type": "input_text",
-                  "text": "Extract and structure the key information from the following text according to the specified schema. Keep the original meaning and details. Rely on the provided text and conversation history.\n\n# Assistant Response\nSunset Orange is a vibrant, warm hue that combines the energy of red and the cheerfulness of yellow. It evokes feelings of excitement and enthusiasm. The hex code for Sunset Orange is #FF4500."
+                  "text": "Extract and structure the key information from the following text according to the specified schema. Keep the original meaning and details. Rely on the provided text and conversation history.\n\n# Assistant Response\nSunset Orange is a vibrant color characterized by its warm and energizing qualities. Its hex code is #FD5E53. This color often evokes feelings of excitement, enthusiasm, and warmth."
                 }
               ]
             }
@@ -201,7 +202,8 @@
                     "anyOf": [
                       {
                         "type": "string",
-                        "description": "Hex color code (input must match this regex ^#[0-9A-F]{6}$)"
+                        "pattern": "^#[0-9A-F]{6}$",
+                        "description": "Hex color code"
                       },
                       {
                         "type": "null"
@@ -225,7 +227,7 @@
           },
           "stream": true
         },
-        "timestamp": 1789792600869
+        "timestamp": 1791509492344
       },
       "response": {
         "status": 200,
@@ -234,72 +236,76 @@
           "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
           "alt-svc": "h3=\":443\"; ma=86400",
           "cf-cache-status": "DYNAMIC",
-          "cf-ray": "a3d5e40bbaa3cbaa-LAX",
+          "cf-ray": "a479a0573dbc61ae-ORD",
           "connection": "keep-alive",
           "content-type": "text/event-stream; charset=utf-8",
-          "date": "Sat, 19 Sep 2026 04:36:41 GMT",
-          "openai-processing-ms": "545",
+          "date": "Fri, 09 Oct 2026 01:31:33 GMT",
+          "openai-processing-ms": "802",
           "openai-version": "2020-10-01",
           "server": "cloudflare",
           "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
           "x-content-type-options": "nosniff",
           "x-ratelimit-limit-requests": "10000",
           "x-ratelimit-limit-tokens": "30000000",
-          "x-ratelimit-remaining-requests": "9999",
-          "x-ratelimit-remaining-tokens": "29999419",
-          "x-ratelimit-reset-requests": "6ms",
+          "x-ratelimit-remaining-requests": "9998",
+          "x-ratelimit-remaining-tokens": "29999109",
+          "x-ratelimit-reset-requests": "12ms",
           "x-ratelimit-reset-tokens": "1ms",
-          "x-request-id": "req_ce520fc6f50b43e5b985dbe0639de681"
+          "x-request-id": "req_32ee6bbd11824dcbb7dd7de809f2acad"
         },
         "chunks": [
-          "event: response.created\ndata: {\"type\":\"response.created\",\"response\":{\"id\":\"resp_0b7cc75f425cdc83006aae1158ff1887d0bfce495b5f1efda4\",\"object\":\"resp",
-          "onse\",\"created_at\":1789792601,\"status\":\"in_progress\",\"background\":false,\"completed_at\":null,\"error\":null,\"frequency_penalty\":0.0,\"incomplete_details\":null,\"instructions\":null,\"max_output_tokens\":null,\"max_tool_calls\":null,\"model\":\"gpt-4o-2024-08-06\",\"moderation\":null,\"output\":[],\"parallel_tool_calls\":true,\"presence_penalty\":0.0,\"previous_response_id\":null,\"prompt_cache_key\":null,\"prompt_cache_retention\":\"in_memory\",\"reasoning\":{\"context\":null,\"effort\":null,\"summary\":null},\"safety_identifier\":null,\"service_tier\":\"auto\",\"store\":true,\"temperature\":1.0,\"text\":{\"format\":{\"type\":\"json_schema\",\"description\":null,\"name\":\"response\",\"schema\":{\"type\":\"object\",\"properties\":{\"color\":{\"type\":\"string\",\"description\":\"The primary color\"},\"intensity\":{\"type\":\"string\",\"enum\":[\"light\",\"medium\",\"bright\",\"vibrant\"],\"description\":\"How intense the color is\"},\"hexCode\":{\"anyOf\":[{\"type\":\"string\",\"description\":\"Hex color code (input must match this regex ^#[0-9A-F]{6}$)\"},{\"type\":\"null\"}]},\"mood\":{\"type\":\"string\",\"description\":\"The mood or feeling the color evokes\"}},\"required\":[\"color\",\"intensity\",\"hexCode\",\"mood\"],\"additionalProperties\":false},\"strict\":true},\"verbosity\":\"medium\"},\"tool_choice\":\"auto\",\"tool_usage\":{\"image_gen\":{\"input_tokens\":0,\"input_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"output_tokens\":0,\"output_tokens_details\":{\"image_tokens\":0,\"text_token",
-          "s\":0},\"total_tokens\":0},\"web_search\":{\"num_requests\":0}},\"tools\":[],\"top_logprobs\":0,\"top_p\":1.0,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"metadata\":{}},\"sequence_number\":0}\n\nevent: response.in_progress\ndata: {\"type\":\"response.in_progress\",\"response\":{\"id\":\"resp_0b7cc75f425cdc83006aae1158ff1887d0bfce495b5f1efda4\",\"object\":\"response\",\"created_at\":1789792601,\"status\":\"in_progress\",\"background\":false,\"completed_at\":null,\"error\":null,\"frequency_penalty\":0.0,\"incomplete_details\":null,\"instructions\":null,\"max_output_tokens\":null,\"max_tool_calls\":null,\"model\":\"gpt-4o-2024-08-06\",\"moderation\":null,\"output\":[],\"parallel_tool_calls\":true,\"presence_penalty\":0.0,\"previous_response_id\":null,\"prompt_cache_key\":null,\"prompt_cache_retention\":\"in_memory\",\"reasoning\":{\"context\":null,\"effort\":null,\"summary\":null},\"safety_identifier\":null,\"service_tier\":\"auto\",\"store\":true,\"temperature\":1.0,\"text\":{\"format\":{\"type\":\"json_schema\",\"description\":null,\"name\":\"response\",\"schema\":{\"type\":\"object\",\"properties\":{\"color\":{\"type\":\"string\",\"description\":\"The primary color\"},\"intensity\":{\"type\":\"string\",\"enum\":[\"light\",\"medium\",\"bright\",\"vibrant\"],\"description\":\"How intense the color is\"},\"hexCode\":{\"anyOf\":[{\"type\":\"string\",\"description\":\"Hex color code (input must match this regex ^#[0-9A-F]{6}$)\"},{\"type\":\"null\"}]},\"mood\":{\"type\":\"string\",\"description\":\"The mood or fe",
-          "eling the color evokes\"}},\"required\":[\"color\",\"intensity\",\"hexCode\",\"mood\"],\"additionalProperties\":false},\"strict\":true},\"verbosity\":\"medium\"},\"tool_choice\":\"auto\",\"tool_usage\":{\"image_gen\":{\"input_tokens\":0,\"input_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"output_tokens\":0,\"output_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"total_tokens\":0},\"web_search\":{\"num_requests\":0}},\"tools\":[],\"top_logprobs\":0,\"top_p\":1.0,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"metadata\":{}},\"sequence_number\":1}\n\nevent: response.output_item.added\ndata: {\"type\":\"response.output_item.added\",\"item\":{\"id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"type\":\"message\",\"status\":\"in_progress\",\"content\":[],\"role\":\"assistant\"},\"output_index\":0,\"sequence_number\":2}\n\nevent: response.content_p",
-          "art.added\ndata: {\"type\":\"response.content_part.added\",\"content_index\":0,\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"output_index\":0,\"part\":{\"type\":\"output_text\",\"annotations\":[],\"logprobs\":[],\"text\":\"\"},\"sequence_number\":3}\n\nevent: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"{\\\"\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"abKZ6ZIV6kqnI3\",\"output_index\":0,\"sequence_number\":4}\n\nevent: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"color\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"UprefC1yD5n\",\"output_index\":0,\"sequence_number\":5}\n\nevent: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"\\\":\\\"\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"eqr5GNvLyFhoP\",\"output_index\":0,\"sequence_number\":6}\n\nevent: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"Sun\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"Uz6N9b0TbuME2\",\"output_index\":0,\"sequence_number\":7}\n\nevent: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\"",
-          ",\"content_index\":0,\"delta\":\"set\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"aB8VFT1EI9y1a\",\"output_index\":0,\"sequence_number\":8}\n\n",
-          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\" Orange\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"HTvEjYFuq\",\"output_index\":0,\"sequence_number\":9}\n\n",
-          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"\\\",\\\"\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"J45EePn7c1KQv\",\"output_index\":0,\"sequence_number\":10}\n\n",
-          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"int\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"lCWnDNUol05WJ\",\"output_index\":0,\"sequence_number\":11}\n\n",
+          "event: response.created\ndata: {\"type\":\"response.created\",\"response\":{\"id\":\"resp_0da45aada2eca360006ac843f47a1487d185180e08b2fd11d2\",\"object\":\"response\",\"created_at\":1791509492,\"status\":\"in_progress\",\"access_programs\":null,\"background\":false,\"completed_at\":null,\"error\":null,\"frequency_penalty\":0.0,\"incomplete_details\":null,\"instructions\":null,\"max_output_tokens\":null,\"max_tool_calls\":null,\"model\":\"gpt-4o-2024-08-06\",\"moderation\":null,\"output\":[],\"parallel_tool_calls\":true,\"presence_penalty\":0.0,\"previous_response_id\":null,\"prompt_cache_key\":null,\"prompt_cache_retention\":\"in_memory\",\"reasoning\":{\"context\":null,\"effort\":null,\"summary\":null},\"safety_identifier\":null,\"service_tier\":\"auto\",\"store\":true,\"temperature\":1.0,\"text\":{\"format\":{\"type\":\"json_schema\",\"description\":null,\"name\":\"response\",\"schema\":{\"type\":\"object\",\"properties\":{\"color\":{\"type\":\"string\",\"description\":\"The primary color\"},\"intensity\":{\"type\":\"string\",\"enum\":[\"light\",\"medium\",\"bright\",\"vibrant\"],\"description\":\"How intense the color is\"},\"hexCode\":{\"anyOf\":[{\"type\":\"string\",\"pattern\":\"^#[0-9A-F]{6}$\",\"description\":\"Hex color code\"},{\"type\":\"null\"}]},\"mood\":{\"type\":\"string\",\"description\":\"The mood or feeling the color evokes\"}},\"required\":[\"color\",\"intensity\",\"hexCode\",\"mood\"],\"additionalProperties\":false},\"strict\":true},\"verbosity\":\"medium\"},\"tool_choice\":\"auto\",\"tool_usage\":{\"im",
+          "age_gen\":{\"input_tokens\":0,\"input_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"output_tokens\":0,\"output_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"total_tokens\":0},\"web_search\":{\"num_requests\":0}},\"tools\":[],\"top_logprobs\":0,\"top_p\":1.0,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"metadata\":{}},\"sequence_number\":0}\n\n",
+          "event: response.in_progress\ndata: {\"type\":\"response.in_progress\",\"response\":{\"id\":\"resp_0da45aada2eca360006ac843f47a1487d185180e08b2fd11d2\",\"object\":\"response\",\"created_at\":1791509492,\"status\":\"in_progress\",\"access_programs\":null,\"background\":false,\"completed_at\":null,\"error\":null,\"frequency_penalty\":0.0,\"incomplete_details\":null,\"instructions\":null,\"max_output_tokens\":null,\"max_tool_calls\":null,\"model\":\"gpt-4o-2024-08-06\",\"moderation\":null,\"output\":[],\"parallel_tool_calls\":true,\"presence_penalty\":0.0,\"previous_response_id\":null,\"prompt_cache_key\":null,\"prompt_cache_retention\":\"in_memory\",\"reasoning\":{\"context\":null,\"effort\":null,\"summary\":null},\"safety_identifier\":null,\"service_tier\":\"auto\",\"store\":true,\"temperature\":1.0,\"text\":{\"format\":{\"type\":\"json_schema\",\"description\":null,\"name\":\"response\",\"schema\":{\"type\":\"object\",\"properties\":{\"color\":{\"type\":\"string\",\"description\":\"The primary color\"},\"intensity\":{\"type\":\"string\",\"enum\":[\"light\",\"medium\",\"bright\",\"vibrant\"],\"description\":\"How intense the color is\"},\"hexCode\":{\"anyOf\":[{\"type\":\"string\",\"pattern\":\"^#[0-9A-F]{6}$\",\"description\":\"Hex color code\"},{\"type\":\"null\"}]},\"mood\":{\"type\":\"string\",\"description\":\"The mood or feeling the color evokes\"}},\"required\":[\"color\",\"intensity\",\"hexCode\",\"mood\"],\"additionalProperties\":false},\"strict\":true},\"verbosity\":\"medium\"},\"tool_choice\":\"auto\",\"tool_usa",
+          "ge\":{\"image_gen\":{\"input_tokens\":0,\"input_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"output_tokens\":0,\"output_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"total_tokens\":0},\"web_search\":{\"num_requests\":0}},\"tools\":[],\"top_logprobs\":0,\"top_p\":1.0,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"metadata\":{}},\"sequence_number\":1}\n\nevent: response.output_item.added\ndata: {\"type\":\"response.output_item.added\",\"item\":{\"id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"type\":\"message\",\"status\":\"in_progress\",\"content\":[],\"role\":\"assistant\"},\"output_index\":0,\"sequence_number\":2}\n\n",
+          "event: response.content_part.added\ndata: {\"type\":\"response.content_part.added\",\"content_index\":0,\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"output_index\":0,\"part\":{\"type\":\"output_text\",\"annotations\":[],\"logprobs\":[],\"text\":\"\"},\"sequence_number\":3}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"{\\\"\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"PfngOqj6NxMhjl\",\"output_index\":0,\"sequence_number\":4}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"color\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"qjg5a2M5HSR\",\"output_index\":0,\"sequence_number\":5}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"\\\":\\\"\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"ZfSSsO8LMzSYe\",\"output_index\":0,\"sequence_number\":6}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"Sun\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"hBxpHSZLRX29E\",\"output_index\":0,\"sequence_number\":7}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"set\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"PDFdjeVjnXbCq\",\"output_index\":0,\"sequence_number\":8}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\" Orange\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"OqrrHIWUm\",\"output_index\":0,\"sequence_number\":9}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"\\\",\\\"\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"rSM3OtKyAvK4R\",\"output_index\":0,\"sequence_number\":10}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"int\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"1HETYWpw4HzZh\",\"output_index\":0,\"sequence_number\":11}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"ensity\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"NHuhyIaS4y\",\"output_index\":0,\"sequence_number\":12}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"\\\":\\\"\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"IrBgKdUtqtNfk\",\"output_index\":0,\"sequence_number\":13}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"v\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"CAEhg0gqPV4R5T9\",\"output_index\":0,\"sequence_number\":14}\n\n",
           "event: response.output_text",
-          ".delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"ensity\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"vbe8EzFomr\",\"output_index\":0,\"sequence_number\":12}\n\n",
+          ".delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"ibr\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"070tqxy5SIXOv\",\"output_index\":0,\"sequence_number\":15}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"ant\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"OkuclE5HV2aLm\",\"output_index\":0,\"sequence_number\":16}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"\\\",\\\"\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"I93BXfdRkq1oI\",\"output_index\":0,\"sequence_number\":17}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"hex\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"HVKDuco0IPdWo\",\"output_index\":0,\"sequence_number\":18}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"Code\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"Tbq3XPDlvgGH\",\"output_index\":0,\"sequence_number\":19}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"\\\":\\\"\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"Qaq27Vwxd3lPg\",\"output_index\":0,\"sequence_number\":20}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"#\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"JN4OjquhdoXHcsZ\",\"output_index\":0,\"sequence_number\":21}\n\nevent: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"FD\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"anDGYFiDVt7NMG\",\"output_index\":0,\"sequence_number\":22}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"5\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"apOgaJUUpps8p2p\",\"output_index\":0,\"sequence_number\":23}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"E\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"SKYIZ5WYVL4YTpR\",\"output_index\":0,\"sequence_number\":24}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"53\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"mkkwvnVLWk8RBR\",\"output_index\":0,\"sequence_number\":25}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"\\\",\\\"\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"vNZjWN5RXdpm1\",\"output_index\":0,\"sequence_number\":26}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"m\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"NbpEAUsMYG9LBps\",\"output_index\":0,\"sequence_number\":27}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"ood\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"tjlEAqNUAYKI7\",\"output_index\":0,\"sequence_number\":28}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"\\\":\\\"\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"t3pEFZBnSKDuk\",\"output_index\":0,\"sequence_number\":29}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"ex\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"qMM5CraN0CAqVx\",\"output_index\":0,\"sequence_number\":30}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"cit\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"nPhtoNH3GDSS2\",\"output_index\":0,\"sequence_number\":31}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"ement\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"855J7RF583t\",\"output_index\":0,\"sequence_number\":32}\n\n",
           "event: response.output_text",
-          ".delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"\\\":\\\"\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"2R5fyG2CavqAf\",\"output_index\":0,\"sequence_number\":13}\n\n",
-          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"v\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"B8QlyvYsh7nYMpA\",\"output_index\":0,\"sequence_number\":14}\n\n",
-          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"ibr\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"XLXZGLi6730Pk\",\"output_index\":0,\"sequence_number\":15}\n\n",
-          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"ant\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"RM9ScPt5WCIVc\",\"output_index\":0,\"sequence_number\":16}\n\n",
-          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"\\\",\\\"\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"oLK39FBupwZO5\",\"output_index\":0,\"sequence_number\":17}\n\nevent: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"hex\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"LZdy5KbBUc7lx\",\"output_index\":0,\"sequence_number\":18}\n\n",
-          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"Code\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"AaVo7vbppDOC\",\"output_index\":0,\"sequence_number\":19}\n\n",
-          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"\\\":\\\"\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"7VeHNAk3SESkp\",\"output_index\":0,\"sequence_number\":20}\n\n",
-          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"#\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"uPmveECCDWHpsUP\",\"output_index\":0,\"sequence_number\":21}\n\n",
-          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"FF\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"pCRqkil0wZG1Jx\",\"output_index\":0,\"sequence_number\":22}\n\n",
-          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"450\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"Ij9B3lZe75frT\",\"output_index\":0,\"sequence_number\":23}\n\n",
-          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"0\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"V2arO8l9aHfqlXy\",\"output_index\":0,\"sequence_number\":24}\n\n",
-          "event: response.output_text",
-          ".delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"\\\",\\\"\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"Pdh82ohAv4wri\",\"output_index\":0,\"sequence_number\":25}\n\nevent: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"m\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"uzJ0NcDlzFatzij\",\"output_index\":0,\"sequence_number\":26}\n\n",
-          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"ood\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"gpKelGfl1vqR3\",\"output_index\":0,\"sequence_number\":27}\n\n",
-          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"\\\":\\\"\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"4cis0mlcaBO5y\",\"output_index\":0,\"sequence_number\":28}\n\n",
-          "event: response.output_text",
-          ".delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"ex\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"7R8Ju9aWaayOYw\",\"output_index\":0,\"sequence_number\":29}\n\nevent: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"cit\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"qrWRLCtfBPDu5\",\"output_index\":0,\"sequence_number\":30}\n\n",
-          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"ement\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"GJOJwWQVw3B\",\"output_index\":0,\"sequence_number\":31}\n\n",
-          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\" and\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"xbp5xvqYu6JO\",\"output_index\":0,\"sequence_number\":32}\n\n",
-          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\" enthusiasm\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"DDOOZ\",\"output_index\":0,\"sequence_number\":33}\n\nevent: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"\\\"}\",\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"obfuscation\":\"CSvjbgHYYCzGVW\",\"output_index\":0,\"sequence_number\":34}\n\n",
-          "event: response.output_text.done\ndata: {\"type\":\"response.output_text.done\",\"content_index\":0,\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"logprobs\":[],\"output_index\":0,\"sequence_number\":35,\"text\":\"{\\\"color\\\":\\\"Sunset Orange\\\",\\\"intensity\\\":\\\"vibrant\\\",\\\"hexCode\\\":\\\"#FF4500\\\",\\\"mood\\\":\\\"excitement and enthusiasm\\\"}\"}\n\n",
-          "event: response.content_part.done\ndata: {\"type\":\"response.content_part.done\",\"content_index\":0,\"item_id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"output_index\":0,\"part\":{\"type\":\"output_text\",\"annotations\":[],\"logprobs\":[],\"text\":\"{\\\"color\\\":\\\"Sunset Orange\\\",\\\"intensity\\\":\\\"vibrant\\\",\\\"hexCode\\\":\\\"#FF4500\\\",\\\"mood\\\":\\\"excitement and enthusiasm\\\"}\"},\"sequence_number\":36}\n\nevent: response.output_item.done\ndata: {\"type\":\"response.output_item.done\",\"item\":{\"id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"type\":\"message\",\"status\":\"completed\",\"content\":[{\"type\":\"output_text\",\"annotations\":[],\"logprobs\":[],\"text\":\"{\\\"color\\\":\\\"Sunset Orange\\\",\\\"intensity\\\":\\\"vibrant\\\",\\\"hexCode\\\":\\\"#FF4500\\\",\\\"mood\\\":\\\"excitement and enthusiasm\\\"}\"}],\"role\":\"assistant\"},\"output_index\":0,\"sequence_number\":37}\n\n",
-          "event: response.completed\ndata: {\"type\":\"response.completed\",\"response\":{\"id\":\"resp_0b7cc75f425cdc83006aae1158ff1887d0bfce495b5f1efda4\",\"object\":\"response\",\"created_at\":1789792601,\"status\":\"completed\",\"background\":false,\"completed_at\":1789792601,\"error\":null,\"frequency_penalty\":0.0,\"incomplete_details\":null,\"instructions\":null,\"max_output_tokens\":null,\"max_tool_calls\":null,\"model\":\"gpt-4o-2024-08-06\",\"moderation\":null,\"output\":[{\"id\":\"msg_0b7cc75f425cdc83006aae11597c2c87d08957056a4a8227c7\",\"type\":\"message\",\"status\":\"completed\",\"content\":[{\"type\":\"output_text\",\"annotations\":[],\"logprobs\":[],\"text\":\"{\\\"color\\\":\\\"Sunset Orange\\\",\\\"intensity\\\":\\\"vibrant\\\",\\\"hexCode\\\":\\\"#FF4500\\\",\\\"mood\\\":\\\"excitement and enthusiasm\\\"}\"}],\"role\":\"assistant\"}],\"parallel_tool_calls\":true,\"presence_penalty\":0.0,\"previous_response_id\":null,\"prompt_cache_key\":null,\"prompt_cache_retention\":\"in_memory\",\"reasoning\":{\"context\":null,\"effort\":null,\"summary\":null},\"safety_identifier\":null,\"service_tier\":\"default\",\"store\":true,\"temperature\":1.0,\"text\":{\"format\":{\"type\":\"json_schema\",\"description\":null,\"name\":\"response\",\"schema\":{\"type\":\"object\",\"properties\":{\"color\":{\"type\":\"string\",\"description\":\"The primary color\"},\"intensity\":{\"type\":\"string\",\"enum\":[\"light\",\"medium\",\"bright\",\"vibrant\"],\"description\":\"How intense the color is\"},\"hexCode\":{\"anyOf\":[{\"type\":\"string\",\"descript",
-          "ion\":\"Hex color code (input must match this regex ^#[0-9A-F]{6}$)\"},{\"type\":\"null\"}]},\"mood\":{\"type\":\"string\",\"description\":\"The mood or feeling the color evokes\"}},\"required\":[\"color\",\"intensity\",\"hexCode\",\"mood\"],\"additionalProperties\":false},\"strict\":true},\"verbosity\":\"medium\"},\"tool_choice\":\"auto\",\"tool_usage\":{\"image_gen\":{\"input_tokens\":0,\"input_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"output_tokens\":0,\"output_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"total_tokens\":0},\"web_search\":{\"num_requests\":0}},\"tools\":[],\"top_logprobs\":0,\"top_p\":1.0,\"truncation\":\"disabled\",\"usage\":{\"input_tokens\":562,\"input_tokens_details\":{\"cache_write_tokens\":0,\"cached_tokens\":0},\"output_tokens\":32,\"output_tokens_details\":{\"reasoning_tokens\":0},\"total_tokens\":594},\"user\":null,\"metadata\":{}},\"sequence_number\":38}\n\n"
+          ".delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\",\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"ArQY4xiCc5nzX05\",\"output_index\":0,\"sequence_number\":33}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\" enthusiasm\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"I3SrE\",\"output_index\":0,\"sequence_number\":34}\n\nevent: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\",\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"sEaXWu3l3oPduRc\",\"output_index\":0,\"sequence_number\":35}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\" and\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"EfG4zRaxtAOT\",\"output_index\":0,\"sequence_number\":36}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\" warmth\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"S2RRfT6rs\",\"output_index\":0,\"sequence_number\":37}\n\n",
+          "event: response.output_text.delta\ndata: {\"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"\\\"}\",\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"obfuscation\":\"2TN0bOkcsFUwwT\",\"output_index\":0,\"sequence_number\":38}\n\n",
+          "event: response.output_text.done\ndata: {\"type\":\"response.output_text.done\",\"content_index\":0,\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"logprobs\":[],\"output_index\":0,\"sequence_number\":39,\"text\":\"{\\\"color\\\":\\\"Sunset Orange\\\",\\\"intensity\\\":\\\"vibrant\\\",\\\"hexCode\\\":\\\"#FD5E53\\\",\\\"mood\\\":\\\"excitement, enthusiasm, and warmth\\\"}\"}\n\n",
+          "event: response.content_part.done\ndata: {\"type\":\"response.content_part.done\",\"content_index\":0,\"item_id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"output_index\":0,\"part\":{\"type\":\"output_text\",\"annotations\":[],\"logprobs\":[],\"text\":\"{\\\"color\\\":\\\"Sunset Orange\\\",\\\"intensity\\\":\\\"vibrant\\\",\\\"hexCode\\\":\\\"#FD5E53\\\",\\\"mood\\\":\\\"excitement, enthusiasm, and warmth\\\"}\"},\"sequence_number\":40}\n\n",
+          "event: response.output_item.done\ndata: {\"type\":\"response.output_item.done\",\"item\":{\"id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"type\":\"message\",\"status\":\"completed\",\"content\":[{\"type\":\"output_text\",\"annotations\":[],\"logprobs\":[],\"text\":\"{\\\"color\\\":\\\"Sunset Orange\\\",\\\"intensity\\\":\\\"vibrant\\\",\\\"hexCode\\\":\\\"#FD5E53\\\",\\\"mood\\\":\\\"excitement, enthusiasm, and warmth\\\"}\"}],\"role\":\"assistant\"},\"output_index\":0,\"sequence_number\":41}\n\n",
+          "event: response.completed\ndata: {\"type\":\"response.completed\",\"response\":{\"id\":\"resp_0da45aada2eca360006ac843f47a1487d185180e08b2fd11d2\",\"object\":\"response\",\"created_at\":1791509492,\"status\":\"completed\",\"access_programs\":null,\"background\":false,\"completed_at\":1791509493,\"error\":null,\"frequency_penalty\":0.0,\"incomplete_details\":null,\"instructions\":null,\"max_output_tokens\":null,\"max_tool_calls\":null,\"model\":\"gpt-4o-2024-08-06\",\"moderation\":null,\"output\":[{\"id\":\"msg_0da45aada2eca360006ac843f52c6487d1b99c4c9b002c7335\",\"type\":\"message\",\"status\":\"completed\",\"content\":[{\"type\":\"output_text\",\"annotations\":[],\"logprobs\":[],\"text\":\"{\\\"color\\\":\\\"Sunset Orange\\\",\\\"intensity\\\":\\\"vibrant\\\",\\\"hexCode\\\":\\\"#FD5E53\\\",\\\"mood\\\":\\\"excitement, enthusiasm, and warmth\\\"}\"}],\"role\":\"assistant\"}],\"parallel_tool_calls\":true,\"presence_penalty\":0.0,\"previous_response_id\":null,\"prompt_cache_key\":null,\"prompt_cache_retention\":\"in_memory\",\"reasoning\":{\"context\":null,\"effort\":null,\"summary\":null},\"safety_identifier\":null,\"service_tier\":\"default\",\"store\":true,\"temperature\":1.0,\"text\":{\"format\":{\"type\":\"json_schema\",\"description\":null,\"name\":\"response\",\"schema\":{\"type\":\"object\",\"properties\":{\"color\":{\"type\":\"string\",\"description\":\"The primary color\"},\"intensity\":{\"type\":\"string\",\"enum\":[\"light\",\"medium\",\"bright\",\"vibrant\"],\"description\":\"How intense the color is\"},\"hexCode\":{\"anyOf\":[{\"type\":\"string\",\"pattern\":\"^#[0-9A-F]{6}$\",\"description\":\"Hex color code\"},{\"type\":\"null\"}]},\"mood\":{\"type\":\"string\",\"description\":\"The mood or feeling the color evokes\"}},\"required\":[\"color\",\"intensity\",\"hexCode\",\"mood\"],\"additionalProperties\":false},\"strict\":true},\"verbosity\":\"medium\"},\"tool_choice\":\"auto\",\"tool_usage\":{\"image_gen\":{\"input_tokens\":0,\"input_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"output_tokens\":0,\"output_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"total_tokens\":0},\"web_search\":{\"num_requests\":0}},\"tools\":[],\"top_logprobs\":0,\"top_p\":1.0,\"truncation\":\"disabled\",\"usage\":{\"input_tokens\":542,\"input_tokens_details\":{\"cache_write_tokens\":0,\"cached_tokens\":0},\"output_tokens\":36,\"output_tokens_details\":{\"reasoning_tokens\":0},\"total_tokens\":578},\"user\":null,\"metadata\":{}},\"sequence_number\":42}\n\n"
         ],
         "chunkTimings": [
+          1,
+          1,
+          1,
           0,
           0,
-          0,
-          0,
-          0,
-          0,
-          29,
-          0,
-          6,
-          7,
+          1,
           0,
           0,
           0,
@@ -307,25 +313,37 @@
           0,
           0,
           0,
-          50,
-          0,
-          7,
-          0,
-          58,
-          0,
-          5,
-          0,
-          18,
-          7,
+          1,
           0,
           0,
-          7,
-          6,
-          8,
-          82,
           0,
-          149,
-          11
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          19,
+          20,
+          28,
+          2,
+          1,
+          69
         ],
         "isStreaming": true
       }
