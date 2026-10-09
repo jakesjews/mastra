@@ -153,8 +153,9 @@ export type MastraReasoningPart = {
 
 /**
  * Streaming buffer attached to a tool-invocation part while `tool-call-delta`
- * fragments arrive. The accumulator concatenates JSON chunks into `argsText`
- * and parses them on `tool-call-input-streaming-end`. Stored alongside the
+ * fragments arrive. The accumulator concatenates JSON chunks into `argsText`,
+ * keeps `args` in step with what has been received so far, and parses the
+ * complete text on `tool-call-input-streaming-end`. Stored alongside the
  * canonical `args` so the persisted shape still satisfies `MastraDBMessage`.
  */
 export type StreamingToolInvocationExtension = {

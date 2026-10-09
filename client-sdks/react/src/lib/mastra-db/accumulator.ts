@@ -1,3 +1,4 @@
+import { parsePartialJson } from '@ai-sdk/ui-utils';
 import type {
   AIV5Type,
   MastraDBMessage,
@@ -1003,7 +1004,7 @@ export const accumulateChunk = ({ chunk, conversation, metadata }: AccumulateChu
     case 'tool-call-input-streaming-start': {
       // Create a placeholder tool-invocation part in `partial-call` state with an
       // empty args buffer; subsequent `tool-call-delta` chunks append JSON
-      // fragments to `argsText` and `tool-call-input-streaming-end` parses them.
+      // fragments to `argsText` and `tool-call-input-streaming-end` finalizes them.
       const lastMessage = result[result.length - 1];
       const invocation: MastraToolInvocation = {
         state: 'partial-call',
@@ -1031,7 +1032,7 @@ export const accumulateChunk = ({ chunk, conversation, metadata }: AccumulateChu
 
     case 'tool-call-delta': {
       // Append the streamed JSON fragment onto the matching tool invocation's
-      // `argsText` buffer. Keep `args` empty/parsed-so-far until the end chunk.
+      // `argsText` buffer and expose what has been received so far as `args`.
       const location = locateToolPart(result, chunk.payload.toolCallId, false);
       if (!location || location.toolPartIndex < 0) return result;
       const { messageIndex, toolPartIndex } = location;
@@ -1043,12 +1044,17 @@ export const accumulateChunk = ({ chunk, conversation, metadata }: AccumulateChu
       if (!isToolPart(toolPart)) return result;
 
       const nextArgsText = (toolPart.argsText ?? '') + (chunk.payload.argsTextDelta ?? '');
+      const partialArgs = parsePartialJson(nextArgsText).value;
       parts[toolPartIndex] = {
         ...toolPart,
         argsText: nextArgsText,
         toolInvocation: {
           ...toolPart.toolInvocation,
           state: 'partial-call',
+          args:
+            partialArgs && typeof partialArgs === 'object' && !Array.isArray(partialArgs)
+              ? partialArgs
+              : toolPart.toolInvocation.args,
         } as MastraToolInvocation,
       } as MastraMessagePart;
 

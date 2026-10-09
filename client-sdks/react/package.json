@@ -75,6 +75,7 @@
     "dist"
   ],
   "dependencies": {
+    "@ai-sdk/ui-utils": "^1.2.11",
     "@lukeed/uuid": "^2.0.1",
     "@mastra/client-js": "workspace:*",
     "@radix-ui/react-tooltip": "^1.2.8",

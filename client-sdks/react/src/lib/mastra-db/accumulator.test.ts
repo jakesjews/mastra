@@ -1076,6 +1076,21 @@ describe('accumulateChunk - tool calls', () => {
     });
   });
 
+  it('tool-call-delta exposes the args received so far while the input is still streaming', () => {
+    const out = reduce([
+      startChunk(),
+      toolCallInputStreamingStartChunk('tc-1', 'search'),
+      toolCallDeltaChunk('tc-1', '{"q":"mas'),
+    ]);
+    const toolPart = out[0].content.parts.find(p => p.type === 'tool-invocation') as MastraToolInvocationPart;
+    expect(toolPart.toolInvocation).toMatchObject({
+      state: 'partial-call',
+      toolCallId: 'tc-1',
+      toolName: 'search',
+      args: { q: 'mas' },
+    });
+  });
+
   it('tool-call-delta buffers fragments and end transitions to call with parsed args', () => {
     const out = reduce([
       startChunk(),
