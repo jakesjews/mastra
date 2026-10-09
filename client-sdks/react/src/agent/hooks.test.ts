@@ -1245,6 +1245,31 @@ describe('useChat forwards clientTools', () => {
     expect(result.current.isRunning).toBe(false);
   });
 
+  it('removes the pending user message when the signal send request fails', async () => {
+    sendMessageMock.mockRejectedValueOnce(new Error('network down'));
+
+    const { result } = renderHook(
+      () =>
+        useChat({
+          agentId: 'test-agent',
+          resourceId: 'resource-1',
+          threadId: 'thread-1',
+          enableThreadSignals: true,
+        }),
+      { wrapper },
+    );
+
+    await waitFor(() => expect(subscribeToThreadMock).toHaveBeenCalledTimes(1));
+
+    await act(async () => {
+      await expect(
+        result.current.sendMessage({ mode: 'stream', message: 'hello', threadId: 'thread-1' }),
+      ).rejects.toThrow('network down');
+    });
+
+    expect(result.current.messages.filter(m => m.role === 'user')).toEqual([]);
+  });
+
   it('uses the legacy stream path when thread signals are explicitly disabled', async () => {
     const { result } = renderHook(
       () =>

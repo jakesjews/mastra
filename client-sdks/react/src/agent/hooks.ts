@@ -1403,7 +1403,11 @@ export const useChat = ({
       }
     } catch (error) {
       // A failed send (subscription setup, request, or stream) must not leave
-      // the chat stranded in a "running" state until reload (issue #18768).
+      // the chat stranded in a "running" state until reload (issue #18768),
+      // or keep showing a pending bubble for a message that was never sent.
+      if (clientSetId) {
+        setMessages(s => s.filter(message => message.id !== clientSetId));
+      }
       setIsRunning(false);
       throw error;
     }
