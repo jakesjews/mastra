@@ -5,7 +5,7 @@
     "testName": "Background Tasks E2E > runs a foreground tool normally",
     "model": "gpt-4o-mini",
     "createdAt": "2026-07-14T16:54:58.958Z",
-    "updatedAt": "2026-09-08T23:05:26.376Z"
+    "updatedAt": "2026-10-09T01:15:44.055Z"
   },
   "recordings": [
     {
@@ -155,7 +155,7 @@
           ],
           "tool_choice": "auto"
         },
-        "timestamp": 1788908724716
+        "timestamp": 1791508542563
       },
       "response": {
         "status": 200,
@@ -164,33 +164,34 @@
           "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
           "alt-svc": "h3=\":443\"; ma=86400",
           "cf-cache-status": "DYNAMIC",
-          "cf-ray": "a3819909fcf7df67-DFW",
+          "cf-ray": "a47989271a56c543-ORD",
           "connection": "keep-alive",
           "content-type": "application/json",
-          "date": "Tue, 08 Sep 2026 23:05:25 GMT",
-          "openai-processing-ms": "739",
+          "date": "Fri, 09 Oct 2026 01:15:43 GMT",
+          "openai-processing-ms": "686",
           "openai-version": "2020-10-01",
           "server": "cloudflare",
           "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
           "x-content-type-options": "nosniff",
-          "x-ratelimit-limit-requests": "10000",
-          "x-ratelimit-limit-tokens": "10000000",
-          "x-ratelimit-remaining-requests": "9999",
-          "x-ratelimit-remaining-tokens": "9999130",
-          "x-ratelimit-reset-requests": "6ms",
-          "x-ratelimit-reset-tokens": "5ms",
-          "x-request-id": "req_77934fa855dd48aebb980571c67b30fb"
+          "x-ratelimit-limit-requests": "30000",
+          "x-ratelimit-limit-tokens": "150000000",
+          "x-ratelimit-remaining-requests": "29999",
+          "x-ratelimit-remaining-tokens": "149999130",
+          "x-ratelimit-reset-requests": "2ms",
+          "x-ratelimit-reset-tokens": "0s",
+          "x-request-id": "req_a26f34358bc041a9bebb18e968caee21"
         },
         "body": {
-          "id": "resp_0293206193664f46006aa094b4dd3487d1a570f129404df2b9",
+          "id": "resp_00e97b91af1b5a1c006ac8403ea2a887d197e800a10b23d736",
           "object": "response",
-          "created_at": 1788908724,
+          "created_at": 1791508542,
           "status": "completed",
+          "access_programs": null,
           "background": false,
           "billing": {
             "payer": "developer"
           },
-          "completed_at": 1788908725,
+          "completed_at": 1791508543,
           "error": null,
           "frequency_penalty": 0,
           "incomplete_details": null,
@@ -201,11 +202,11 @@
           "moderation": null,
           "output": [
             {
-              "id": "fc_0293206193664f46006aa094b55a8087d181c11c0e6ad045a8",
+              "id": "fc_00e97b91af1b5a1c006ac8403f1ca487d1960ceb1b297d80bd",
               "type": "function_call",
               "status": "completed",
               "arguments": "{\"name\":\"Alice\"}",
-              "call_id": "call_v0tJu0FN4VNhqoYfruTMFt4t",
+              "call_id": "call_pUebawoIcqeC8ZGpSkQNjqtD",
               "name": "greet"
             }
           ],
@@ -419,13 +420,13 @@
             },
             {
               "type": "function_call",
-              "call_id": "call_v0tJu0FN4VNhqoYfruTMFt4t",
+              "call_id": "call_pUebawoIcqeC8ZGpSkQNjqtD",
               "name": "greet",
               "arguments": "{\"name\":\"Alice\"}"
             },
             {
               "type": "function_call_output",
-              "call_id": "call_v0tJu0FN4VNhqoYfruTMFt4t",
+              "call_id": "call_pUebawoIcqeC8ZGpSkQNjqtD",
               "output": "{\"greeting\":\"Hello, Alice!\"}"
             }
           ],
@@ -554,7 +555,7 @@
           ],
           "tool_choice": "auto"
         },
-        "timestamp": 1788908725591
+        "timestamp": 1791508543371
       },
       "response": {
         "status": 200,
@@ -563,33 +564,34 @@
           "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
           "alt-svc": "h3=\":443\"; ma=86400",
           "cf-cache-status": "DYNAMIC",
-          "cf-ray": "a381990f7bcddf67-DFW",
+          "cf-ray": "a479892c2c3bc543-ORD",
           "connection": "keep-alive",
           "content-type": "application/json",
-          "date": "Tue, 08 Sep 2026 23:05:26 GMT",
-          "openai-processing-ms": "672",
+          "date": "Fri, 09 Oct 2026 01:15:43 GMT",
+          "openai-processing-ms": "537",
           "openai-version": "2020-10-01",
           "server": "cloudflare",
           "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
           "x-content-type-options": "nosniff",
-          "x-ratelimit-limit-requests": "10000",
-          "x-ratelimit-limit-tokens": "10000000",
-          "x-ratelimit-remaining-requests": "9999",
-          "x-ratelimit-remaining-tokens": "9999101",
-          "x-ratelimit-reset-requests": "6ms",
-          "x-ratelimit-reset-tokens": "5ms",
-          "x-request-id": "req_88d7e932f1944fd9bea379268bd5f45b"
+          "x-ratelimit-limit-requests": "30000",
+          "x-ratelimit-limit-tokens": "150000000",
+          "x-ratelimit-remaining-requests": "29998",
+          "x-ratelimit-remaining-tokens": "149998217",
+          "x-ratelimit-reset-requests": "4ms",
+          "x-ratelimit-reset-tokens": "0s",
+          "x-request-id": "req_9c0785f920f1470784598804a7fa60b1"
         },
         "body": {
-          "id": "resp_092c5ef1dfeed54a006aa094b5bcc087d18ca8b0b35885fd17",
+          "id": "resp_09067127d71ad28e006ac8403f759887d18ea19421bdb57628",
           "object": "response",
-          "created_at": 1788908725,
+          "created_at": 1791508543,
           "status": "completed",
+          "access_programs": null,
           "background": false,
           "billing": {
             "payer": "developer"
           },
-          "completed_at": 1788908726,
+          "completed_at": 1791508543,
           "error": null,
           "frequency_penalty": 0,
           "incomplete_details": null,
@@ -600,7 +602,7 @@
           "moderation": null,
           "output": [
             {
-              "id": "msg_092c5ef1dfeed54a006aa094b6331087d1adc51d8569f5f599",
+              "id": "msg_09067127d71ad28e006ac8403fc78c87d1a6a9e58b66a706ea",
               "type": "message",
               "status": "completed",
               "content": [

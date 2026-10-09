@@ -1,10 +1,11 @@
 {
   "meta": {
     "name": "test-ff9e8c10",
-    "testFile": "packages/core/src/agent/__tests__/stopWhen.e2e.test.ts",
+    "testFile": "src/agent/__tests__/stopWhen.e2e.test.ts",
     "testName": "agent.stopWhen > should demonstrate that stopWhen gets the proper step results in the first step",
     "model": "gpt-4o-mini",
-    "createdAt": "2026-05-20T15:37:05.751Z"
+    "createdAt": "2026-05-20T15:37:05.751Z",
+    "updatedAt": "2026-10-09T01:14:59.553Z"
   },
   "recordings": [
     {
@@ -42,7 +43,9 @@
                     "type": "string"
                   }
                 },
-                "required": ["location"],
+                "required": [
+                  "location"
+                ],
                 "additionalProperties": false
               },
               "strict": false
@@ -59,7 +62,9 @@
                     "type": "string"
                   }
                 },
-                "required": ["temperature"],
+                "required": [
+                  "temperature"
+                ],
                 "additionalProperties": false
               },
               "strict": false
@@ -68,7 +73,7 @@
           "tool_choice": "auto",
           "stream": true
         },
-        "timestamp": 1779291423518
+        "timestamp": 1791508498203
       },
       "response": {
         "status": 200,
@@ -77,38 +82,53 @@
           "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
           "alt-svc": "h3=\":443\"; ma=86400",
           "cf-cache-status": "DYNAMIC",
-          "cf-ray": "9fec6ba63fb61a55-BRU",
+          "cf-ray": "a47988128ecf75e4-ORD",
           "connection": "keep-alive",
           "content-type": "text/event-stream; charset=utf-8",
-          "date": "Wed, 20 May 2026 15:37:04 GMT",
-          "openai-organization": "personal-zxkt1f",
-          "openai-processing-ms": "141",
-          "openai-project": "proj_UQ5rzUDfvZzGqHpSXl27HCzr",
+          "date": "Fri, 09 Oct 2026 01:14:58 GMT",
+          "openai-processing-ms": "421",
           "openai-version": "2020-10-01",
           "server": "cloudflare",
           "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
           "x-content-type-options": "nosniff",
-          "x-request-id": "req_0c14a1a7b0b6428d8e262f6606f95d37"
+          "x-ratelimit-limit-requests": "30000",
+          "x-ratelimit-limit-tokens": "150000000",
+          "x-ratelimit-remaining-requests": "29999",
+          "x-ratelimit-remaining-tokens": "149999675",
+          "x-ratelimit-reset-requests": "2ms",
+          "x-ratelimit-reset-tokens": "0s",
+          "x-request-id": "req_560db77d52004869885912e5d4fb94ea"
         },
         "chunks": [
-          "event: response.created\ndata: {\"type\":\"response.created\",\"response\":{\"id\":\"resp_028ca137b813f4d9006a0dd51fdb58819688debcfb0e593f1a\",\"object\":\"response\",\"created_at\":1779291423,\"status\":\"in_progress\",\"background\":false,\"completed_at\":null,\"error\":null,\"frequency_penalty\":0.0,\"incomplete_details\":null,\"instructions\":null,\"max_output_tokens\":null,\"max_tool_c",
-          "alls\":null,\"model\":\"gpt-4o-mini-2024-07-18\",\"moderation\":null,\"output\":[],\"parallel_tool_calls\":true,\"presence_penalty\":0.0,\"previous_response_id\":null,\"prompt_cache_key\":null,\"prompt_cache_retention\":\"in_memory\",\"reasoning\":{\"effort\":null,\"summary\":null},\"safety_identifier\":null,\"service_tier\":\"auto\",\"store\":true,\"temperature\":1.0,\"text\":{\"format\":{\"type\":\"text\"},\"verbosity\":\"medium\"},\"tool_choice\":\"auto\",\"tools\":[{\"type\":\"function\",\"description\":\"Get weather for a location\",\"name\":\"weatherTool\",\"parameters\":{\"type\":\"object\",\"properties\":{\"location\":{\"type\":\"string\"}},\"required\":[\"location\"],\"additionalProperties\":false},\"strict\":false},{\"type\":\"function\",\"description\":\"Plan activities based on the weather\",\"name\":\"planActivities\",\"parameters\":{\"type\":\"object\",\"properties\":{\"temperature\":{\"type\":\"string\"}},\"required\":[\"temperature\"],\"additionalProperties\":false},\"strict\":false}],\"top_logprobs\":0,\"top_p\":1.0,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"metadata\":{}},\"sequence_number\":0}\n\nevent: response.in_progress\ndata: {\"type\":\"response.in_progress\",\"response\":{\"id\":\"resp_028ca137b813f4d9006a0dd51fdb58819688debcfb0e593f1a\",\"object\":\"response\",\"created_at\":1779291423,\"status\":\"in_progress\",\"background\":false,\"completed_at\":null,\"error\":null,\"frequency_penalty\":0.0,\"incomplete_details\":null,\"instructions\":null,\"max_output_tokens\":null,\"max_to",
-          "ol_calls\":null,\"model\":\"gpt-4o-mini-2024-07-18\",\"moderation\":null,\"output\":[],\"parallel_tool_calls\":true,\"presence_penalty\":0.0,\"previous_response_id\":null,\"prompt_cache_key\":null,\"prompt_cache_retention\":\"in_memory\",\"reasoning\":{\"effort\":null,\"summary\":null},\"safety_identifier\":null,\"service_tier\":\"auto\",\"store\":true,\"temperature\":1.0,\"text\":{\"format\":{\"type\":\"text\"},\"verbosity\":\"medium\"},\"tool_choice\":\"auto\",\"tools\":[{\"type\":\"function\",\"description\":\"Get weather for a location\",\"name\":\"weatherTool\",\"parameters\":{\"type\":\"object\",\"properties\":{\"location\":{\"type\":\"string\"}},\"required\":[\"location\"],\"additionalProperties\":false},\"strict\":false},{\"type\":\"function\",\"description\":\"Plan activities based on the weather\",\"name\":\"planActivities\",\"parameters\":{\"type\":\"object\",\"properties\":{\"temperature\":{\"type\":\"string\"}},\"required\":[\"temperature\"],\"additionalProperties\":false},\"strict\":false}],\"top_logprobs\":0,\"top_p\":1.0,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"metadata\":{}},\"sequence_number\":1}\n\n",
-          "event: response.output_item",
-          ".added\ndata: {\"type\":\"response.output_item.added\",\"item\":{\"id\":\"fc_028ca137b813f4d9006a0dd520965881969660343b0cbb6d50\",\"type\":\"function_call\",\"status\":\"in_progress\",\"arguments\":\"\",\"call_id\":\"call_WfKBHCZFuyIMyMxDZ8DIucBl\",\"name\":\"weatherTool\"},\"output_index\":0,\"sequence_number\":2}\n\n",
-          "event: response.function_call_arguments.delta\ndata: {\"type\":\"response.function_call_arguments.delta\",\"delta\":\"{\\\"\",\"item_id\":\"fc_028ca137b813f4d9006a0dd520965881969660343b0cbb6d50\",\"obfuscation\":\"VSItiOz8Ov6lh2\",\"output_index\":0,\"sequence_number\":3}\n\n",
-          "event: response.function_call_arguments.delta\ndata: {\"type\":\"response.function_call_arguments.delta\",\"delta\":\"location\",\"item_id\":\"fc_028ca137b813f4d9006a0dd520965881969660343b0cbb6d50\",\"obfuscation\":\"Rbkplst4\",\"output_index\":0,\"sequence_number\":4}\n\n",
-          "event: response.function_call_arguments.delta\ndata: {\"type\":\"response.function_call_arguments.delta\",\"delta\":\"\\\":\\\"\",\"item_id\":\"fc_028ca137b813f4d9006a0dd520965881969660343b0cbb6d50\",\"obfuscation\":\"U92YGgHCbQFRo\",\"output_index\":0,\"sequence_number\":5}\n\n",
-          "event: response.function_call_arguments.delta\ndata: {\"type\":\"response.function_call_arguments.delta\",\"delta\":\"Toronto\",\"item_id\":\"fc_028ca137b813f4d9006a0dd520965881969660343b0cbb6d50\",\"obfuscation\":\"clP7c3MSl\",\"output_index\":0,\"sequence_number\":6}\n\n",
-          "event: response.function_cal",
-          "l_arguments.delta\ndata: {\"type\":\"response.function_call_arguments.delta\",\"delta\":\"\\\"}\",\"item_id\":\"fc_028ca137b813f4d9006a0dd520965881969660343b0cbb6d50\",\"obfuscation\":\"xNM5AyYc4uK3Pl\",\"output_index\":0,\"sequence_number\":7}\n\n",
-          "event: response.function_call_arguments.done\ndata: {\"type\":\"response.function_call_arguments.done\",\"arguments\":\"{\\\"location\\\":\\\"Toronto\\\"}\",\"item_id\":\"fc_028ca137b813f4d9006a0dd520965881969660343b0cbb6d50\",\"output_index\":0,\"sequence_number\":8}\n\n",
-          "event: response.output_item.done\ndata: {\"type\":\"response.output_item.done\",\"item\":{\"id\":\"fc_028ca137b813f4d9006a0dd520965881969660343b0cbb6d50\",\"type\":\"function_call\",\"status\":\"completed\",\"arguments\":\"{\\\"location\\\":\\\"Toronto\\\"}\",\"call_id\":\"call_WfKBHCZFuyIMyMxDZ8DIucBl\",\"name\":\"weatherTool\"},\"output_index\":0,\"sequence_number\":9}\n\n",
-          "event: response.completed\nd",
-          "ata: {\"type\":\"response.completed\",\"response\":{\"id\":\"resp_028ca137b813f4d9006a0dd51fdb58819688debcfb0e593f1a\",\"object\":\"response\",\"created_at\":1779291423,\"status\":\"completed\",\"background\":false,\"completed_at\":1779291424,\"error\":null,\"frequency_penalty\":0.0,\"incomplete_details\":null,\"instructions\":null,\"max_output_tokens\":null,\"max_tool_calls\":null,\"model\":\"gpt-4o-mini-2024-07-18\",\"moderation\":null,\"output\":[{\"id\":\"fc_028ca137b813f4d9006a0dd520965881969660343b0cbb6d50\",\"type\":\"function_call\",\"status\":\"completed\",\"arguments\":\"{\\\"location\\\":\\\"Toronto\\\"}\",\"call_id\":\"call_WfKBHCZFuyIMyMxDZ8DIucBl\",\"name\":\"weatherTool\"}],\"parallel_tool_calls\":true,\"presence_penalty\":0.0,\"previous_response_id\":null,\"prompt_cache_key\":null,\"prompt_cache_retention\":\"in_memory\",\"reasoning\":{\"effort\":null,\"summary\":null},\"safety_identifier\":null,\"service_tier\":\"default\",\"store\":true,\"temperature\":1.0,\"text\":{\"format\":{\"type\":\"text\"},\"verbosity\":\"medium\"},\"tool_choice\":\"auto\",\"tools\":[{\"type\":\"function\",\"description\":\"Get weather for a location\",\"name\":\"weatherTool\",\"parameters\":{\"type\":\"object\",\"properties\":{\"location\":{\"type\":\"string\"}},\"required\":[\"location\"],\"additionalProperties\":false},\"strict\":false},{\"type\":\"function\",\"description\":\"Plan activities based on the weather\",\"name\":\"planActivities\",\"parameters\":{\"type\":\"object\",\"properties\":{\"temperature\":{\"type\":\"stri",
-          "ng\"}},\"required\":[\"temperature\"],\"additionalProperties\":false},\"strict\":false}],\"top_logprobs\":0,\"top_p\":1.0,\"truncation\":\"disabled\",\"usage\":{\"input_tokens\":110,\"input_tokens_details\":{\"cached_tokens\":0},\"output_tokens\":15,\"output_tokens_details\":{\"reasoning_tokens\":0},\"total_tokens\":125},\"user\":null,\"metadata\":{}},\"sequence_number\":10}\n\n"
+          "event: response.created\ndata: {\"type\":\"response.created\",\"response\":{\"id\":\"resp_0981b2c64a3105ff006ac84012806487d194ebefebea2362f9\",\"object\":\"re",
+          "sponse\",\"created_at\":1791508498,\"status\":\"in_progress\",\"access_programs\":null,\"background\":false,\"completed_at\":null,\"error\":null,\"frequency_penalty\":0.0,\"incomplete_details\":null,\"instructions\":null,\"max_output_tokens\":null,\"max_tool_calls\":null,\"model\":\"gpt-4o-mini-2024-07-18\",\"moderation\":null,\"output\":[],\"parallel_tool_calls\":true,\"presence_penalty\":0.0,\"previous_response_id\":null,\"prompt_cache_key\":null,\"prompt_cache_retention\":\"in_memory\",\"reasoning\":{\"context\":null,\"effort\":null,\"summary\":null},\"safety_identifier\":null,\"service_tier\":\"auto\",\"store\":true,\"temperature\":1.0,\"text\":{\"format\":{\"type\":\"text\"},\"verbosity\":\"medium\"},\"tool_choice\":\"auto\",\"tool_usage\":{\"image_gen\":{\"input_tokens\":0,\"input_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"output_tokens\":0,\"output_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"total_tokens\":0},\"web_search\":{\"num_requests\":0}},\"tools\":[{\"type\":\"function\",\"description\":\"Get weather for a location\",\"name\":\"weatherTool\",\"output_schema\":null,\"parameters\":{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"type\":\"object\",\"properties\":{\"location\":{\"type\":\"string\"}},\"required\":[\"location\"],\"additionalProperties\":false},\"strict\":false},{\"type\":\"function\",\"description\":\"Plan activities based on the weather\",\"name\":\"planActivities\",\"output_schema\":null,\"parameters\":{\"$schema\":\"http://json-schema.org/draf",
+          "t-07/schema#\",\"type\":\"object\",\"properties\":{\"temperature\":{\"type\":\"string\"}},\"required\":[\"temperature\"],\"additionalProperties\":false},\"strict\":false}],\"top_logprobs\":0,\"top_p\":1.0,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"metadata\":{}},\"sequence_number\":0}\n\nevent: response.in_progress\ndata: {\"type\":\"response.in_progress\",\"response\":{\"id\":\"resp_0981b2c64a3105ff006ac84012806487d194ebefebea2362f9\",\"object\":\"response\",\"created_at\":1791508498,\"status\":\"in_progress\",\"access_programs\":null,\"background\":false,\"completed_at\":null,\"error\":null,\"frequency_penalty\":0.0,\"incomplete_details\":null,\"instructions\":null,\"max_output_tokens\":null,\"max_tool_calls\":null,\"model\":\"gpt-4o-mini-2024-07-18\",\"moderation\":null,\"output\":[],\"parallel_tool_calls\":true,\"presence_penalty\":0.0,\"previous_response_id\":null,\"prompt_cache_key\":null,\"prompt_cache_retention\":\"in_memory\",\"reasoning\":{\"context\":null,\"effort\":null,\"summary\":null},\"safety_identifier\":null,\"service_tier\":\"auto\",\"store\":true,\"temperature\":1.0,\"text\":{\"format\":{\"type\":\"text\"},\"verbosity\":\"medium\"},\"tool_choice\":\"auto\",\"tool_usage\":{\"image_gen\":{\"input_tokens\":0,\"input_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"output_tokens\":0,\"output_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"total_tokens\":0},\"web_search\":{\"num_requests\":0}},\"tools\":[{\"type\":\"function\",\"description\":\"Get weather for a",
+          " location\",\"name\":\"weatherTool\",\"output_schema\":null,\"parameters\":{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"type\":\"object\",\"properties\":{\"location\":{\"type\":\"string\"}},\"required\":[\"location\"],\"additionalProperties\":false},\"strict\":false},{\"type\":\"function\",\"description\":\"Plan activities based on the weather\",\"name\":\"planActivities\",\"output_schema\":null,\"parameters\":{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"type\":\"object\",\"properties\":{\"temperature\":{\"type\":\"string\"}},\"required\":[\"temperature\"],\"additionalProperties\":false},\"strict\":false}],\"top_logprobs\":0,\"top_p\":1.0,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"metadata\":{}},\"sequence_number\":1}\n\n",
+          "event: response.output_item.added\ndata: {\"type\":\"response.output_item.added\",\"item\":{\"id\":\"fc_0981b2c64a3105ff006ac84012f3ac87d1ad94ff20820dc357\",\"type\":\"function_call\",\"status\":\"in_progress\",\"arguments\":\"\",\"call_id\":\"call_NHNOcrDuFS9G4QtfFXf8vYEd\",\"name\":\"weatherTool\"},\"output_index\":0,\"sequence_number\":2}\n\n",
+          "event: response.function_call_arguments.delta\ndata: {\"type\":\"response.function_call_arguments.delta\",\"delta\":\"{\\\"\",\"item_id\":\"fc_0981b2c64a3105ff006ac84012f3ac87d1ad94ff20820dc357\",\"obfuscation\":\"ElNELmE56vocIf\",\"output_index\":0,\"sequence_number\":3}\n\nevent: response.function_call_arguments.delta\ndata: {\"type\":\"response.function_call_arguments.delta\",\"delta\":\"location\",\"item_id\":\"fc_0981b2c64a3105ff006ac84012f3ac87d1ad94ff20820dc357\",\"obfuscation\":\"EZi8OJR3\",\"output_index\":0,\"sequence_number\":4}\n\n",
+          "event: response.function_call_arguments.delta\ndata: {\"type\":\"response.function_call_arguments.delta\",\"delta\":\"\\\":\\\"\",\"item_id\":\"fc_0981b2c64a3105ff006ac84012f3ac87d1ad94ff20820dc357\",\"obfuscation\":\"1Hitj9DNbOpWg\",\"output_index\":0,\"sequence_number\":5}\n\n",
+          "event: response.function_call_arguments.delta\ndata: {\"type\":\"response.function_call_arguments.delta\",\"delta\":\"Toronto\",\"item_id\":\"fc_0981b2c64a3105ff006ac84012f3ac87d1ad94ff20820dc357\",\"obfuscation\":\"Y0RYz5d6I\",\"output_index\":0,\"sequence_number\":6}\n\nevent: response.function_c",
+          "all_arguments.delta\ndata: {\"type\":\"response.function_call_arguments.delta\",\"delta\":\"\\\"}\",\"item_id\":\"fc_0981b2c64a3105ff006ac84012f3ac87d1ad94ff20820dc357\",\"obfuscation\":\"FxzDuymu6HSeEL\",\"output_index\":0,\"sequence_number\":7}\n\n",
+          "event: response.function_call_arguments.done\ndata: {\"type\":\"response.function_call_arguments.done\",\"arguments\":\"{\\\"location\\\":\\\"Toronto\\\"}\",\"item_id\":\"fc_0981b2c64a3105ff006ac84012f3ac87d1ad94ff20820dc357\",\"output_index\":0,\"sequence_number\":8}\n\n",
+          "event: response.output_item.done\ndata: {\"type\":\"response.output_item.done\",\"item\":{\"id\":\"fc_0981b2c64a3105ff006ac84012f3ac87d1ad94ff20820dc357\",\"type\":\"function_call\",\"status\":\"completed\",\"arguments\":\"{\\\"location\\\":\\\"Toronto\\\"}\",\"call_id\":\"call_NHNOcrDuFS9G4QtfFXf8vYEd\",\"name\":\"weatherTool\"},\"output_index\":0,\"sequence_number\":9}\n\n",
+          "event: response.completed\ndata: {\"type\":\"response.completed\",\"response\":{\"id\":\"resp_0981b2c64a3105ff006ac84012806487d194ebefebea2362f9\",\"object\":\"response\",\"created_at\":1791508498,\"status\":\"completed\",\"access_programs\":null,\"background\":false,\"completed_at\":1791508499,\"error\":null,\"frequency_penalty\":0.0,\"incomplete_details\":null,\"instructions\":null,\"max_output_tokens\":null,\"max_tool_calls\":null,\"model\":\"gpt-4o-mini-2024-07-18\",\"moderation\":null,\"output\":[{\"id\":\"fc_0981b2c64a3105ff006ac84012f3ac87d1ad94ff20820dc357\",\"type\":\"function_call\",\"status\":\"completed\",\"arguments\":\"{\\\"location\\\":\\\"Toronto\\\"}\",\"call_id\":\"call_NHNOcrDuFS9G4QtfFXf8vYEd\",\"name\":\"weatherTool\"}],\"parallel_tool_calls\":true,\"presence_penalty\":0.0,\"previous_response_id\":null,\"prompt_cache_key\":null,\"prompt_cache_retention\":\"in_memory\",\"reasoning\":{\"context\":null,\"effort\":null,\"summary\":null},\"safety_identifier\":null,\"service_tier\":\"default\",\"store\":true,\"temperature\":1.0,\"text\":{\"format\":{\"type\":\"text\"},\"verbosity\":\"medium\"},\"tool_choice\":\"auto\",\"tool_usage\":{\"image_gen\":{\"input_tokens\":0,\"input_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"output_tokens\":0,\"output_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"total_tokens\":0},\"web_search\":{\"num_requests\":0}},\"tools\":[{\"type\":\"function\",\"description\":\"Get weather for a location\",\"name\":\"weatherTool\",\"output_schema\":",
+          "null,\"parameters\":{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"type\":\"object\",\"properties\":{\"location\":{\"type\":\"string\"}},\"required\":[\"location\"],\"additionalProperties\":false},\"strict\":false},{\"type\":\"function\",\"description\":\"Plan activities based on the weather\",\"name\":\"planActivities\",\"output_schema\":null,\"parameters\":{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"type\":\"object\",\"properties\":{\"temperature\":{\"type\":\"string\"}},\"required\":[\"temperature\"],\"additionalProperties\":false},\"strict\":false}],\"top_logprobs\":0,\"top_p\":1.0,\"truncation\":\"disabled\",\"usage\":{\"input_tokens\":110,\"input_tokens_details\":{\"cache_write_tokens\":0,\"cached_tokens\":0},\"output_tokens\":15,\"output_tokens_details\":{\"reasoning_tokens\":0},\"total_tokens\":125},\"user\":null,\"metadata\":{}},\"sequence_number\":10}\n\n"
         ],
-        "chunkTimings": [1, 0, 1, 616, 0, 3, 19, 9, 16, 2, 0, 97, 0, 89, 0, 0],
+        "chunkTimings": [
+          1,
+          1,
+          0,
+          0,
+          35,
+          0,
+          34,
+          3,
+          0,
+          49,
+          6,
+          70,
+          1
+        ],
         "isStreaming": true
       }
     }

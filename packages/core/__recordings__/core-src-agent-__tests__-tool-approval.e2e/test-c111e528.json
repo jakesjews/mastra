@@ -5,7 +5,7 @@
     "testName": "tool approval and suspension > suspension > should call findUserTool with suspend and resume via generate",
     "model": "gpt-4o-mini",
     "createdAt": "2026-05-18T10:51:42.894Z",
-    "updatedAt": "2026-08-12T23:59:30.290Z"
+    "updatedAt": "2026-10-09T01:17:28.560Z"
   },
   "recordings": [
     {
@@ -53,7 +53,7 @@
           ],
           "tool_choice": "auto"
         },
-        "timestamp": 1786579168329
+        "timestamp": 1791508646365
       },
       "response": {
         "status": 200,
@@ -62,35 +62,34 @@
           "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
           "alt-svc": "h3=\":443\"; ma=86400",
           "cf-cache-status": "DYNAMIC",
-          "cf-ray": "a2a36f1a4eafcf2e-SJC",
+          "cf-ray": "a4798bafea1bb834-ORD",
           "connection": "keep-alive",
           "content-type": "application/json",
-          "date": "Wed, 12 Aug 2026 23:59:29 GMT",
-          "openai-organization": "redacted",
-          "openai-processing-ms": "793",
-          "openai-project": "redacted",
+          "date": "Fri, 09 Oct 2026 01:17:27 GMT",
+          "openai-processing-ms": "862",
           "openai-version": "2020-10-01",
           "server": "cloudflare",
           "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
           "x-content-type-options": "nosniff",
-          "x-ratelimit-limit-requests": "5000",
-          "x-ratelimit-limit-tokens": "2000000",
-          "x-ratelimit-remaining-requests": "4999",
-          "x-ratelimit-remaining-tokens": "1999711",
-          "x-ratelimit-reset-requests": "12ms",
-          "x-ratelimit-reset-tokens": "8ms",
-          "x-request-id": "req_c57219bccf264efd99e4546549d99fd4"
+          "x-ratelimit-limit-requests": "30000",
+          "x-ratelimit-limit-tokens": "150000000",
+          "x-ratelimit-remaining-requests": "29997",
+          "x-ratelimit-remaining-tokens": "149998782",
+          "x-ratelimit-reset-requests": "6ms",
+          "x-ratelimit-reset-tokens": "0s",
+          "x-request-id": "req_239a092389e44513b8bcebe21c87d80c"
         },
         "body": {
-          "id": "resp_0466783accac9fae006a7d08e066d48199987140f3ec92b681",
+          "id": "resp_036034efb21f0dde006ac840a6716887d19bcb89a384c3be8f",
           "object": "response",
-          "created_at": 1786579168,
+          "created_at": 1791508646,
           "status": "completed",
+          "access_programs": null,
           "background": false,
           "billing": {
             "payer": "developer"
           },
-          "completed_at": 1786579169,
+          "completed_at": 1791508647,
           "error": null,
           "frequency_penalty": 0,
           "incomplete_details": null,
@@ -101,11 +100,11 @@
           "moderation": null,
           "output": [
             {
-              "id": "fc_0466783accac9fae006a7d08e0e4b08199a1a850b1fe6ef267",
+              "id": "fc_036034efb21f0dde006ac840a702bc87d1955ae84bdf4ab987",
               "type": "function_call",
               "status": "completed",
               "arguments": "{\"name\":\"Dero Israel\"}",
-              "call_id": "call_ool5ZBh0bK8mh1w4Utu9HFgm",
+              "call_id": "call_EF6DZyDPHJenSoihIgfaQGSF",
               "name": "findUserTool"
             }
           ],
@@ -192,7 +191,7 @@
       }
     },
     {
-      "hash": "1dd1f13f69e25a3e",
+      "hash": "369e9838f68ca9fc",
       "request": {
         "url": "https://api.openai.com/v1/responses",
         "method": "POST",
@@ -214,12 +213,12 @@
             },
             {
               "type": "item_reference",
-              "id": "fc_0466783accac9fae006a7d08e0e4b08199a1a850b1fe6ef267"
+              "id": "fc_036034efb21f0dde006ac840a702bc87d1955ae84bdf4ab987"
             },
             {
               "type": "function_call_output",
-              "call_id": "call_ool5ZBh0bK8mh1w4Utu9HFgm",
-              "output": "{\"name\":\"Dero Israel\",\"email\":\"test@test.com\"}"
+              "call_id": "call_EF6DZyDPHJenSoihIgfaQGSF",
+              "output": "{\"email\":\"test@test.com\",\"name\":\"Dero Israel\"}"
             }
           ],
           "tools": [
@@ -245,7 +244,7 @@
           ],
           "tool_choice": "auto"
         },
-        "timestamp": 1786579169393
+        "timestamp": 1791508647376
       },
       "response": {
         "status": 200,
@@ -254,35 +253,34 @@
           "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
           "alt-svc": "h3=\":443\"; ma=86400",
           "cf-cache-status": "DYNAMIC",
-          "cf-ray": "a2a36f20dab3cf2e-SJC",
+          "cf-ray": "a4798bb628a9b834-ORD",
           "connection": "keep-alive",
           "content-type": "application/json",
-          "date": "Wed, 12 Aug 2026 23:59:30 GMT",
-          "openai-organization": "redacted",
-          "openai-processing-ms": "675",
-          "openai-project": "redacted",
+          "date": "Fri, 09 Oct 2026 01:17:28 GMT",
+          "openai-processing-ms": "1046",
           "openai-version": "2020-10-01",
           "server": "cloudflare",
           "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
           "x-content-type-options": "nosniff",
-          "x-ratelimit-limit-requests": "5000",
-          "x-ratelimit-limit-tokens": "2000000",
-          "x-ratelimit-remaining-requests": "4999",
-          "x-ratelimit-remaining-tokens": "1999671",
-          "x-ratelimit-reset-requests": "12ms",
-          "x-ratelimit-reset-tokens": "9ms",
-          "x-request-id": "req_59f2fdb5dab94576b02abfdf2054290a"
+          "x-ratelimit-limit-requests": "30000",
+          "x-ratelimit-limit-tokens": "150000000",
+          "x-ratelimit-remaining-requests": "29999",
+          "x-ratelimit-remaining-tokens": "149999655",
+          "x-ratelimit-reset-requests": "2ms",
+          "x-ratelimit-reset-tokens": "0s",
+          "x-request-id": "req_8d50f08db1a8419887f58b091d94430d"
         },
         "body": {
-          "id": "resp_0466783accac9fae006a7d08e1793c81998733c6e04d2bdfbd",
+          "id": "resp_036034efb21f0dde006ac840a7767887d1aa15fb522042aca6",
           "object": "response",
-          "created_at": 1786579169,
+          "created_at": 1791508647,
           "status": "completed",
+          "access_programs": null,
           "background": false,
           "billing": {
             "payer": "developer"
           },
-          "completed_at": 1786579170,
+          "completed_at": 1791508648,
           "error": null,
           "frequency_penalty": 0,
           "incomplete_details": null,
@@ -293,7 +291,7 @@
           "moderation": null,
           "output": [
             {
-              "id": "msg_0466783accac9fae006a7d08e1e1108199a6677f8136c17b81",
+              "id": "msg_036034efb21f0dde006ac840a8107087d18d7b786c58d0da8b",
               "type": "message",
               "status": "completed",
               "content": [
@@ -301,7 +299,7 @@
                   "type": "output_text",
                   "annotations": [],
                   "logprobs": [],
-                  "text": "The user **Dero Israel** has the email **test@test.com**."
+                  "text": "The user Dero Israel has the email: **test@test.com**."
                 }
               ],
               "role": "assistant"
@@ -377,11 +375,11 @@
               "cache_write_tokens": 0,
               "cached_tokens": 0
             },
-            "output_tokens": 18,
+            "output_tokens": 17,
             "output_tokens_details": {
               "reasoning_tokens": 0
             },
-            "total_tokens": 130
+            "total_tokens": 129
           },
           "user": null,
           "metadata": {}
