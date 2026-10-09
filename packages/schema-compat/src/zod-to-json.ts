@@ -245,15 +245,41 @@ export function ensureAllPropertiesRequired(schema: JSONSchema7): JSONSchema7 {
   return result;
 }
 
+export interface OpenAIStrictModeOptions {
+  /**
+   * Keep the constraints OpenAI itself enforces (string, number and array bounds, `pattern`
+   * and the supported string formats) as schema keywords. OpenAI-compatible servers often
+   * reject them, so by default they are folded into each node's `description`.
+   */
+  keepEnforcedConstraints?: boolean;
+}
+
 /**
  * Prepare a JSON Schema for OpenAI strict mode by ensuring all object properties
  * are required and all objects have additionalProperties: false.
  */
-export function prepareJsonSchemaForOpenAIStrictMode(schema: JSONSchema7): JSONSchema7 {
+export function prepareJsonSchemaForOpenAIStrictMode(
+  schema: JSONSchema7,
+  options: OpenAIStrictModeOptions = {},
+): JSONSchema7 {
   const withRequired = ensureAllPropertiesRequired(schema);
   const withoutAdditional = ensureAdditionalPropertiesFalse(withRequired);
-  return stripUnsupportedStrictModeKeywords(withoutAdditional);
+  return stripUnsupportedStrictModeKeywords(withoutAdditional, options);
 }
+
+// String formats OpenAI Structured Outputs strict mode enforces.
+// @see https://developers.openai.com/api/docs/guides/structured-outputs#supported-schemas
+export const STRICT_MODE_STRING_FORMATS = [
+  'date-time',
+  'time',
+  'date',
+  'duration',
+  'email',
+  'hostname',
+  'ipv4',
+  'ipv6',
+  'uuid',
+] as const;
 
 // Keywords OpenAI Structured Outputs strict mode rejects and that carry no natural-language
 // intent worth preserving. They are removed silently.
@@ -393,29 +419,34 @@ function appendConstraintsToDescription(description: string | undefined, constra
  * Constraints with useful intent (length/number/pattern/format/uniqueness bounds) are folded
  * into the node's `description` — matching how the tool-path SchemaCompatLayer degrades them
  * in schema-compatibility.ts — while purely structural unsupported keywords are dropped.
+ * With `keepEnforcedConstraints`, the bounds, patterns and formats OpenAI enforces are left alone.
  */
-function stripUnsupportedStrictModeKeywords(schema: JSONSchema7): JSONSchema7 {
+function stripUnsupportedStrictModeKeywords(schema: JSONSchema7, options: OpenAIStrictModeOptions): JSONSchema7 {
   if (typeof schema !== 'object' || schema === null) {
     return schema;
   }
 
+  const strip = (node: JSONSchema7) => stripUnsupportedStrictModeKeywords(node, options);
+  const keepEnforced = options.keepEnforcedConstraints === true;
   const result = { ...schema } as JSONSchema7 & Record<string, unknown>;
   const constraints: string[] = [];
 
   // Array bounds
-  const { minItems, maxItems } = result;
-  if (minItems !== undefined && maxItems !== undefined && minItems === maxItems) {
-    constraints.push(`exact length ${minItems}`);
-  } else {
-    if (minItems !== undefined) {
-      constraints.push(`minimum length ${minItems}`);
+  if (!keepEnforced) {
+    const { minItems, maxItems } = result;
+    if (minItems !== undefined && maxItems !== undefined && minItems === maxItems) {
+      constraints.push(`exact length ${minItems}`);
+    } else {
+      if (minItems !== undefined) {
+        constraints.push(`minimum length ${minItems}`);
+      }
+      if (maxItems !== undefined) {
+        constraints.push(`maximum length ${maxItems}`);
+      }
     }
-    if (maxItems !== undefined) {
-      constraints.push(`maximum length ${maxItems}`);
-    }
+    delete result.minItems;
+    delete result.maxItems;
   }
-  delete result.minItems;
-  delete result.maxItems;
 
   if (result.uniqueItems === true) {
     constraints.push('all items must be unique');
@@ -423,47 +454,55 @@ function stripUnsupportedStrictModeKeywords(schema: JSONSchema7): JSONSchema7 {
   delete result.uniqueItems;
 
   // String bounds
-  if (result.minLength !== undefined) {
-    constraints.push(`minimum length ${result.minLength}`);
-    delete result.minLength;
+  if (!keepEnforced) {
+    if (result.minLength !== undefined) {
+      constraints.push(`minimum length ${result.minLength}`);
+      delete result.minLength;
+    }
+    if (result.maxLength !== undefined) {
+      constraints.push(`maximum length ${result.maxLength}`);
+      delete result.maxLength;
+    }
   }
-  if (result.maxLength !== undefined) {
-    constraints.push(`maximum length ${result.maxLength}`);
-    delete result.maxLength;
-  }
-  if (result.format !== undefined) {
+  // An unsupported format also takes the regex Zod pairs with it, which OpenAI may reject too.
+  const foldFormat =
+    result.format !== undefined &&
+    !(keepEnforced && (STRICT_MODE_STRING_FORMATS as readonly string[]).includes(result.format));
+  if (foldFormat) {
     constraints.push(`a valid ${result.format}`);
     delete result.format;
   }
-  if (result.pattern !== undefined) {
+  if (result.pattern !== undefined && (!keepEnforced || foldFormat)) {
     constraints.push(`input must match this regex ${result.pattern}`);
     delete result.pattern;
   }
 
   // Number bounds
-  if (result.minimum !== undefined) {
-    if (result.minimum !== Number.MIN_SAFE_INTEGER) {
-      constraints.push(`greater than or equal to ${result.minimum}`);
+  if (!keepEnforced) {
+    if (result.minimum !== undefined) {
+      if (result.minimum !== Number.MIN_SAFE_INTEGER) {
+        constraints.push(`greater than or equal to ${result.minimum}`);
+      }
+      delete result.minimum;
     }
-    delete result.minimum;
-  }
-  if (result.maximum !== undefined) {
-    if (result.maximum !== Number.MAX_SAFE_INTEGER) {
-      constraints.push(`lower than or equal to ${result.maximum}`);
+    if (result.maximum !== undefined) {
+      if (result.maximum !== Number.MAX_SAFE_INTEGER) {
+        constraints.push(`lower than or equal to ${result.maximum}`);
+      }
+      delete result.maximum;
     }
-    delete result.maximum;
-  }
-  if (result.exclusiveMinimum !== undefined) {
-    constraints.push(`greater than ${result.exclusiveMinimum}`);
-    delete result.exclusiveMinimum;
-  }
-  if (result.exclusiveMaximum !== undefined) {
-    constraints.push(`lower than ${result.exclusiveMaximum}`);
-    delete result.exclusiveMaximum;
-  }
-  if (result.multipleOf !== undefined) {
-    constraints.push(`multiple of ${result.multipleOf}`);
-    delete result.multipleOf;
+    if (result.exclusiveMinimum !== undefined) {
+      constraints.push(`greater than ${result.exclusiveMinimum}`);
+      delete result.exclusiveMinimum;
+    }
+    if (result.exclusiveMaximum !== undefined) {
+      constraints.push(`lower than ${result.exclusiveMaximum}`);
+      delete result.exclusiveMaximum;
+    }
+    if (result.multipleOf !== undefined) {
+      constraints.push(`multiple of ${result.multipleOf}`);
+      delete result.multipleOf;
+    }
   }
 
   // Structural unsupported keywords with no useful natural-language mapping
@@ -477,28 +516,25 @@ function stripUnsupportedStrictModeKeywords(schema: JSONSchema7): JSONSchema7 {
 
   if (result.properties) {
     result.properties = Object.fromEntries(
-      Object.entries(result.properties).map(([key, value]) => [
-        key,
-        stripUnsupportedStrictModeKeywords(value as JSONSchema7),
-      ]),
+      Object.entries(result.properties).map(([key, value]) => [key, strip(value as JSONSchema7)]),
     );
   }
 
   if (result.items) {
     if (Array.isArray(result.items)) {
-      result.items = result.items.map(item => stripUnsupportedStrictModeKeywords(item as JSONSchema7));
+      result.items = result.items.map(item => strip(item as JSONSchema7));
     } else if (typeof result.items === 'object') {
-      result.items = stripUnsupportedStrictModeKeywords(result.items as JSONSchema7);
+      result.items = strip(result.items as JSONSchema7);
     }
   }
 
   if (result.additionalProperties && typeof result.additionalProperties === 'object') {
-    result.additionalProperties = stripUnsupportedStrictModeKeywords(result.additionalProperties as JSONSchema7);
+    result.additionalProperties = strip(result.additionalProperties as JSONSchema7);
   }
 
   // anyOf is the only composition keyword OpenAI strict mode supports; keep it, strip its branches.
   if (result.anyOf && Array.isArray(result.anyOf)) {
-    result.anyOf = result.anyOf.map(s => stripUnsupportedStrictModeKeywords(s as JSONSchema7));
+    result.anyOf = result.anyOf.map(s => strip(s as JSONSchema7));
   }
 
   // oneOf is unsupported; anyOf is the documented replacement, so convert it.
@@ -510,18 +546,18 @@ function stripUnsupportedStrictModeKeywords(schema: JSONSchema7): JSONSchema7 {
         'Cannot convert schema for OpenAI strict mode: "oneOf" and "anyOf" on the same node cannot be merged without changing semantics',
       );
     }
-    result.anyOf = result.oneOf.map(s => stripUnsupportedStrictModeKeywords(s as JSONSchema7));
+    result.anyOf = result.oneOf.map(s => strip(s as JSONSchema7));
     delete result.oneOf;
   }
 
   // allOf is unsupported; flatten the intersection into the containing node.
   if (result.allOf && Array.isArray(result.allOf)) {
-    const merged = result.allOf.map(s => stripUnsupportedStrictModeKeywords(s as JSONSchema7));
+    const merged = result.allOf.map(s => strip(s as JSONSchema7));
     delete result.allOf;
     mergeAllOfSubschemas(result, merged);
   }
 
-  applyToDefinitions(result, stripUnsupportedStrictModeKeywords);
+  applyToDefinitions(result, strip);
 
   return result;
 }

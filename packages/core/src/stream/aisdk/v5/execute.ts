@@ -343,7 +343,11 @@ export function execute<OUTPUT = undefined>({
     responseFormat?.type === 'json' && !injectionMode && usesOpenAIStrictJsonSchema(model, providerOptions);
 
   if (isStrictJsonSchemaMode && responseFormat?.schema) {
-    responseFormat.schema = prepareJsonSchemaForOpenAIStrictMode(responseFormat.schema);
+    // OpenAI enforces string, number and array constraints itself. OpenAI-compatible
+    // providers often reject them, so they keep getting them as description text.
+    responseFormat.schema = prepareJsonSchemaForOpenAIStrictMode(responseFormat.schema, {
+      keepEnforcedConstraints: model.provider.startsWith('openai'),
+    });
   }
 
   // Only OpenAI providers read `providerOptions.openai`; OpenAI-compatible providers send strict by default

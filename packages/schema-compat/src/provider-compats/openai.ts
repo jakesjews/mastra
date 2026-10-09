@@ -17,20 +17,8 @@ import { SchemaCompatLayer } from '../schema-compatibility';
 import type { PublicSchema, ZodType } from '../schema.types';
 import { standardSchemaToJSONSchema, toStandardSchema } from '../standard-schema/standard-schema';
 import type { StandardSchemaWithJSON } from '../standard-schema/standard-schema.types';
+import { STRICT_MODE_STRING_FORMATS } from '../zod-to-json';
 import { isOptional, isObj, isUnion, isArr, isString, isNullable, isDefault, isIntersection } from '../zodTypes';
-
-// @see https://developers.openai.com/api/docs/guides/structured-outputs#supported-schemas
-const allowedStringFormats = [
-  'date-time',
-  'time',
-  'date',
-  'duration',
-  'email',
-  'hostname',
-  'ipv4',
-  'ipv6',
-  'uuid',
-] as const;
 
 function unorderedArraysEqual(
   left: unknown[],
@@ -269,21 +257,31 @@ export class OpenAISchemaCompatLayer extends SchemaCompatLayer {
       this.defaultAllOfHandler(schema);
     }
 
+    // OpenAI enforces string, number and array constraints itself, so they stay in the schema.
+    // Other providers served by this layer may reject them and get them as description text.
+    const enforcesConstraints = this.getModel().provider.startsWith('openai');
+
     if (isObjectSchema(schema)) {
       this.defaultObjectHandler(schema);
     } else if (isArraySchema(schema)) {
-      this.defaultArrayHandler(schema);
+      if (!enforcesConstraints) {
+        this.defaultArrayHandler(schema);
+      }
     } else if (isNumberSchema(schema)) {
-      this.defaultNumberHandler(schema);
+      if (!enforcesConstraints) {
+        this.defaultNumberHandler(schema);
+      }
     } else if (isStringSchema(schema)) {
       if (schema.format) {
-        if (!(allowedStringFormats as readonly string[]).includes(schema.format as string)) {
+        if (!(STRICT_MODE_STRING_FORMATS as readonly string[]).includes(schema.format as string)) {
           delete schema.format;
           delete schema.pattern;
         }
       }
 
-      this.defaultStringHandler(schema);
+      if (!enforcesConstraints) {
+        this.defaultStringHandler(schema);
+      }
     }
   }
 

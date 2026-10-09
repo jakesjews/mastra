@@ -95,16 +95,11 @@ describe('OpenAISchemaCompatLayer', () => {
         description: 'Max files.',
         anyOf: [{ type: 'integer', format: 'int32', description: 'Max files.' }, { type: 'null' }],
       });
-      for (const keyword of ['minimum', 'maximum', 'multipleOf', 'format']) {
-        expect(ratio).not.toHaveProperty(keyword);
-      }
-      expect(ratio.anyOf.map((b: any) => b.type)).toEqual(['number', 'null']);
-      expect(ratio.description).toContain('greater than or equal to 0');
-      expect(ratio.description).toContain('lower than or equal to 1');
-      expect(ratio.description).toContain('multiple of 0.5');
+      expect(ratio).toEqual({
+        anyOf: [{ type: 'number', minimum: 0, maximum: 1, multipleOf: 0.5 }, { type: 'null' }],
+      });
       expect(count).toEqual({
-        description: 'constraints: greater than 0',
-        anyOf: [{ type: 'integer', format: 'int64' }, { type: 'null' }],
+        anyOf: [{ type: 'integer', format: 'int64', exclusiveMinimum: 0 }, { type: 'null' }],
       });
     });
 
@@ -517,11 +512,8 @@ describe('OpenAISchemaCompatLayer', () => {
       } as any) as Record<string, any>;
 
       const value = result.properties.value;
-      // string constraints were already folded into the description by preprocessing
-      expect(value.anyOf).toEqual([{ type: 'string' }, { type: 'null' }]);
-      expect(value.description).toContain('minimum length 2');
-      expect(value).not.toHaveProperty('type');
-      expect(value).not.toHaveProperty('minLength');
+      // the string constraint stays beside anyOf, where it still applies to the string branch
+      expect(value).toEqual({ minLength: 2, anyOf: [{ type: 'string' }, { type: 'null' }] });
     });
 
     it('preserves parent date metadata when traversing a multi-type property', async () => {
@@ -726,6 +718,64 @@ describe('OpenAISchemaCompatLayer', () => {
 
   // OpenAI strict mode rejects `propertyNames`, which z.record() emits for its key type.
   // See https://github.com/mastra-ai/mastra/issues/19273
+  describe('constraints OpenAI enforces', () => {
+    it('keeps string, number and array constraints as schema keywords', () => {
+      const schema = z.object({
+        labels: z
+          .array(
+            z
+              .string()
+              .min(2)
+              .max(8)
+              .regex(/^[A-Z]+$/),
+          )
+          .min(1)
+          .max(2),
+        count: z.number().min(1).max(10).multipleOf(0.5),
+        email: z.email(),
+      });
+
+      const result = compat.processToJSONSchema(schema) as Record<string, any>;
+
+      expect(result.properties).toMatchObject({
+        labels: {
+          type: 'array',
+          minItems: 1,
+          maxItems: 2,
+          items: { type: 'string', minLength: 2, maxLength: 8, pattern: '^[A-Z]+$' },
+        },
+        count: { type: 'number', minimum: 1, maximum: 10, multipleOf: 0.5 },
+        email: { type: 'string', format: 'email' },
+      });
+      expect(JSON.stringify(result)).not.toContain('constraints:');
+    });
+
+    it('removes a string format OpenAI does not support along with its pattern', () => {
+      const result = compat.processToJSONSchema({
+        type: 'object',
+        properties: { website: { type: 'string', format: 'uri', pattern: '^https://' } },
+        required: ['website'],
+      } as any) as Record<string, any>;
+
+      expect(result.properties.website).toEqual({ type: 'string' });
+    });
+
+    it('still describes constraints in text for other providers this layer serves', () => {
+      const groq = new OpenAISchemaCompatLayer({
+        provider: 'groq.chat',
+        modelId: 'llama-3.3-70b-versatile',
+        supportsStructuredOutputs: false,
+      });
+
+      const result = groq.processToJSONSchema(z.object({ label: z.string().min(2).max(8) })) as Record<string, any>;
+
+      expect(result.properties.label).not.toHaveProperty('minLength');
+      expect(result.properties.label).not.toHaveProperty('maxLength');
+      expect(result.properties.label.description).toContain('minimum length 2');
+      expect(result.properties.label.description).toContain('maximum length 8');
+    });
+  });
+
   describe('z.record() under strict mode', () => {
     it('drops propertyNames from a top-level record', () => {
       const json = compat.processToJSONSchema(z.record(z.string(), z.string()));

@@ -586,13 +586,13 @@ describe('execute OpenAI strict-mode schema preparation (issue #23795)', () => {
     await readStream(stream);
   }
 
-  function expectPreparedSchema(responseFormat: any) {
+  function expectPreparedSchema(responseFormat: any, { keepsArrayBounds = false } = {}) {
     expect(responseFormat.type).toBe('json');
     const sentSchema = responseFormat.schema;
     expect(sentSchema.additionalProperties).toBe(false);
     expect(sentSchema.required).toEqual(['tags', 'nested']);
-    expect(sentSchema.properties.tags.minItems).toBeUndefined();
-    expect(sentSchema.properties.tags.maxItems).toBeUndefined();
+    expect(sentSchema.properties.tags.minItems).toBe(keepsArrayBounds ? 1 : undefined);
+    expect(sentSchema.properties.tags.maxItems).toBe(keepsArrayBounds ? 3 : undefined);
     expect(sentSchema.properties.nested.required).toEqual(['subject', 'note']);
     expect(sentSchema.properties.nested.additionalProperties).toBe(false);
   }
@@ -608,7 +608,8 @@ describe('execute OpenAI strict-mode schema preparation (issue #23795)', () => {
   it('prepares the schema and opts into strict mode for OpenAI models', async () => {
     const { model, captured } = makeCapturingModel('openai.chat');
     await run(model);
-    expectPreparedSchema(captured.options.responseFormat);
+    // OpenAI enforces array bounds, so they are sent as keywords instead of description text.
+    expectPreparedSchema(captured.options.responseFormat, { keepsArrayBounds: true });
     expect(captured.options.providerOptions?.openai?.strictJsonSchema).toBe(true);
   });
 

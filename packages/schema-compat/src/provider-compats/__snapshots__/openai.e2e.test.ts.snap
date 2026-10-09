@@ -6,42 +6,42 @@ exports[`OpenAI e2e test > should be successful with structured_output 1`] = `
   "additionalProperties": false,
   "properties": {
     "actualData": {
-      "description": "a valid sample date
-constraints: a valid date-time",
+      "description": "a valid sample date",
+      "format": "date-time",
       "type": "string",
       "x-date": true,
     },
     "arrayMax": {
-      "description": "any valid sample array of strings with a maximum of 5 strings
-constraints: maximum length 5",
+      "description": "any valid sample array of strings with a maximum of 5 strings",
       "items": {
         "type": "string",
       },
+      "maxItems": 5,
       "type": "array",
     },
     "arrayMin": {
-      "description": "any valid sample array of strings with a minimum of 1 string
-constraints: minimum length 1",
+      "description": "any valid sample array of strings with a minimum of 1 string",
       "items": {
         "type": "string",
       },
+      "minItems": 1,
       "type": "array",
     },
     "date": {
-      "description": "a valid sample date
-constraints: a valid date-time",
+      "description": "a valid sample date",
+      "format": "date-time",
       "type": "string",
       "x-date": false,
     },
     "dateAfter": {
-      "description": "a valid sample date after 2024-01-01
-constraints: a valid date-time",
+      "description": "a valid sample date after 2024-01-01",
+      "format": "date-time",
       "type": "string",
       "x-date": false,
     },
     "dateBefore": {
-      "description": "a valid sample date before today
-constraints: a valid date-time",
+      "description": "a valid sample date before today",
+      "format": "date-time",
       "type": "string",
       "x-date": false,
     },
@@ -87,32 +87,34 @@ constraints: a valid date-time",
       "type": "number",
     },
     "numberGt": {
-      "description": "any valid sample number greater than 3
-constraints: greater than 3",
+      "description": "any valid sample number greater than 3",
+      "exclusiveMinimum": 3,
       "type": "number",
     },
     "numberGte": {
-      "description": "any valid sample number greater than or equal to 1
-constraints: greater than or equal to 1",
+      "description": "any valid sample number greater than or equal to 1",
+      "minimum": 1,
       "type": "number",
     },
     "numberInt": {
       "description": "any valid sample number that is an integer",
+      "maximum": 9007199254740991,
+      "minimum": -9007199254740991,
       "type": "integer",
     },
     "numberLt": {
-      "description": "any valid sample number less than 6
-constraints: lower than 6",
+      "description": "any valid sample number less than 6",
+      "exclusiveMaximum": 6,
       "type": "number",
     },
     "numberLte": {
-      "description": "any valid sample number less than or equal to 1
-constraints: lower than or equal to 1",
+      "description": "any valid sample number less than or equal to 1",
+      "maximum": 1,
       "type": "number",
     },
     "numberMultipleOf": {
-      "description": "any valid sample number that is a multiple of 2
-constraints: multiple of 2",
+      "description": "any valid sample number that is a multiple of 2",
+      "multipleOf": 2,
       "type": "number",
     },
     "object": {
@@ -147,11 +149,11 @@ constraints: multiple of 2",
           "additionalProperties": false,
           "properties": {
             "age": {
-              "description": "constraints: greater than or equal to 18",
+              "minimum": 18,
               "type": "number",
             },
             "name": {
-              "description": "constraints: minimum length 2",
+              "minLength": 2,
               "type": "string",
             },
           },
@@ -195,8 +197,9 @@ constraints: multiple of 2",
       "type": "string",
     },
     "stringEmail": {
-      "description": "a sample email address
-constraints: a valid email",
+      "description": "a sample email address",
+      "format": "email",
+      "pattern": "^(?:[A-Za-z0-9_'+\\-]+\\.)*[A-Za-z0-9_'+\\-]*[A-Za-z0-9_+-]@(?:[A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$",
       "type": "string",
     },
     "stringEmoji": {
@@ -204,18 +207,18 @@ constraints: a valid email",
       "type": "string",
     },
     "stringMax": {
-      "description": "sample text with a maximum of 10 characters
-constraints: maximum length 10",
+      "description": "sample text with a maximum of 10 characters",
+      "maxLength": 10,
       "type": "string",
     },
     "stringMin": {
-      "description": "sample text with a minimum of 5 characters
-constraints: minimum length 5",
+      "description": "sample text with a minimum of 5 characters",
+      "minLength": 5,
       "type": "string",
     },
     "stringRegex": {
-      "description": "a valid sample string that satisfies the regex
-constraints: input must match this regex ^test-",
+      "description": "a valid sample string that satisfies the regex",
+      "pattern": "^test-",
       "type": "string",
     },
     "stringUrl": {
@@ -223,8 +226,9 @@ constraints: input must match this regex ^test-",
       "type": "string",
     },
     "stringUuid": {
-      "description": "a valid sample uuid
-constraints: a valid uuid",
+      "description": "a valid sample uuid",
+      "format": "uuid",
+      "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
       "type": "string",
     },
     "unionObjects": {
@@ -321,60 +325,62 @@ constraints: a valid uuid",
 exports[`OpenAI e2e test > should be successful with structured_output 2`] = `
 {
   "value": {
-    "actualData": 2024-06-18T14:23:45.000Z,
+    "actualData": 2023-06-10T13:13:00.000Z,
     "arrayMax": [
       "one",
       "two",
       "three",
+      "four",
+      "five",
     ],
     "arrayMin": [
-      "one",
+      "item1",
     ],
-    "date": 2024-06-18T12:00:00.000Z,
-    "dateAfter": 2024-02-01T00:00:00.000Z,
-    "dateBefore": 2024-06-15T00:00:00.000Z,
+    "date": 2023-05-03T00:00:00.000Z,
+    "dateAfter": 2024-05-01T00:00:00.000Z,
+    "dateBefore": 2024-05-01T00:00:00.000Z,
     "default": "",
     "enum": "A",
     "exampleArray": [
-      "example",
-      "text",
+      "apple",
+      "banana",
     ],
     "nativeEnum": "B",
     "nullable": null,
     "number": 42,
-    "numberGt": 4,
+    "numberGt": 5,
     "numberGte": 1,
-    "numberInt": 10,
-    "numberLt": 5,
+    "numberInt": 7,
+    "numberLt": 2,
     "numberLte": 1,
-    "numberMultipleOf": 6,
+    "numberMultipleOf": 4,
     "object": {
-      "bar": 123,
-      "foo": "bar",
+      "bar": 10,
+      "foo": "test",
     },
     "objectLoose": {},
     "objectNested": {
       "user": {
-        "age": 21,
-        "name": "John",
+        "age": 28,
+        "name": "Jane Doe",
       },
     },
     "objectPassthrough": {},
     "optional": undefined,
-    "string": "sample text",
-    "stringCuid": "cjnf3n5dz0000qamex7k5k3d5",
-    "stringEmail": "test@example.com",
+    "string": "Sample text",
+    "stringCuid": "cjx123abc456def789ghijk",
+    "stringEmail": "example@email.com",
     "stringEmoji": "😀",
-    "stringMax": "short",
-    "stringMin": "hello",
-    "stringRegex": "test-example",
+    "stringMax": "ShortText",
+    "stringMin": "Hello",
+    "stringRegex": "test-123",
     "stringUrl": "https://example.com",
     "stringUuid": "123e4567-e89b-12d3-a456-426614174000",
     "unionObjects": {
-      "amount": 50,
+      "amount": 100,
       "inventoryItemName": "Widget",
     },
-    "unionPrimitives": "union",
+    "unionPrimitives": "Some text",
   },
 }
 `;
@@ -382,103 +388,101 @@ exports[`OpenAI e2e test > should be successful with structured_output 2`] = `
 exports[`OpenAI e2e test > should handle tool call with manySchemas input 1`] = `
 {
   "value": {
-    "actualData": 2024-06-19T10:30:00.000Z,
+    "actualData": 2022-11-30T09:00:00.000Z,
     "arrayMax": [
       "one",
       "two",
-      "three",
     ],
     "arrayMin": [
-      "first",
+      "one",
     ],
-    "date": 2024-06-15T12:00:00.000Z,
-    "dateAfter": 2024-06-20T12:00:00.000Z,
-    "dateBefore": 2024-06-10T12:00:00.000Z,
+    "date": 2023-05-01T12:00:00.000Z,
+    "dateAfter": 2024-02-01T12:00:00.000Z,
+    "dateBefore": 2023-01-01T12:00:00.000Z,
     "default": "test",
-    "enum": "A",
+    "enum": "B",
     "exampleArray": [
       "apple",
       "banana",
-      "cherry",
     ],
-    "nativeEnum": "B",
+    "nativeEnum": "A",
     "nullable": null,
     "number": 42,
-    "numberGt": 5,
-    "numberGte": 10,
-    "numberInt": 8,
-    "numberLt": 3,
+    "numberGt": 4,
+    "numberGte": 3,
+    "numberInt": 10,
+    "numberLt": 5,
     "numberLte": 1,
     "numberMultipleOf": 4,
     "object": {
-      "bar": 99,
+      "bar": 7,
       "foo": "bar",
     },
     "objectLoose": {},
     "objectNested": {
       "user": {
-        "age": 25,
-        "name": "Jay",
+        "age": 27,
+        "name": "Alice",
       },
     },
     "objectPassthrough": {},
     "optional": undefined,
-    "string": "Hello, world!",
-    "stringCuid": "cklv5u0ht000001lbz41l7h9r",
-    "stringEmail": "example@test.com",
-    "stringEmoji": "😊",
-    "stringMax": "Short txt",
-    "stringMin": "More than five",
-    "stringRegex": "test-data",
-    "stringUrl": "https://www.example.com",
+    "string": "Sample text",
+    "stringCuid": "cjnv5m5j0000qjv85jrdvn0nx",
+    "stringEmail": "sample@example.com",
+    "stringEmoji": "😀",
+    "stringMax": "Short text",
+    "stringMin": "Hello world!",
+    "stringRegex": "test-value",
+    "stringUrl": "https://example.com",
     "stringUuid": "123e4567-e89b-12d3-a456-426614174000",
     "unionObjects": {
-      "amount": 100,
-      "inventoryItemName": "Widget",
+      "amount": 25,
+      "inventoryItemName": "Pen",
     },
-    "unionPrimitives": "Text value",
+    "unionPrimitives": "union string",
   },
 }
 `;
 
 exports[`OpenAI e2e test > should handle tool call with manySchemas input and output 1`] = `
-"Here is the validated output from the manySchemasTool tool using valid sample data:
+"Here is the validated tool output from the manySchemasTool tool, populated with valid sample data:
 
 {
   "string": "Sample text",
   "stringMin": "Hello!",
   "stringMax": "ShortText",
-  "stringEmail": "email@example.com",
-  "stringEmoji": "😀",
+  "stringEmail": "example@email.com",
+  "stringEmoji": "😊",
   "stringUrl": "https://example.com",
   "stringUuid": "123e4567-e89b-12d3-a456-426614174000",
-  "stringCuid": "cjn5u5z1p0000nnhdf8t8qz3v",
-  "stringRegex": "test-regex",
+  "stringCuid": "cjk0v8o1d0000t5uq8qv6t9s7",
+  "stringRegex": "test-value",
   "number": 42,
-  "numberGt": 5,
-  "numberLt": 3,
+  "numberGt": 4,
+  "numberLt": 5,
   "numberGte": 1,
   "numberLte": 1,
   "numberMultipleOf": 4,
   "numberInt": 10,
-  "exampleArray": ["one", "two", "three"],
-  "arrayMin": ["minimum"],
-  "arrayMax": ["a", "b", "c"],
-  "date": "2024-05-05T10:00:00.000Z",
-  "dateAfter": "2024-02-01T00:00:00.000Z",
-  "dateBefore": "2024-05-01T00:00:00.000Z",
-  "actualData": "2023-12-31T23:59:59.000Z",
-  "object": { "foo": "bar", "bar": 123 },
-  "objectNested": { "user": { "name": "Jo", "age": 25 } },
+  "exampleArray": ["test1", "test2"],
+  "arrayMin": ["one"],
+  "arrayMax": ["one", "two", "three"],
+  "date": "2024-06-01T10:00:00.000Z",
+  "dateAfter": "2024-06-02T12:00:00.000Z",
+  "dateBefore": "2024-05-01T11:00:00.000Z",
+  "actualData": "2024-04-01T09:00:00.000Z",
+  "object": {"foo": "bar", "bar": 23},
+  "objectNested": {"user": {"name": "Jane Doe", "age": 27}},
   "objectPassthrough": {},
   "objectLoose": {},
   "nullable": null,
-  "enum": "A",
-  "nativeEnum": "B",
-  "unionPrimitives": "union value",
-  "unionObjects": { "amount": 13, "inventoryItemName": "Widget" },
+  "enum": "B",
+  "nativeEnum": "C",
+  "unionPrimitives": 5,
+  "unionObjects": {"amount": 7, "inventoryItemName": "Item A"},
   "default": "test"
 }
 
-Let me know if you want validation details for any specific schema!"
+If you need the data in a different structure or a specific field explained, let me know!"
 `;

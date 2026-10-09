@@ -1167,6 +1167,68 @@ describe('prepareJsonSchemaForOpenAIStrictMode', () => {
   });
 });
 
+describe('prepareJsonSchemaForOpenAIStrictMode with keepEnforcedConstraints', () => {
+  const prepare = (schema: JSONSchema7) =>
+    prepareJsonSchemaForOpenAIStrictMode(schema, { keepEnforcedConstraints: true });
+
+  it('keeps the string, number and array constraints OpenAI enforces', () => {
+    const properties: JSONSchema7['properties'] = {
+      list: { type: 'array', items: { type: 'string' }, minItems: 1, maxItems: 5 },
+      name: { type: 'string', minLength: 1, maxLength: 80, pattern: '^[A-Z]' },
+      qty: { type: 'integer', minimum: 1, maximum: 999, multipleOf: 2 },
+      ratio: { type: 'number', exclusiveMinimum: 0, exclusiveMaximum: 1 },
+      email: { type: 'string', format: 'email' },
+    };
+
+    const out = prepare({ type: 'object', properties });
+
+    expect(out.properties).toEqual(properties);
+    expect(out.required).toEqual(['list', 'name', 'qty', 'ratio', 'email']);
+    expect(out.additionalProperties).toBe(false);
+  });
+
+  it('keeps constraints nested in items, anyOf and $defs', () => {
+    const schema = {
+      type: 'object',
+      properties: {
+        list: { type: 'array', items: { type: 'string', minLength: 2 } },
+        choice: {
+          anyOf: [
+            { type: 'string', pattern: '^x' },
+            { type: 'number', minimum: 0 },
+          ],
+        },
+        ref: { $ref: '#/$defs/Code' },
+      },
+      $defs: { Code: { type: 'string', maxLength: 4 } },
+    } as unknown as JSONSchema7;
+
+    const out = prepare(schema) as any;
+
+    expect(out.properties.list.items).toEqual({ type: 'string', minLength: 2 });
+    expect(out.properties.choice.anyOf).toEqual([
+      { type: 'string', pattern: '^x' },
+      { type: 'number', minimum: 0 },
+    ]);
+    expect(out.$defs.Code).toEqual({ type: 'string', maxLength: 4 });
+  });
+
+  it('still folds the keywords OpenAI rejects into the description', () => {
+    const out = prepare({
+      type: 'object',
+      properties: {
+        tags: { type: 'array', items: { type: 'string' }, uniqueItems: true, minItems: 1 },
+        website: { type: 'string', format: 'uri', pattern: '^https://' },
+      },
+    });
+
+    expect(out.properties).toEqual({
+      tags: { type: 'array', items: { type: 'string' }, minItems: 1, description: 'all items must be unique' },
+      website: { type: 'string', description: 'a valid uri, input must match this regex ^https://' },
+    });
+  });
+});
+
 describe('prepareJsonSchemaForOpenAIStrictMode allOf with Object.prototype property names', () => {
   const names = ['constructor', 'toString', 'hasOwnProperty', '__proto__'];
   const branch = (name: string, type: 'string' | 'number'): JSONSchema7 =>
