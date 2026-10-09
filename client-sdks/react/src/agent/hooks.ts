@@ -244,6 +244,11 @@ export type StreamArgs = SharedArgs & {
    * and the outgoing message metadata so the server echo can reconcile them.
    */
   clientMessageId?: string;
+  /**
+   * Extra metadata stored on the user message. Applied to the optimistic
+   * pending bubble and sent with the message when it goes through thread signals.
+   */
+  metadata?: Record<string, unknown>;
 };
 
 export type NetworkArgs = SharedArgs & {
@@ -820,6 +825,7 @@ export const useChat = ({
     clientToolsResolver,
     signalId,
     clientMessageId,
+    metadata,
   }: StreamArgs) => {
     const {
       frequencyPenalty,
@@ -962,7 +968,7 @@ export const useChat = ({
     try {
       const result = await agent.sendMessage({
         message: clientMessageId
-          ? { contents: messageContents, metadata: { [CLIENT_MESSAGE_ID_KEY]: clientMessageId } }
+          ? { contents: messageContents, metadata: { ...metadata, [CLIENT_MESSAGE_ID_KEY]: clientMessageId } }
           : messageContents,
         resourceId: resourceId || agentId,
         threadId,
@@ -1376,6 +1382,7 @@ export const useChat = ({
       // id while the matching client id reconciles the pending bubble.
       const metadata: MastraDBMessageMetadata = {
         ...dbUserMessage.content.metadata,
+        ...('metadata' in args ? args.metadata : undefined),
         mode: 'stream',
         status: 'pending',
         [CLIENT_MESSAGE_ID_KEY]: clientMessageId,

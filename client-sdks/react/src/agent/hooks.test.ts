@@ -1618,6 +1618,43 @@ describe('useChat optimistic pending user message', () => {
     expect(sendArgs?.message?.metadata?.[CLIENT_MESSAGE_ID_KEY]).toBe(optimisticMessageId);
   });
 
+  it('adds sendMessage metadata to the pending bubble and the outgoing message', async () => {
+    const { result } = renderHook(
+      () =>
+        useChat({
+          agentId: 'test-agent',
+          resourceId: 'resource-1',
+          threadId: 'thread-1',
+          enableThreadSignals: true,
+        }),
+      { wrapper },
+    );
+
+    await act(async () => {
+      await result.current.sendMessage({
+        mode: 'stream',
+        message: 'hello',
+        threadId: 'thread-1',
+        metadata: { source: 'quick-action' },
+      });
+    });
+
+    const [userMessage] = result.current.messages.filter(m => m.role === 'user');
+    expect(userMessage?.content.metadata).toMatchObject({
+      source: 'quick-action',
+      status: 'pending',
+      [CLIENT_MESSAGE_ID_KEY]: userMessage?.id,
+    });
+
+    const sendArgs = sendMessageMock.mock.calls[0]?.[0] as
+      | { message?: { metadata?: Record<string, unknown> } }
+      | undefined;
+    expect(sendArgs?.message?.metadata).toEqual({
+      source: 'quick-action',
+      [CLIENT_MESSAGE_ID_KEY]: userMessage?.id,
+    });
+  });
+
   it('merges a multi-message send (text + attachment) into a single pending bubble', async () => {
     const { result } = renderHook(
       () =>
