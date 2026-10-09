@@ -5,7 +5,7 @@
     "testName": "tool approval and suspension > suspension > should call findUserWorkflow with suspend and resume via generate",
     "model": "gpt-4o-mini",
     "createdAt": "2026-05-18T10:52:19.772Z",
-    "updatedAt": "2026-08-12T23:59:58.757Z"
+    "updatedAt": "2026-10-09T01:17:57.054Z"
   },
   "recordings": [
     {
@@ -103,7 +103,7 @@
           ],
           "tool_choice": "auto"
         },
-        "timestamp": 1786579196503
+        "timestamp": 1791508674468
       },
       "response": {
         "status": 200,
@@ -112,35 +112,34 @@
           "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
           "alt-svc": "h3=\":443\"; ma=86400",
           "cf-cache-status": "DYNAMIC",
-          "cf-ray": "a2a36fca4916cf2e-SJC",
+          "cf-ray": "a4798c5f7e05b834-ORD",
           "connection": "keep-alive",
           "content-type": "application/json",
-          "date": "Wed, 12 Aug 2026 23:59:57 GMT",
-          "openai-organization": "redacted",
-          "openai-processing-ms": "1122",
-          "openai-project": "redacted",
+          "date": "Fri, 09 Oct 2026 01:17:55 GMT",
+          "openai-processing-ms": "1177",
           "openai-version": "2020-10-01",
           "server": "cloudflare",
           "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
           "x-content-type-options": "nosniff",
-          "x-ratelimit-limit-requests": "5000",
-          "x-ratelimit-limit-tokens": "2000000",
-          "x-ratelimit-remaining-requests": "4999",
-          "x-ratelimit-remaining-tokens": "1999664",
-          "x-ratelimit-reset-requests": "12ms",
-          "x-ratelimit-reset-tokens": "10ms",
-          "x-request-id": "req_006c0a6d843e46eba39b55e9a8cf1df8"
+          "x-ratelimit-limit-requests": "30000",
+          "x-ratelimit-limit-tokens": "150000000",
+          "x-ratelimit-remaining-requests": "29999",
+          "x-ratelimit-remaining-tokens": "149999622",
+          "x-ratelimit-reset-requests": "2ms",
+          "x-ratelimit-reset-tokens": "0s",
+          "x-request-id": "req_d323b05cd3c94743b1a936fb45a67f98"
         },
         "body": {
-          "id": "resp_01ce771177f2c171006a7d08fc914c8199bc9e103b680409d3",
+          "id": "resp_0bf07d1bf2d2eccf006ac840c2909887d1a526f33548da0094",
           "object": "response",
-          "created_at": 1786579196,
+          "created_at": 1791508674,
           "status": "completed",
+          "access_programs": null,
           "background": false,
           "billing": {
             "payer": "developer"
           },
-          "completed_at": 1786579197,
+          "completed_at": 1791508675,
           "error": null,
           "frequency_penalty": 0,
           "incomplete_details": null,
@@ -151,11 +150,11 @@
           "moderation": null,
           "output": [
             {
-              "id": "fc_01ce771177f2c171006a7d08fd2b50819995fbed189343eb2e",
+              "id": "fc_0bf07d1bf2d2eccf006ac840c32e3887d1ab54834625b6f6a7",
               "type": "function_call",
               "status": "completed",
-              "arguments": "{\"inputData\":{\"name\":\"Dero Israel\"},\"suspendedToolRunId\":null,\"resumeData\":null}",
-              "call_id": "call_1G1yLD8nQ9VqNIRhBwYLYCtV",
+              "arguments": "{\"inputData\":{\"name\":\"Dero Israel\"},\"suspendedToolCallId\":null,\"suspendedToolRunId\":null,\"resumeData\":null}",
+              "call_id": "call_GbQ3pAElIPBk9WbfK91pkRlm",
               "name": "workflow-findUserWorkflow"
             }
           ],
@@ -220,6 +219,17 @@
                     ],
                     "additionalProperties": false
                   },
+                  "suspendedToolCallId": {
+                    "description": "The toolCallId of the suspended tool to resume",
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
                   "suspendedToolRunId": {
                     "description": "The runId of the suspended tool",
                     "anyOf": [
@@ -244,12 +254,14 @@
                 },
                 "required": [
                   "inputData",
+                  "suspendedToolCallId",
                   "suspendedToolRunId",
                   "resumeData"
                 ],
                 "additionalProperties": false,
                 "$schema": "http://json-schema.org/draft-07/schema#",
                 "x-optional": [
+                  "suspendedToolCallId",
                   "suspendedToolRunId",
                   "resumeData"
                 ]
@@ -261,16 +273,16 @@
           "top_p": 1,
           "truncation": "disabled",
           "usage": {
-            "input_tokens": 119,
+            "input_tokens": 140,
             "input_tokens_details": {
               "cache_write_tokens": 0,
               "cached_tokens": 0
             },
-            "output_tokens": 36,
+            "output_tokens": 44,
             "output_tokens_details": {
               "reasoning_tokens": 0
             },
-            "total_tokens": 155
+            "total_tokens": 184
           },
           "user": null,
           "metadata": {}
@@ -279,7 +291,7 @@
       }
     },
     {
-      "hash": "0b8b979c8044a1b5",
+      "hash": "454b9c7d8ae93b23",
       "request": {
         "url": "https://api.openai.com/v1/responses",
         "method": "POST",
@@ -301,12 +313,12 @@
             },
             {
               "type": "item_reference",
-              "id": "fc_01ce771177f2c171006a7d08fd2b50819995fbed189343eb2e"
+              "id": "fc_0bf07d1bf2d2eccf006ac840c32e3887d1ab54834625b6f6a7"
             },
             {
               "type": "function_call_output",
-              "call_id": "call_1G1yLD8nQ9VqNIRhBwYLYCtV",
-              "output": "{\"result\":{\"name\":\"Dero Israel\",\"email\":\"test@test.com\"},\"runId\":\"00000000-0000-4000-8000-000000000057\"}"
+              "call_id": "call_GbQ3pAElIPBk9WbfK91pkRlm",
+              "output": "{\"result\":{\"email\":\"test@test.com\",\"name\":\"Dero Israel\"},\"runId\":\"00000000-0000-4000-8000-000000000041\"}"
             }
           ],
           "tools": [
@@ -382,7 +394,7 @@
           ],
           "tool_choice": "auto"
         },
-        "timestamp": 1786579197864
+        "timestamp": 1791508675813
       },
       "response": {
         "status": 200,
@@ -391,35 +403,34 @@
           "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
           "alt-svc": "h3=\":443\"; ma=86400",
           "cf-cache-status": "DYNAMIC",
-          "cf-ray": "a2a36fd2d936cf2e-SJC",
+          "cf-ray": "a4798c67ed91b834-ORD",
           "connection": "keep-alive",
           "content-type": "application/json",
-          "date": "Wed, 12 Aug 2026 23:59:58 GMT",
-          "openai-organization": "redacted",
-          "openai-processing-ms": "684",
-          "openai-project": "redacted",
+          "date": "Fri, 09 Oct 2026 01:17:56 GMT",
+          "openai-processing-ms": "1041",
           "openai-version": "2020-10-01",
           "server": "cloudflare",
           "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
           "x-content-type-options": "nosniff",
-          "x-ratelimit-limit-requests": "5000",
-          "x-ratelimit-limit-tokens": "2000000",
-          "x-ratelimit-remaining-requests": "4999",
-          "x-ratelimit-remaining-tokens": "1999581",
-          "x-ratelimit-reset-requests": "12ms",
-          "x-ratelimit-reset-tokens": "12ms",
-          "x-request-id": "req_ddda095b13c34c609c5806c4fc6b001b"
+          "x-ratelimit-limit-requests": "30000",
+          "x-ratelimit-limit-tokens": "150000000",
+          "x-ratelimit-remaining-requests": "29998",
+          "x-ratelimit-remaining-tokens": "149999132",
+          "x-ratelimit-reset-requests": "4ms",
+          "x-ratelimit-reset-tokens": "0s",
+          "x-request-id": "req_438608e9f3314b03a2406eabb093c88f"
         },
         "body": {
-          "id": "resp_01ce771177f2c171006a7d08fdee488199824168062c9219e3",
+          "id": "resp_0bf07d1bf2d2eccf006ac840c3e65c87d1ab7adcac3e3d0a70",
           "object": "response",
-          "created_at": 1786579197,
+          "created_at": 1791508676,
           "status": "completed",
+          "access_programs": null,
           "background": false,
           "billing": {
             "payer": "developer"
           },
-          "completed_at": 1786579198,
+          "completed_at": 1791508676,
           "error": null,
           "frequency_penalty": 0,
           "incomplete_details": null,
@@ -430,7 +441,7 @@
           "moderation": null,
           "output": [
             {
-              "id": "msg_01ce771177f2c171006a7d08fe56d881998d3c0cc74a854d77",
+              "id": "msg_0bf07d1bf2d2eccf006ac840c474d487d18e71b752959dd1b5",
               "type": "message",
               "status": "completed",
               "content": [
@@ -438,7 +449,7 @@
                   "type": "output_text",
                   "annotations": [],
                   "logprobs": [],
-                  "text": "The user **Dero Israel** has the email **test@test.com**."
+                  "text": "The user **Dero Israel** can be reached at the email **test@test.com**."
                 }
               ],
               "role": "assistant"
@@ -505,6 +516,17 @@
                     ],
                     "additionalProperties": false
                   },
+                  "suspendedToolCallId": {
+                    "description": "The toolCallId of the suspended tool to resume",
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
                   "suspendedToolRunId": {
                     "description": "The runId of the suspended tool",
                     "anyOf": [
@@ -529,12 +551,14 @@
                 },
                 "required": [
                   "inputData",
+                  "suspendedToolCallId",
                   "suspendedToolRunId",
                   "resumeData"
                 ],
                 "additionalProperties": false,
                 "$schema": "http://json-schema.org/draft-07/schema#",
                 "x-optional": [
+                  "suspendedToolCallId",
                   "suspendedToolRunId",
                   "resumeData"
                 ]
@@ -546,16 +570,16 @@
           "top_p": 1,
           "truncation": "disabled",
           "usage": {
-            "input_tokens": 202,
+            "input_tokens": 231,
             "input_tokens_details": {
               "cache_write_tokens": 0,
               "cached_tokens": 0
             },
-            "output_tokens": 18,
+            "output_tokens": 21,
             "output_tokens_details": {
               "reasoning_tokens": 0
             },
-            "total_tokens": 220
+            "total_tokens": 252
           },
           "user": null,
           "metadata": {}
