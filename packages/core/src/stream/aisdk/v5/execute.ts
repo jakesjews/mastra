@@ -2,7 +2,7 @@ import { injectJsonInstructionIntoMessages as injectJsonInstructionIntoMessagesV
 import type { LanguageModelV2Prompt } from '@ai-sdk/provider-v5';
 import { APICallError } from '@internal/ai-sdk-v5';
 import type { IdGenerator, ToolChoice, ToolSet } from '@internal/ai-sdk-v5';
-import { prepareJsonSchemaForOpenAIStrictMode } from '@mastra/schema-compat';
+import { enforcesStrictModeConstraints, prepareJsonSchemaForOpenAIStrictMode } from '@mastra/schema-compat';
 import type { StructuredOutputOptions } from '../../../agent/types';
 import { validateModelTimeoutSettings } from '../../../llm/model/model-settings';
 import type { ModelMethodType } from '../../../llm/model/model.loop.types';
@@ -346,7 +346,11 @@ export function execute<OUTPUT = undefined>({
     responseFormat?.type === 'json' && !injectionMode && usesOpenAIStrictJsonSchema(model, providerOptions);
 
   if (isStrictJsonSchemaMode && responseFormat?.schema) {
-    responseFormat.schema = prepareJsonSchemaForOpenAIStrictMode(responseFormat.schema);
+    // OpenAI enforces string, number and array constraints itself. OpenAI-compatible
+    // providers often reject them, so they keep getting them as description text.
+    responseFormat.schema = prepareJsonSchemaForOpenAIStrictMode(responseFormat.schema, {
+      keepEnforcedConstraints: enforcesStrictModeConstraints(model),
+    });
   }
 
   // Only OpenAI providers read `providerOptions.openai`; OpenAI-compatible providers send strict by default

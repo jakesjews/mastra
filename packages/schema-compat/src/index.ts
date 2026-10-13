@@ -31,7 +31,12 @@ export { SchemaCompatLayer } from './schema-compatibility';
 // Utility functions
 export { convertZodSchemaToAISDKSchema, applyCompatLayer, convertSchemaToZod, isZodType } from './utils';
 export { wrapSchemaWithNullTransform } from './null-to-undefined';
-export { ensureAllPropertiesRequired, prepareJsonSchemaForOpenAIStrictMode } from './zod-to-json';
+export {
+  enforcesStrictModeConstraints,
+  ensureAllPropertiesRequired,
+  prepareJsonSchemaForOpenAIStrictMode,
+} from './zod-to-json';
+export type { OpenAIStrictModeOptions } from './zod-to-json';
 
 // Standard Schema compatibility utilities
 export { extractZodSchema, applyOpenAICompatTransforms, applyOpenAICompatToTools } from './standard-schema-compat';

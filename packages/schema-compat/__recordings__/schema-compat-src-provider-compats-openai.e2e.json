@@ -5,11 +5,11 @@
     "testName": "OpenAI e2e test",
     "model": "gpt-4.1",
     "createdAt": "2026-03-24T13:36:54.661Z",
-    "updatedAt": "2026-09-16T08:58:21.783Z"
+    "updatedAt": "2026-10-13T02:15:37.137Z"
   },
   "recordings": [
     {
-      "hash": "773c1853689089d1",
+      "hash": "218cedd317696d53",
       "request": {
         "url": "https://api.openai.com/v1/responses",
         "method": "POST",
@@ -41,15 +41,18 @@
                   },
                   "stringMin": {
                     "type": "string",
-                    "description": "sample text with a minimum of 5 characters\nconstraints: minimum length 5"
+                    "minLength": 5,
+                    "description": "sample text with a minimum of 5 characters"
                   },
                   "stringMax": {
                     "type": "string",
-                    "description": "sample text with a maximum of 10 characters\nconstraints: maximum length 10"
+                    "maxLength": 10,
+                    "description": "sample text with a maximum of 10 characters"
                   },
                   "stringEmail": {
                     "type": "string",
-                    "description": "a sample email address\nconstraints: a valid email"
+                    "format": "email",
+                    "description": "a sample email address"
                   },
                   "stringEmoji": {
                     "type": "string",
@@ -61,7 +64,8 @@
                   },
                   "stringUuid": {
                     "type": "string",
-                    "description": "a valid sample uuid\nconstraints: a valid uuid"
+                    "format": "uuid",
+                    "description": "a valid sample uuid"
                   },
                   "stringCuid": {
                     "type": "string",
@@ -69,7 +73,8 @@
                   },
                   "stringRegex": {
                     "type": "string",
-                    "description": "a valid sample string that satisfies the regex\nconstraints: input must match this regex ^test-"
+                    "pattern": "^test-",
+                    "description": "a valid sample string that satisfies the regex"
                   },
                   "number": {
                     "type": "number",
@@ -77,26 +82,33 @@
                   },
                   "numberGt": {
                     "type": "number",
-                    "description": "any valid sample number greater than 3\nconstraints: greater than 3"
+                    "exclusiveMinimum": 3,
+                    "description": "any valid sample number greater than 3"
                   },
                   "numberLt": {
                     "type": "number",
-                    "description": "any valid sample number less than 6\nconstraints: lower than 6"
+                    "exclusiveMaximum": 6,
+                    "description": "any valid sample number less than 6"
                   },
                   "numberGte": {
                     "type": "number",
-                    "description": "any valid sample number greater than or equal to 1\nconstraints: greater than or equal to 1"
+                    "minimum": 1,
+                    "description": "any valid sample number greater than or equal to 1"
                   },
                   "numberLte": {
                     "type": "number",
-                    "description": "any valid sample number less than or equal to 1\nconstraints: lower than or equal to 1"
+                    "maximum": 1,
+                    "description": "any valid sample number less than or equal to 1"
                   },
                   "numberMultipleOf": {
                     "type": "number",
-                    "description": "any valid sample number that is a multiple of 2\nconstraints: multiple of 2"
+                    "multipleOf": 2,
+                    "description": "any valid sample number that is a multiple of 2"
                   },
                   "numberInt": {
                     "type": "integer",
+                    "minimum": -9007199254740991,
+                    "maximum": 9007199254740991,
                     "description": "any valid sample number that is an integer"
                   },
                   "exampleArray": {
@@ -107,37 +119,43 @@
                     "description": "any valid array of example strings"
                   },
                   "arrayMin": {
+                    "minItems": 1,
                     "type": "array",
                     "items": {
                       "type": "string"
                     },
-                    "description": "any valid sample array of strings with a minimum of 1 string\nconstraints: minimum length 1"
+                    "description": "any valid sample array of strings with a minimum of 1 string"
                   },
                   "arrayMax": {
+                    "maxItems": 5,
                     "type": "array",
                     "items": {
                       "type": "string"
                     },
-                    "description": "any valid sample array of strings with a maximum of 5 strings\nconstraints: maximum length 5"
+                    "description": "any valid sample array of strings with a maximum of 5 strings"
                   },
                   "date": {
-                    "description": "a valid sample date\nconstraints: a valid date-time",
+                    "description": "a valid sample date",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "dateAfter": {
-                    "description": "a valid sample date after 2024-01-01\nconstraints: a valid date-time",
+                    "description": "a valid sample date after 2024-01-01",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "dateBefore": {
-                    "description": "a valid sample date before today\nconstraints: a valid date-time",
+                    "description": "a valid sample date before today",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "actualData": {
-                    "description": "a valid sample date\nconstraints: a valid date-time",
+                    "description": "a valid sample date",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": true
                   },
                   "object": {
@@ -165,11 +183,11 @@
                         "properties": {
                           "name": {
                             "type": "string",
-                            "description": "constraints: minimum length 2"
+                            "minLength": 2
                           },
                           "age": {
                             "type": "number",
-                            "description": "constraints: greater than or equal to 18"
+                            "minimum": 18
                           }
                         },
                         "required": [
@@ -333,7 +351,7 @@
             }
           }
         },
-        "timestamp": 1789549081606
+        "timestamp": 1791857721483
       },
       "response": {
         "status": 200,
@@ -342,11 +360,11 @@
           "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
           "alt-svc": "h3=\":443\"; ma=86400",
           "cf-cache-status": "DYNAMIC",
-          "cf-ray": "a3beaac079ccd279-FRA",
+          "cf-ray": "a49ad607e962f833-ORD",
           "connection": "keep-alive",
           "content-type": "application/json",
-          "date": "Wed, 16 Sep 2026 08:58:06 GMT",
-          "openai-processing-ms": "4228",
+          "date": "Tue, 13 Oct 2026 02:15:24 GMT",
+          "openai-processing-ms": "2921",
           "openai-version": "2020-10-01",
           "server": "cloudflare",
           "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
@@ -354,21 +372,22 @@
           "x-ratelimit-limit-requests": "10000",
           "x-ratelimit-limit-tokens": "30000000",
           "x-ratelimit-remaining-requests": "9999",
-          "x-ratelimit-remaining-tokens": "29999725",
+          "x-ratelimit-remaining-tokens": "29999713",
           "x-ratelimit-reset-requests": "6ms",
           "x-ratelimit-reset-tokens": "0s",
-          "x-request-id": "req_50dc32543a834fbbbb6b437cef69bbb8"
+          "x-request-id": "req_ae99f770a5494cb8a709fec535d61cdc"
         },
         "body": {
-          "id": "resp_0e15ec8030aeecde006aaa5a19e3b087d2add982cf5fe13fb2",
+          "id": "resp_0e635598a6e586c6006acd9439bc1087d18fe0330301f2f303",
           "object": "response",
-          "created_at": 1789549081,
+          "created_at": 1791857721,
           "status": "completed",
+          "access_programs": null,
           "background": false,
           "billing": {
             "payer": "developer"
           },
-          "completed_at": 1789549085,
+          "completed_at": 1791857724,
           "error": null,
           "frequency_penalty": 0,
           "incomplete_details": null,
@@ -379,7 +398,7 @@
           "moderation": null,
           "output": [
             {
-              "id": "msg_0e15ec8030aeecde006aaa5a1c49d087d2abedc88ff2628de7",
+              "id": "msg_0e635598a6e586c6006acd943a169087d19fbfa83c8edb1375",
               "type": "message",
               "status": "completed",
               "content": [
@@ -387,7 +406,7 @@
                   "type": "output_text",
                   "annotations": [],
                   "logprobs": [],
-                  "text": "{\"string\":\"sample text\",\"stringMin\":\"hello\",\"stringMax\":\"short\",\"stringEmail\":\"test@example.com\",\"stringEmoji\":\"😀\",\"stringUrl\":\"https://example.com\",\"stringUuid\":\"123e4567-e89b-12d3-a456-426614174000\",\"stringCuid\":\"cjnf3n5dz0000qamex7k5k3d5\",\"stringRegex\":\"test-example\",\"number\":42,\"numberGt\":4,\"numberLt\":5,\"numberGte\":1,\"numberLte\":1,\"numberMultipleOf\":6,\"numberInt\":10,\"exampleArray\":[\"example\",\"text\"],\"arrayMin\":[\"one\"],\"arrayMax\":[\"one\",\"two\",\"three\"],\"date\":\"2024-06-18T12:00:00Z\",\"dateAfter\":\"2024-02-01T00:00:00Z\",\"dateBefore\":\"2024-06-15T00:00:00Z\",\"actualData\":\"2024-06-18T14:23:45Z\",\"object\":{\"foo\":\"bar\",\"bar\":123},\"objectNested\":{\"user\":{\"name\":\"John\",\"age\":21}},\"objectPassthrough\":{},\"objectLoose\":{},\"optional\":null,\"nullable\":null,\"enum\":\"A\",\"nativeEnum\":\"B\",\"unionPrimitives\":\"union\",\"unionObjects\":{\"amount\":50,\"inventoryItemName\":\"Widget\"},\"default\":\"\"}"
+                  "text": "{\"string\":\"Sample text\",\"stringMin\":\"Hello\",\"stringMax\":\"ShortText\",\"stringEmail\":\"test@example.com\",\"stringEmoji\":\"😊\",\"stringUrl\":\"https://example.com\",\"stringUuid\":\"123e4567-e89b-12d3-a456-426614174000\",\"stringCuid\":\"cjuo1lq5n0000qmvbu4xk5nrq\",\"stringRegex\":\"test-1234\",\"number\":8.5,\"numberGt\":4,\"numberLt\":2,\"numberGte\":1,\"numberLte\":1,\"numberMultipleOf\":4,\"numberInt\":7,\"exampleArray\":[\"apple\",\"banana\",\"cherry\"],\"arrayMin\":[\"firstItem\"],\"arrayMax\":[\"one\",\"two\",\"three\"],\"date\":\"2023-08-15T00:00:00Z\",\"dateAfter\":\"2024-02-15T00:00:00Z\",\"dateBefore\":\"2024-05-01T00:00:00Z\",\"actualData\":\"2023-08-15T00:00:00.000Z\",\"object\":{\"foo\":\"bar\",\"bar\":42},\"objectNested\":{\"user\":{\"name\":\"Alice\",\"age\":30}},\"objectPassthrough\":{},\"objectLoose\":{},\"optional\":null,\"nullable\":null,\"enum\":\"B\",\"nativeEnum\":\"A\",\"unionPrimitives\":\"unionString\",\"unionObjects\":{\"amount\":99,\"inventoryItemName\":\"Widget\"},\"default\":\"\"}"
                 }
               ],
               "role": "assistant"
@@ -421,15 +440,18 @@
                   },
                   "stringMin": {
                     "type": "string",
-                    "description": "sample text with a minimum of 5 characters\nconstraints: minimum length 5"
+                    "minLength": 5,
+                    "description": "sample text with a minimum of 5 characters"
                   },
                   "stringMax": {
                     "type": "string",
-                    "description": "sample text with a maximum of 10 characters\nconstraints: maximum length 10"
+                    "maxLength": 10,
+                    "description": "sample text with a maximum of 10 characters"
                   },
                   "stringEmail": {
                     "type": "string",
-                    "description": "a sample email address\nconstraints: a valid email"
+                    "format": "email",
+                    "description": "a sample email address"
                   },
                   "stringEmoji": {
                     "type": "string",
@@ -441,7 +463,8 @@
                   },
                   "stringUuid": {
                     "type": "string",
-                    "description": "a valid sample uuid\nconstraints: a valid uuid"
+                    "format": "uuid",
+                    "description": "a valid sample uuid"
                   },
                   "stringCuid": {
                     "type": "string",
@@ -449,7 +472,8 @@
                   },
                   "stringRegex": {
                     "type": "string",
-                    "description": "a valid sample string that satisfies the regex\nconstraints: input must match this regex ^test-"
+                    "pattern": "^test-",
+                    "description": "a valid sample string that satisfies the regex"
                   },
                   "number": {
                     "type": "number",
@@ -457,26 +481,33 @@
                   },
                   "numberGt": {
                     "type": "number",
-                    "description": "any valid sample number greater than 3\nconstraints: greater than 3"
+                    "exclusiveMinimum": 3,
+                    "description": "any valid sample number greater than 3"
                   },
                   "numberLt": {
                     "type": "number",
-                    "description": "any valid sample number less than 6\nconstraints: lower than 6"
+                    "exclusiveMaximum": 6,
+                    "description": "any valid sample number less than 6"
                   },
                   "numberGte": {
                     "type": "number",
-                    "description": "any valid sample number greater than or equal to 1\nconstraints: greater than or equal to 1"
+                    "minimum": 1,
+                    "description": "any valid sample number greater than or equal to 1"
                   },
                   "numberLte": {
                     "type": "number",
-                    "description": "any valid sample number less than or equal to 1\nconstraints: lower than or equal to 1"
+                    "maximum": 1,
+                    "description": "any valid sample number less than or equal to 1"
                   },
                   "numberMultipleOf": {
                     "type": "number",
-                    "description": "any valid sample number that is a multiple of 2\nconstraints: multiple of 2"
+                    "multipleOf": 2,
+                    "description": "any valid sample number that is a multiple of 2"
                   },
                   "numberInt": {
                     "type": "integer",
+                    "minimum": -9007199254740991,
+                    "maximum": 9007199254740991,
                     "description": "any valid sample number that is an integer"
                   },
                   "exampleArray": {
@@ -487,37 +518,43 @@
                     "description": "any valid array of example strings"
                   },
                   "arrayMin": {
+                    "minItems": 1,
                     "type": "array",
                     "items": {
                       "type": "string"
                     },
-                    "description": "any valid sample array of strings with a minimum of 1 string\nconstraints: minimum length 1"
+                    "description": "any valid sample array of strings with a minimum of 1 string"
                   },
                   "arrayMax": {
+                    "maxItems": 5,
                     "type": "array",
                     "items": {
                       "type": "string"
                     },
-                    "description": "any valid sample array of strings with a maximum of 5 strings\nconstraints: maximum length 5"
+                    "description": "any valid sample array of strings with a maximum of 5 strings"
                   },
                   "date": {
-                    "description": "a valid sample date\nconstraints: a valid date-time",
+                    "description": "a valid sample date",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "dateAfter": {
-                    "description": "a valid sample date after 2024-01-01\nconstraints: a valid date-time",
+                    "description": "a valid sample date after 2024-01-01",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "dateBefore": {
-                    "description": "a valid sample date before today\nconstraints: a valid date-time",
+                    "description": "a valid sample date before today",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "actualData": {
-                    "description": "a valid sample date\nconstraints: a valid date-time",
+                    "description": "a valid sample date",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": true
                   },
                   "object": {
@@ -545,11 +582,11 @@
                         "properties": {
                           "name": {
                             "type": "string",
-                            "description": "constraints: minimum length 2"
+                            "minLength": 2
                           },
                           "age": {
                             "type": "number",
-                            "description": "constraints: greater than or equal to 18"
+                            "minimum": 18
                           }
                         },
                         "required": [
@@ -738,16 +775,16 @@
           "top_p": 1,
           "truncation": "disabled",
           "usage": {
-            "input_tokens": 988,
+            "input_tokens": 847,
             "input_tokens_details": {
               "cache_write_tokens": 0,
               "cached_tokens": 0
             },
-            "output_tokens": 294,
+            "output_tokens": 306,
             "output_tokens_details": {
               "reasoning_tokens": 0
             },
-            "total_tokens": 1282
+            "total_tokens": 1153
           },
           "user": null,
           "metadata": {}
@@ -756,7 +793,7 @@
       }
     },
     {
-      "hash": "6e61961297e5700d",
+      "hash": "540725982be0ee18",
       "request": {
         "url": "https://api.openai.com/v1/responses",
         "method": "POST",
@@ -788,15 +825,18 @@
                   },
                   "stringMin": {
                     "type": "string",
-                    "description": "sample text with a minimum of 5 characters\nconstraints: minimum length 5"
+                    "minLength": 5,
+                    "description": "sample text with a minimum of 5 characters"
                   },
                   "stringMax": {
                     "type": "string",
-                    "description": "sample text with a maximum of 10 characters\nconstraints: maximum length 10"
+                    "maxLength": 10,
+                    "description": "sample text with a maximum of 10 characters"
                   },
                   "stringEmail": {
                     "type": "string",
-                    "description": "a sample email address\nconstraints: a valid email"
+                    "format": "email",
+                    "description": "a sample email address"
                   },
                   "stringEmoji": {
                     "type": "string",
@@ -808,7 +848,8 @@
                   },
                   "stringUuid": {
                     "type": "string",
-                    "description": "a valid sample uuid\nconstraints: a valid uuid"
+                    "format": "uuid",
+                    "description": "a valid sample uuid"
                   },
                   "stringCuid": {
                     "type": "string",
@@ -816,7 +857,8 @@
                   },
                   "stringRegex": {
                     "type": "string",
-                    "description": "a valid sample string that satisfies the regex\nconstraints: input must match this regex ^test-"
+                    "pattern": "^test-",
+                    "description": "a valid sample string that satisfies the regex"
                   },
                   "number": {
                     "type": "number",
@@ -824,26 +866,33 @@
                   },
                   "numberGt": {
                     "type": "number",
-                    "description": "any valid sample number greater than 3\nconstraints: greater than 3"
+                    "exclusiveMinimum": 3,
+                    "description": "any valid sample number greater than 3"
                   },
                   "numberLt": {
                     "type": "number",
-                    "description": "any valid sample number less than 6\nconstraints: lower than 6"
+                    "exclusiveMaximum": 6,
+                    "description": "any valid sample number less than 6"
                   },
                   "numberGte": {
                     "type": "number",
-                    "description": "any valid sample number greater than or equal to 1\nconstraints: greater than or equal to 1"
+                    "minimum": 1,
+                    "description": "any valid sample number greater than or equal to 1"
                   },
                   "numberLte": {
                     "type": "number",
-                    "description": "any valid sample number less than or equal to 1\nconstraints: lower than or equal to 1"
+                    "maximum": 1,
+                    "description": "any valid sample number less than or equal to 1"
                   },
                   "numberMultipleOf": {
                     "type": "number",
-                    "description": "any valid sample number that is a multiple of 2\nconstraints: multiple of 2"
+                    "multipleOf": 2,
+                    "description": "any valid sample number that is a multiple of 2"
                   },
                   "numberInt": {
                     "type": "integer",
+                    "minimum": -9007199254740991,
+                    "maximum": 9007199254740991,
                     "description": "any valid sample number that is an integer"
                   },
                   "exampleArray": {
@@ -854,37 +903,43 @@
                     "description": "any valid array of example strings"
                   },
                   "arrayMin": {
+                    "minItems": 1,
                     "type": "array",
                     "items": {
                       "type": "string"
                     },
-                    "description": "any valid sample array of strings with a minimum of 1 string\nconstraints: minimum length 1"
+                    "description": "any valid sample array of strings with a minimum of 1 string"
                   },
                   "arrayMax": {
+                    "maxItems": 5,
                     "type": "array",
                     "items": {
                       "type": "string"
                     },
-                    "description": "any valid sample array of strings with a maximum of 5 strings\nconstraints: maximum length 5"
+                    "description": "any valid sample array of strings with a maximum of 5 strings"
                   },
                   "date": {
-                    "description": "a valid sample date\nconstraints: a valid date-time",
+                    "description": "a valid sample date",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "dateAfter": {
-                    "description": "a valid sample date after 2024-01-01\nconstraints: a valid date-time",
+                    "description": "a valid sample date after 2024-01-01",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "dateBefore": {
-                    "description": "a valid sample date before today\nconstraints: a valid date-time",
+                    "description": "a valid sample date before today",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "actualData": {
-                    "description": "a valid sample date\nconstraints: a valid date-time",
+                    "description": "a valid sample date",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": true
                   },
                   "object": {
@@ -912,11 +967,11 @@
                         "properties": {
                           "name": {
                             "type": "string",
-                            "description": "constraints: minimum length 2"
+                            "minLength": 2
                           },
                           "age": {
                             "type": "number",
-                            "description": "constraints: greater than or equal to 18"
+                            "minimum": 18
                           }
                         },
                         "required": [
@@ -1081,7 +1136,7 @@
           ],
           "tool_choice": "auto"
         },
-        "timestamp": 1789549086153
+        "timestamp": 1791857724726
       },
       "response": {
         "status": 200,
@@ -1090,11 +1145,11 @@
           "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
           "alt-svc": "h3=\":443\"; ma=86400",
           "cf-cache-status": "DYNAMIC",
-          "cf-ray": "a3beaadcb887d279-FRA",
+          "cf-ray": "a49ad61b981ff833-ORD",
           "connection": "keep-alive",
           "content-type": "application/json",
-          "date": "Wed, 16 Sep 2026 08:58:09 GMT",
-          "openai-processing-ms": "3319",
+          "date": "Tue, 13 Oct 2026 02:15:27 GMT",
+          "openai-processing-ms": "2919",
           "openai-version": "2020-10-01",
           "server": "cloudflare",
           "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
@@ -1105,18 +1160,19 @@
           "x-ratelimit-remaining-tokens": "29999905",
           "x-ratelimit-reset-requests": "6ms",
           "x-ratelimit-reset-tokens": "0s",
-          "x-request-id": "req_275484c8be33410c8c9a1e9cce156a1d"
+          "x-request-id": "req_c479950ffde5432e841292f9a7384025"
         },
         "body": {
-          "id": "resp_004316665b760203006aaa5a1e5a4087d2908df736a6e6d943",
+          "id": "resp_02028df3bbb643c8006acd943cd09487d191d6d4b5dde00659",
           "object": "response",
-          "created_at": 1789549086,
+          "created_at": 1791857724,
           "status": "completed",
+          "access_programs": null,
           "background": false,
           "billing": {
             "payer": "developer"
           },
-          "completed_at": 1789549089,
+          "completed_at": 1791857727,
           "error": null,
           "frequency_penalty": 0,
           "incomplete_details": null,
@@ -1127,11 +1183,11 @@
           "moderation": null,
           "output": [
             {
-              "id": "fc_004316665b760203006aaa5a1f5a0487d29017fb557b4675fe",
+              "id": "fc_02028df3bbb643c8006acd943d47b887d1a98ef0f555867aae",
               "type": "function_call",
               "status": "completed",
-              "arguments": "{\"string\":\"Hello, world!\",\"stringMin\":\"More than five\",\"stringMax\":\"Short txt\",\"stringEmail\":\"example@test.com\",\"stringEmoji\":\"😊\",\"stringUrl\":\"https://www.example.com\",\"stringUuid\":\"123e4567-e89b-12d3-a456-426614174000\",\"stringCuid\":\"cklv5u0ht000001lbz41l7h9r\",\"stringRegex\":\"test-data\",\"number\":42,\"numberGt\":5,\"numberLt\":3,\"numberGte\":10,\"numberLte\":1,\"numberMultipleOf\":4,\"numberInt\":8,\"exampleArray\":[\"apple\",\"banana\",\"cherry\"],\"arrayMin\":[\"first\"],\"arrayMax\":[\"one\",\"two\",\"three\"],\"date\":\"2024-06-15T12:00:00Z\",\"dateAfter\":\"2024-06-20T12:00:00Z\",\"dateBefore\":\"2024-06-10T12:00:00Z\",\"actualData\":\"2024-06-19T10:30:00Z\",\"object\":{\"foo\":\"bar\",\"bar\":99},\"objectNested\":{\"user\":{\"name\":\"Jay\",\"age\":25}},\"objectPassthrough\":{},\"objectLoose\":{},\"optional\":null,\"nullable\":null,\"enum\":\"A\",\"nativeEnum\":\"B\",\"unionPrimitives\":\"Text value\",\"unionObjects\":{\"amount\":100,\"inventoryItemName\":\"Widget\"},\"default\":\"test\"}",
-              "call_id": "call_r7PYsfKjcL3653IvKhds4G4t",
+              "arguments": "{\"string\":\"Sample text\",\"stringMin\":\"Hello!\",\"stringMax\":\"ShortText\",\"stringEmail\":\"user@example.com\",\"stringEmoji\":\"😊\",\"stringUrl\":\"https://example.com\",\"stringUuid\":\"123e4567-e89b-12d3-a456-426614174000\",\"stringCuid\":\"cjn8h3b2v000001jq3v5rj3g7\",\"stringRegex\":\"test-abc123\",\"number\":42,\"numberGt\":4,\"numberLt\":5,\"numberGte\":1,\"numberLte\":1,\"numberMultipleOf\":4,\"numberInt\":100,\"exampleArray\":[\"apple\",\"banana\",\"orange\"],\"arrayMin\":[\"item1\"],\"arrayMax\":[\"a\",\"b\",\"c\"],\"date\":\"2024-03-01T10:00:00Z\",\"dateAfter\":\"2024-05-01T10:00:00Z\",\"dateBefore\":\"2023-11-01T10:00:00Z\",\"actualData\":\"2024-06-10T08:00:00Z\",\"object\":{\"foo\":\"bar\",\"bar\":9},\"objectNested\":{\"user\":{\"name\":\"Alice\",\"age\":25}},\"objectPassthrough\":{},\"objectLoose\":{},\"optional\":null,\"nullable\":null,\"enum\":\"A\",\"nativeEnum\":\"B\",\"unionPrimitives\":\"union\",\"unionObjects\":{\"amount\":10,\"inventoryItemName\":\"widget\"},\"default\":\"test\"}",
+              "call_id": "call_ckfWLkm8slNUNxZSOAlVlCWO",
               "name": "manySchemasTool"
             }
           ],
@@ -1190,15 +1246,18 @@
                   },
                   "stringMin": {
                     "type": "string",
-                    "description": "sample text with a minimum of 5 characters\nconstraints: minimum length 5"
+                    "minLength": 5,
+                    "description": "sample text with a minimum of 5 characters"
                   },
                   "stringMax": {
                     "type": "string",
-                    "description": "sample text with a maximum of 10 characters\nconstraints: maximum length 10"
+                    "maxLength": 10,
+                    "description": "sample text with a maximum of 10 characters"
                   },
                   "stringEmail": {
                     "type": "string",
-                    "description": "a sample email address\nconstraints: a valid email"
+                    "format": "email",
+                    "description": "a sample email address"
                   },
                   "stringEmoji": {
                     "type": "string",
@@ -1210,7 +1269,8 @@
                   },
                   "stringUuid": {
                     "type": "string",
-                    "description": "a valid sample uuid\nconstraints: a valid uuid"
+                    "format": "uuid",
+                    "description": "a valid sample uuid"
                   },
                   "stringCuid": {
                     "type": "string",
@@ -1218,7 +1278,8 @@
                   },
                   "stringRegex": {
                     "type": "string",
-                    "description": "a valid sample string that satisfies the regex\nconstraints: input must match this regex ^test-"
+                    "pattern": "^test-",
+                    "description": "a valid sample string that satisfies the regex"
                   },
                   "number": {
                     "type": "number",
@@ -1226,26 +1287,33 @@
                   },
                   "numberGt": {
                     "type": "number",
-                    "description": "any valid sample number greater than 3\nconstraints: greater than 3"
+                    "exclusiveMinimum": 3,
+                    "description": "any valid sample number greater than 3"
                   },
                   "numberLt": {
                     "type": "number",
-                    "description": "any valid sample number less than 6\nconstraints: lower than 6"
+                    "exclusiveMaximum": 6,
+                    "description": "any valid sample number less than 6"
                   },
                   "numberGte": {
                     "type": "number",
-                    "description": "any valid sample number greater than or equal to 1\nconstraints: greater than or equal to 1"
+                    "minimum": 1,
+                    "description": "any valid sample number greater than or equal to 1"
                   },
                   "numberLte": {
                     "type": "number",
-                    "description": "any valid sample number less than or equal to 1\nconstraints: lower than or equal to 1"
+                    "maximum": 1,
+                    "description": "any valid sample number less than or equal to 1"
                   },
                   "numberMultipleOf": {
                     "type": "number",
-                    "description": "any valid sample number that is a multiple of 2\nconstraints: multiple of 2"
+                    "multipleOf": 2,
+                    "description": "any valid sample number that is a multiple of 2"
                   },
                   "numberInt": {
                     "type": "integer",
+                    "minimum": -9007199254740991,
+                    "maximum": 9007199254740991,
                     "description": "any valid sample number that is an integer"
                   },
                   "exampleArray": {
@@ -1256,37 +1324,43 @@
                     "description": "any valid array of example strings"
                   },
                   "arrayMin": {
+                    "minItems": 1,
                     "type": "array",
                     "items": {
                       "type": "string"
                     },
-                    "description": "any valid sample array of strings with a minimum of 1 string\nconstraints: minimum length 1"
+                    "description": "any valid sample array of strings with a minimum of 1 string"
                   },
                   "arrayMax": {
+                    "maxItems": 5,
                     "type": "array",
                     "items": {
                       "type": "string"
                     },
-                    "description": "any valid sample array of strings with a maximum of 5 strings\nconstraints: maximum length 5"
+                    "description": "any valid sample array of strings with a maximum of 5 strings"
                   },
                   "date": {
-                    "description": "a valid sample date\nconstraints: a valid date-time",
+                    "description": "a valid sample date",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "dateAfter": {
-                    "description": "a valid sample date after 2024-01-01\nconstraints: a valid date-time",
+                    "description": "a valid sample date after 2024-01-01",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "dateBefore": {
-                    "description": "a valid sample date before today\nconstraints: a valid date-time",
+                    "description": "a valid sample date before today",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "actualData": {
-                    "description": "a valid sample date\nconstraints: a valid date-time",
+                    "description": "a valid sample date",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": true
                   },
                   "object": {
@@ -1314,11 +1388,11 @@
                         "properties": {
                           "name": {
                             "type": "string",
-                            "description": "constraints: minimum length 2"
+                            "minLength": 2
                           },
                           "age": {
                             "type": "number",
-                            "description": "constraints: greater than or equal to 18"
+                            "minimum": 18
                           }
                         },
                         "required": [
@@ -1486,7 +1560,7 @@
           "top_p": 1,
           "truncation": "disabled",
           "usage": {
-            "input_tokens": 761,
+            "input_tokens": 771,
             "input_tokens_details": {
               "cache_write_tokens": 0,
               "cached_tokens": 0
@@ -1495,7 +1569,7 @@
             "output_tokens_details": {
               "reasoning_tokens": 0
             },
-            "total_tokens": 1073
+            "total_tokens": 1083
           },
           "user": null,
           "metadata": {}
@@ -1504,7 +1578,7 @@
       }
     },
     {
-      "hash": "2ebfc5cb34419a76",
+      "hash": "e45d4edf5c2f9f8d",
       "request": {
         "url": "https://api.openai.com/v1/responses",
         "method": "POST",
@@ -1522,14 +1596,14 @@
             },
             {
               "type": "function_call",
-              "call_id": "call_r7PYsfKjcL3653IvKhds4G4t",
+              "call_id": "call_ckfWLkm8slNUNxZSOAlVlCWO",
               "name": "manySchemasTool",
-              "arguments": "{\"string\":\"Hello, world!\",\"stringMin\":\"More than five\",\"stringMax\":\"Short txt\",\"stringEmail\":\"example@test.com\",\"stringEmoji\":\"😊\",\"stringUrl\":\"https://www.example.com\",\"stringUuid\":\"123e4567-e89b-12d3-a456-426614174000\",\"stringCuid\":\"cklv5u0ht000001lbz41l7h9r\",\"stringRegex\":\"test-data\",\"number\":42,\"numberGt\":5,\"numberLt\":3,\"numberGte\":10,\"numberLte\":1,\"numberMultipleOf\":4,\"numberInt\":8,\"exampleArray\":[\"apple\",\"banana\",\"cherry\"],\"arrayMin\":[\"first\"],\"arrayMax\":[\"one\",\"two\",\"three\"],\"date\":\"2024-06-15T12:00:00Z\",\"dateAfter\":\"2024-06-20T12:00:00Z\",\"dateBefore\":\"2024-06-10T12:00:00Z\",\"actualData\":\"2024-06-19T10:30:00Z\",\"object\":{\"foo\":\"bar\",\"bar\":99},\"objectNested\":{\"user\":{\"name\":\"Jay\",\"age\":25}},\"objectPassthrough\":{},\"objectLoose\":{},\"optional\":null,\"nullable\":null,\"enum\":\"A\",\"nativeEnum\":\"B\",\"unionPrimitives\":\"Text value\",\"unionObjects\":{\"amount\":100,\"inventoryItemName\":\"Widget\"},\"default\":\"test\"}"
+              "arguments": "{\"string\":\"Sample text\",\"stringMin\":\"Hello!\",\"stringMax\":\"ShortText\",\"stringEmail\":\"user@example.com\",\"stringEmoji\":\"😊\",\"stringUrl\":\"https://example.com\",\"stringUuid\":\"123e4567-e89b-12d3-a456-426614174000\",\"stringCuid\":\"cjn8h3b2v000001jq3v5rj3g7\",\"stringRegex\":\"test-abc123\",\"number\":42,\"numberGt\":4,\"numberLt\":5,\"numberGte\":1,\"numberLte\":1,\"numberMultipleOf\":4,\"numberInt\":100,\"exampleArray\":[\"apple\",\"banana\",\"orange\"],\"arrayMin\":[\"item1\"],\"arrayMax\":[\"a\",\"b\",\"c\"],\"date\":\"2024-03-01T10:00:00Z\",\"dateAfter\":\"2024-05-01T10:00:00Z\",\"dateBefore\":\"2023-11-01T10:00:00Z\",\"actualData\":\"2024-06-10T08:00:00Z\",\"object\":{\"foo\":\"bar\",\"bar\":9},\"objectNested\":{\"user\":{\"name\":\"Alice\",\"age\":25}},\"objectPassthrough\":{},\"objectLoose\":{},\"optional\":null,\"nullable\":null,\"enum\":\"A\",\"nativeEnum\":\"B\",\"unionPrimitives\":\"union\",\"unionObjects\":{\"amount\":10,\"inventoryItemName\":\"widget\"},\"default\":\"test\"}"
             },
             {
               "type": "function_call_output",
-              "call_id": "call_r7PYsfKjcL3653IvKhds4G4t",
-              "output": "{\"string\":\"Hello, world!\",\"stringMin\":\"More than five\",\"stringMax\":\"Short txt\",\"stringEmail\":\"example@test.com\",\"stringEmoji\":\"😊\",\"stringUrl\":\"https://www.example.com\",\"stringUuid\":\"123e4567-e89b-12d3-a456-426614174000\",\"stringCuid\":\"cklv5u0ht000001lbz41l7h9r\",\"stringRegex\":\"test-data\",\"number\":42,\"numberGt\":5,\"numberLt\":3,\"numberGte\":10,\"numberLte\":1,\"numberMultipleOf\":4,\"numberInt\":8,\"exampleArray\":[\"apple\",\"banana\",\"cherry\"],\"arrayMin\":[\"first\"],\"arrayMax\":[\"one\",\"two\",\"three\"],\"date\":\"2024-06-15T12:00:00Z\",\"dateAfter\":\"2024-06-20T12:00:00Z\",\"dateBefore\":\"2024-06-10T12:00:00Z\",\"actualData\":\"2024-06-19T10:30:00Z\",\"object\":{\"foo\":\"bar\",\"bar\":99},\"objectNested\":{\"user\":{\"name\":\"Jay\",\"age\":25}},\"objectPassthrough\":{},\"objectLoose\":{},\"optional\":null,\"nullable\":null,\"enum\":\"A\",\"nativeEnum\":\"B\",\"unionPrimitives\":\"Text value\",\"unionObjects\":{\"amount\":100,\"inventoryItemName\":\"Widget\"},\"default\":\"test\"}"
+              "call_id": "call_ckfWLkm8slNUNxZSOAlVlCWO",
+              "output": "{\"string\":\"Sample text\",\"stringMin\":\"Hello!\",\"stringMax\":\"ShortText\",\"stringEmail\":\"user@example.com\",\"stringEmoji\":\"😊\",\"stringUrl\":\"https://example.com\",\"stringUuid\":\"123e4567-e89b-12d3-a456-426614174000\",\"stringCuid\":\"cjn8h3b2v000001jq3v5rj3g7\",\"stringRegex\":\"test-abc123\",\"number\":42,\"numberGt\":4,\"numberLt\":5,\"numberGte\":1,\"numberLte\":1,\"numberMultipleOf\":4,\"numberInt\":100,\"exampleArray\":[\"apple\",\"banana\",\"orange\"],\"arrayMin\":[\"item1\"],\"arrayMax\":[\"a\",\"b\",\"c\"],\"date\":\"2024-03-01T10:00:00Z\",\"dateAfter\":\"2024-05-01T10:00:00Z\",\"dateBefore\":\"2023-11-01T10:00:00Z\",\"actualData\":\"2024-06-10T08:00:00Z\",\"object\":{\"foo\":\"bar\",\"bar\":9},\"objectNested\":{\"user\":{\"name\":\"Alice\",\"age\":25}},\"objectPassthrough\":{},\"objectLoose\":{},\"optional\":null,\"nullable\":null,\"enum\":\"A\",\"nativeEnum\":\"B\",\"unionPrimitives\":\"union\",\"unionObjects\":{\"amount\":10,\"inventoryItemName\":\"widget\"},\"default\":\"test\"}"
             }
           ],
           "tools": [
@@ -1547,15 +1621,18 @@
                   },
                   "stringMin": {
                     "type": "string",
-                    "description": "sample text with a minimum of 5 characters\nconstraints: minimum length 5"
+                    "minLength": 5,
+                    "description": "sample text with a minimum of 5 characters"
                   },
                   "stringMax": {
                     "type": "string",
-                    "description": "sample text with a maximum of 10 characters\nconstraints: maximum length 10"
+                    "maxLength": 10,
+                    "description": "sample text with a maximum of 10 characters"
                   },
                   "stringEmail": {
                     "type": "string",
-                    "description": "a sample email address\nconstraints: a valid email"
+                    "format": "email",
+                    "description": "a sample email address"
                   },
                   "stringEmoji": {
                     "type": "string",
@@ -1567,7 +1644,8 @@
                   },
                   "stringUuid": {
                     "type": "string",
-                    "description": "a valid sample uuid\nconstraints: a valid uuid"
+                    "format": "uuid",
+                    "description": "a valid sample uuid"
                   },
                   "stringCuid": {
                     "type": "string",
@@ -1575,7 +1653,8 @@
                   },
                   "stringRegex": {
                     "type": "string",
-                    "description": "a valid sample string that satisfies the regex\nconstraints: input must match this regex ^test-"
+                    "pattern": "^test-",
+                    "description": "a valid sample string that satisfies the regex"
                   },
                   "number": {
                     "type": "number",
@@ -1583,26 +1662,33 @@
                   },
                   "numberGt": {
                     "type": "number",
-                    "description": "any valid sample number greater than 3\nconstraints: greater than 3"
+                    "exclusiveMinimum": 3,
+                    "description": "any valid sample number greater than 3"
                   },
                   "numberLt": {
                     "type": "number",
-                    "description": "any valid sample number less than 6\nconstraints: lower than 6"
+                    "exclusiveMaximum": 6,
+                    "description": "any valid sample number less than 6"
                   },
                   "numberGte": {
                     "type": "number",
-                    "description": "any valid sample number greater than or equal to 1\nconstraints: greater than or equal to 1"
+                    "minimum": 1,
+                    "description": "any valid sample number greater than or equal to 1"
                   },
                   "numberLte": {
                     "type": "number",
-                    "description": "any valid sample number less than or equal to 1\nconstraints: lower than or equal to 1"
+                    "maximum": 1,
+                    "description": "any valid sample number less than or equal to 1"
                   },
                   "numberMultipleOf": {
                     "type": "number",
-                    "description": "any valid sample number that is a multiple of 2\nconstraints: multiple of 2"
+                    "multipleOf": 2,
+                    "description": "any valid sample number that is a multiple of 2"
                   },
                   "numberInt": {
                     "type": "integer",
+                    "minimum": -9007199254740991,
+                    "maximum": 9007199254740991,
                     "description": "any valid sample number that is an integer"
                   },
                   "exampleArray": {
@@ -1613,37 +1699,43 @@
                     "description": "any valid array of example strings"
                   },
                   "arrayMin": {
+                    "minItems": 1,
                     "type": "array",
                     "items": {
                       "type": "string"
                     },
-                    "description": "any valid sample array of strings with a minimum of 1 string\nconstraints: minimum length 1"
+                    "description": "any valid sample array of strings with a minimum of 1 string"
                   },
                   "arrayMax": {
+                    "maxItems": 5,
                     "type": "array",
                     "items": {
                       "type": "string"
                     },
-                    "description": "any valid sample array of strings with a maximum of 5 strings\nconstraints: maximum length 5"
+                    "description": "any valid sample array of strings with a maximum of 5 strings"
                   },
                   "date": {
-                    "description": "a valid sample date\nconstraints: a valid date-time",
+                    "description": "a valid sample date",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "dateAfter": {
-                    "description": "a valid sample date after 2024-01-01\nconstraints: a valid date-time",
+                    "description": "a valid sample date after 2024-01-01",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "dateBefore": {
-                    "description": "a valid sample date before today\nconstraints: a valid date-time",
+                    "description": "a valid sample date before today",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "actualData": {
-                    "description": "a valid sample date\nconstraints: a valid date-time",
+                    "description": "a valid sample date",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": true
                   },
                   "object": {
@@ -1671,11 +1763,11 @@
                         "properties": {
                           "name": {
                             "type": "string",
-                            "description": "constraints: minimum length 2"
+                            "minLength": 2
                           },
                           "age": {
                             "type": "number",
-                            "description": "constraints: greater than or equal to 18"
+                            "minimum": 18
                           }
                         },
                         "required": [
@@ -1840,7 +1932,7 @@
           ],
           "tool_choice": "auto"
         },
-        "timestamp": 1789549089672
+        "timestamp": 1791857727794
       },
       "response": {
         "status": 200,
@@ -1849,11 +1941,11 @@
           "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
           "alt-svc": "h3=\":443\"; ma=86400",
           "cf-cache-status": "DYNAMIC",
-          "cf-ray": "a3beaaf2bc0fd279-FRA",
+          "cf-ray": "a49ad62ecd1af833-ORD",
           "connection": "keep-alive",
           "content-type": "application/json",
-          "date": "Wed, 16 Sep 2026 08:58:13 GMT",
-          "openai-processing-ms": "3671",
+          "date": "Tue, 13 Oct 2026 02:15:30 GMT",
+          "openai-processing-ms": "2830",
           "openai-version": "2020-10-01",
           "server": "cloudflare",
           "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
@@ -1861,21 +1953,22 @@
           "x-ratelimit-limit-requests": "10000",
           "x-ratelimit-limit-tokens": "30000000",
           "x-ratelimit-remaining-requests": "9999",
-          "x-ratelimit-remaining-tokens": "29999772",
+          "x-ratelimit-remaining-tokens": "29999819",
           "x-ratelimit-reset-requests": "6ms",
           "x-ratelimit-reset-tokens": "0s",
-          "x-request-id": "req_c339b982c9c046e582d2877ed3946e14"
+          "x-request-id": "req_b419c306534f4dd1b400a3ab22fc25f3"
         },
         "body": {
-          "id": "resp_067abf449ac6b1f3006aaa5a21d11087d2867dcfac80e598a5",
+          "id": "resp_0b9b7302fa86256f006acd943fe09087d1b3c0e49e6e6a90af",
           "object": "response",
-          "created_at": 1789549089,
+          "created_at": 1791857727,
           "status": "completed",
+          "access_programs": null,
           "background": false,
           "billing": {
             "payer": "developer"
           },
-          "completed_at": 1789549093,
+          "completed_at": 1791857730,
           "error": null,
           "frequency_penalty": 0,
           "incomplete_details": null,
@@ -1886,7 +1979,7 @@
           "moderation": null,
           "output": [
             {
-              "id": "msg_067abf449ac6b1f3006aaa5a22f0a087d299caf4edd1a28ca3",
+              "id": "msg_0b9b7302fa86256f006acd94404c7487d1a9a49e4ed4086e8b",
               "type": "message",
               "status": "completed",
               "content": [
@@ -1894,7 +1987,7 @@
                   "type": "output_text",
                   "annotations": [],
                   "logprobs": [],
-                  "text": "Here is a call to the manySchemasTool with valid sample data:\n\n- string: \"Hello, world!\"\n- stringMin (≥5 chars): \"More than five\"\n- stringMax (≤10 chars): \"Short txt\"\n- stringEmail: \"example@test.com\"\n- stringEmoji: \"😊\"\n- stringUrl: \"https://www.example.com\"\n- stringUuid: \"123e4567-e89b-12d3-a456-426614174000\"\n- stringCuid: \"cklv5u0ht000001lbz41l7h9r\"\n- stringRegex (starts with 'test-'): \"test-data\"\n- number: 42\n- numberGt (>3): 5\n- numberLt (<6): 3\n- numberGte (≥1): 10\n- numberLte (≤1): 1\n- numberMultipleOf (2): 4\n- numberInt: 8\n- exampleArray: [\"apple\", \"banana\", \"cherry\"]\n- arrayMin (≥1): [\"first\"]\n- arrayMax (≤5): [\"one\", \"two\", \"three\"]\n- date: \"2024-06-15T12:00:00Z\"\n- dateAfter (after 2024-01-01): \"2024-06-20T12:00:00Z\"\n- dateBefore (before today): \"2024-06-10T12:00:00Z\"\n- actualData (any valid date): \"2024-06-19T10:30:00Z\"\n- object: { foo: \"bar\", bar: 99 }\n- objectNested: { user: { name: \"Jay\", age: 25 } }\n- objectPassthrough: { }\n- objectLoose: { }\n- optional: null\n- nullable: null\n- enum: \"A\"\n- nativeEnum: \"B\"\n- unionPrimitives: \"Text value\"\n- unionObjects: { amount: 100, inventoryItemName: \"Widget\" }\n- default: \"test\"\n\nIf you need any value explained, let me know!"
+                  "text": "I have called the manySchemasTool with the following valid sample data:\n\n- string: \"Sample text\"\n- stringMin: \"Hello!\"\n- stringMax: \"ShortText\"\n- stringEmail: \"user@example.com\"\n- stringEmoji: \"😊\"\n- stringUrl: \"https://example.com\"\n- stringUuid: \"123e4567-e89b-12d3-a456-426614174000\"\n- stringCuid: \"cjn8h3b2v000001jq3v5rj3g7\"\n- stringRegex: \"test-abc123\"\n- number: 42\n- numberGt: 4\n- numberLt: 5\n- numberGte: 1\n- numberLte: 1\n- numberMultipleOf: 4\n- numberInt: 100\n- exampleArray: [\"apple\", \"banana\", \"orange\"]\n- arrayMin: [\"item1\"]\n- arrayMax: [\"a\", \"b\", \"c\"]\n- date: \"2024-03-01T10:00:00Z\"\n- dateAfter: \"2024-05-01T10:00:00Z\"\n- dateBefore: \"2023-11-01T10:00:00Z\"\n- actualData: \"2024-06-10T08:00:00Z\"\n- object: { foo: \"bar\", bar: 9 }\n- objectNested: { user: { name: \"Alice\", age: 25 } }\n- objectPassthrough: {}\n- objectLoose: {}\n- optional: null\n- nullable: null\n- enum: \"A\"\n- nativeEnum: \"B\"\n- unionPrimitives: \"union\"\n- unionObjects: { amount: 10, inventoryItemName: \"widget\" }\n- default: \"test\"\n\nIf you need an explanation for any specific field, let me know!"
                 }
               ],
               "role": "assistant"
@@ -1955,15 +2048,18 @@
                   },
                   "stringMin": {
                     "type": "string",
-                    "description": "sample text with a minimum of 5 characters\nconstraints: minimum length 5"
+                    "minLength": 5,
+                    "description": "sample text with a minimum of 5 characters"
                   },
                   "stringMax": {
                     "type": "string",
-                    "description": "sample text with a maximum of 10 characters\nconstraints: maximum length 10"
+                    "maxLength": 10,
+                    "description": "sample text with a maximum of 10 characters"
                   },
                   "stringEmail": {
                     "type": "string",
-                    "description": "a sample email address\nconstraints: a valid email"
+                    "format": "email",
+                    "description": "a sample email address"
                   },
                   "stringEmoji": {
                     "type": "string",
@@ -1975,7 +2071,8 @@
                   },
                   "stringUuid": {
                     "type": "string",
-                    "description": "a valid sample uuid\nconstraints: a valid uuid"
+                    "format": "uuid",
+                    "description": "a valid sample uuid"
                   },
                   "stringCuid": {
                     "type": "string",
@@ -1983,7 +2080,8 @@
                   },
                   "stringRegex": {
                     "type": "string",
-                    "description": "a valid sample string that satisfies the regex\nconstraints: input must match this regex ^test-"
+                    "pattern": "^test-",
+                    "description": "a valid sample string that satisfies the regex"
                   },
                   "number": {
                     "type": "number",
@@ -1991,26 +2089,33 @@
                   },
                   "numberGt": {
                     "type": "number",
-                    "description": "any valid sample number greater than 3\nconstraints: greater than 3"
+                    "exclusiveMinimum": 3,
+                    "description": "any valid sample number greater than 3"
                   },
                   "numberLt": {
                     "type": "number",
-                    "description": "any valid sample number less than 6\nconstraints: lower than 6"
+                    "exclusiveMaximum": 6,
+                    "description": "any valid sample number less than 6"
                   },
                   "numberGte": {
                     "type": "number",
-                    "description": "any valid sample number greater than or equal to 1\nconstraints: greater than or equal to 1"
+                    "minimum": 1,
+                    "description": "any valid sample number greater than or equal to 1"
                   },
                   "numberLte": {
                     "type": "number",
-                    "description": "any valid sample number less than or equal to 1\nconstraints: lower than or equal to 1"
+                    "maximum": 1,
+                    "description": "any valid sample number less than or equal to 1"
                   },
                   "numberMultipleOf": {
                     "type": "number",
-                    "description": "any valid sample number that is a multiple of 2\nconstraints: multiple of 2"
+                    "multipleOf": 2,
+                    "description": "any valid sample number that is a multiple of 2"
                   },
                   "numberInt": {
                     "type": "integer",
+                    "minimum": -9007199254740991,
+                    "maximum": 9007199254740991,
                     "description": "any valid sample number that is an integer"
                   },
                   "exampleArray": {
@@ -2021,37 +2126,43 @@
                     "description": "any valid array of example strings"
                   },
                   "arrayMin": {
+                    "minItems": 1,
                     "type": "array",
                     "items": {
                       "type": "string"
                     },
-                    "description": "any valid sample array of strings with a minimum of 1 string\nconstraints: minimum length 1"
+                    "description": "any valid sample array of strings with a minimum of 1 string"
                   },
                   "arrayMax": {
+                    "maxItems": 5,
                     "type": "array",
                     "items": {
                       "type": "string"
                     },
-                    "description": "any valid sample array of strings with a maximum of 5 strings\nconstraints: maximum length 5"
+                    "description": "any valid sample array of strings with a maximum of 5 strings"
                   },
                   "date": {
-                    "description": "a valid sample date\nconstraints: a valid date-time",
+                    "description": "a valid sample date",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "dateAfter": {
-                    "description": "a valid sample date after 2024-01-01\nconstraints: a valid date-time",
+                    "description": "a valid sample date after 2024-01-01",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "dateBefore": {
-                    "description": "a valid sample date before today\nconstraints: a valid date-time",
+                    "description": "a valid sample date before today",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "actualData": {
-                    "description": "a valid sample date\nconstraints: a valid date-time",
+                    "description": "a valid sample date",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": true
                   },
                   "object": {
@@ -2079,11 +2190,11 @@
                         "properties": {
                           "name": {
                             "type": "string",
-                            "description": "constraints: minimum length 2"
+                            "minLength": 2
                           },
                           "age": {
                             "type": "number",
-                            "description": "constraints: greater than or equal to 18"
+                            "minimum": 18
                           }
                         },
                         "required": [
@@ -2251,16 +2362,16 @@
           "top_p": 1,
           "truncation": "disabled",
           "usage": {
-            "input_tokens": 1380,
+            "input_tokens": 1390,
             "input_tokens_details": {
               "cache_write_tokens": 0,
               "cached_tokens": 0
             },
-            "output_tokens": 445,
+            "output_tokens": 398,
             "output_tokens_details": {
               "reasoning_tokens": 0
             },
-            "total_tokens": 1825
+            "total_tokens": 1788
           },
           "user": null,
           "metadata": {}
@@ -2269,7 +2380,7 @@
       }
     },
     {
-      "hash": "374e86393e29a911",
+      "hash": "512103abf17f17f2",
       "request": {
         "url": "https://api.openai.com/v1/responses",
         "method": "POST",
@@ -2301,15 +2412,18 @@
                   },
                   "stringMin": {
                     "type": "string",
-                    "description": "sample text with a minimum of 5 characters\nconstraints: minimum length 5"
+                    "minLength": 5,
+                    "description": "sample text with a minimum of 5 characters"
                   },
                   "stringMax": {
                     "type": "string",
-                    "description": "sample text with a maximum of 10 characters\nconstraints: maximum length 10"
+                    "maxLength": 10,
+                    "description": "sample text with a maximum of 10 characters"
                   },
                   "stringEmail": {
                     "type": "string",
-                    "description": "a sample email address\nconstraints: a valid email"
+                    "format": "email",
+                    "description": "a sample email address"
                   },
                   "stringEmoji": {
                     "type": "string",
@@ -2321,7 +2435,8 @@
                   },
                   "stringUuid": {
                     "type": "string",
-                    "description": "a valid sample uuid\nconstraints: a valid uuid"
+                    "format": "uuid",
+                    "description": "a valid sample uuid"
                   },
                   "stringCuid": {
                     "type": "string",
@@ -2329,7 +2444,8 @@
                   },
                   "stringRegex": {
                     "type": "string",
-                    "description": "a valid sample string that satisfies the regex\nconstraints: input must match this regex ^test-"
+                    "pattern": "^test-",
+                    "description": "a valid sample string that satisfies the regex"
                   },
                   "number": {
                     "type": "number",
@@ -2337,26 +2453,33 @@
                   },
                   "numberGt": {
                     "type": "number",
-                    "description": "any valid sample number greater than 3\nconstraints: greater than 3"
+                    "exclusiveMinimum": 3,
+                    "description": "any valid sample number greater than 3"
                   },
                   "numberLt": {
                     "type": "number",
-                    "description": "any valid sample number less than 6\nconstraints: lower than 6"
+                    "exclusiveMaximum": 6,
+                    "description": "any valid sample number less than 6"
                   },
                   "numberGte": {
                     "type": "number",
-                    "description": "any valid sample number greater than or equal to 1\nconstraints: greater than or equal to 1"
+                    "minimum": 1,
+                    "description": "any valid sample number greater than or equal to 1"
                   },
                   "numberLte": {
                     "type": "number",
-                    "description": "any valid sample number less than or equal to 1\nconstraints: lower than or equal to 1"
+                    "maximum": 1,
+                    "description": "any valid sample number less than or equal to 1"
                   },
                   "numberMultipleOf": {
                     "type": "number",
-                    "description": "any valid sample number that is a multiple of 2\nconstraints: multiple of 2"
+                    "multipleOf": 2,
+                    "description": "any valid sample number that is a multiple of 2"
                   },
                   "numberInt": {
                     "type": "integer",
+                    "minimum": -9007199254740991,
+                    "maximum": 9007199254740991,
                     "description": "any valid sample number that is an integer"
                   },
                   "exampleArray": {
@@ -2367,37 +2490,43 @@
                     "description": "any valid array of example strings"
                   },
                   "arrayMin": {
+                    "minItems": 1,
                     "type": "array",
                     "items": {
                       "type": "string"
                     },
-                    "description": "any valid sample array of strings with a minimum of 1 string\nconstraints: minimum length 1"
+                    "description": "any valid sample array of strings with a minimum of 1 string"
                   },
                   "arrayMax": {
+                    "maxItems": 5,
                     "type": "array",
                     "items": {
                       "type": "string"
                     },
-                    "description": "any valid sample array of strings with a maximum of 5 strings\nconstraints: maximum length 5"
+                    "description": "any valid sample array of strings with a maximum of 5 strings"
                   },
                   "date": {
-                    "description": "a valid sample date\nconstraints: a valid date-time",
+                    "description": "a valid sample date",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "dateAfter": {
-                    "description": "a valid sample date after 2024-01-01\nconstraints: a valid date-time",
+                    "description": "a valid sample date after 2024-01-01",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "dateBefore": {
-                    "description": "a valid sample date before today\nconstraints: a valid date-time",
+                    "description": "a valid sample date before today",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "actualData": {
-                    "description": "a valid sample date\nconstraints: a valid date-time",
+                    "description": "a valid sample date",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": true
                   },
                   "object": {
@@ -2425,11 +2554,11 @@
                         "properties": {
                           "name": {
                             "type": "string",
-                            "description": "constraints: minimum length 2"
+                            "minLength": 2
                           },
                           "age": {
                             "type": "number",
-                            "description": "constraints: greater than or equal to 18"
+                            "minimum": 18
                           }
                         },
                         "required": [
@@ -2594,7 +2723,7 @@
           ],
           "tool_choice": "auto"
         },
-        "timestamp": 1789549093545
+        "timestamp": 1791857730749
       },
       "response": {
         "status": 200,
@@ -2603,11 +2732,11 @@
           "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
           "alt-svc": "h3=\":443\"; ma=86400",
           "cf-cache-status": "DYNAMIC",
-          "cf-ray": "a3beab0aef93d279-FRA",
+          "cf-ray": "a49ad6414d82f833-ORD",
           "connection": "keep-alive",
           "content-type": "application/json",
-          "date": "Wed, 16 Sep 2026 08:58:17 GMT",
-          "openai-processing-ms": "3617",
+          "date": "Tue, 13 Oct 2026 02:15:33 GMT",
+          "openai-processing-ms": "2797",
           "openai-version": "2020-10-01",
           "server": "cloudflare",
           "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
@@ -2615,21 +2744,22 @@
           "x-ratelimit-limit-requests": "10000",
           "x-ratelimit-limit-tokens": "30000000",
           "x-ratelimit-remaining-requests": "9999",
-          "x-ratelimit-remaining-tokens": "29999905",
+          "x-ratelimit-remaining-tokens": "29999910",
           "x-ratelimit-reset-requests": "6ms",
           "x-ratelimit-reset-tokens": "0s",
-          "x-request-id": "req_18f653e5b2924218bb2646a0295934c4"
+          "x-request-id": "req_ba3da1cefa114f6db8e66973f0c627d3"
         },
         "body": {
-          "id": "resp_06d4cf55c9c58d62006aaa5a25b2d487d2a8d5c8e67b29a4ea",
+          "id": "resp_0a5f8bcc6f6762ef006acd9442ed2887d188df4d923ad85a7d",
           "object": "response",
-          "created_at": 1789549093,
+          "created_at": 1791857730,
           "status": "completed",
+          "access_programs": null,
           "background": false,
           "billing": {
             "payer": "developer"
           },
-          "completed_at": 1789549097,
+          "completed_at": 1791857733,
           "error": null,
           "frequency_penalty": 0,
           "incomplete_details": null,
@@ -2640,11 +2770,11 @@
           "moderation": null,
           "output": [
             {
-              "id": "fc_06d4cf55c9c58d62006aaa5a26d80887d2b417928318a9d495",
+              "id": "fc_0a5f8bcc6f6762ef006acd9443626887d1a0c8fce8ab49725b",
               "type": "function_call",
               "status": "completed",
-              "arguments": "{\"string\":\"Sample text\",\"stringMin\":\"Hello!\",\"stringMax\":\"ShortText\",\"stringEmail\":\"email@example.com\",\"stringEmoji\":\"😀\",\"stringUrl\":\"https://example.com\",\"stringUuid\":\"123e4567-e89b-12d3-a456-426614174000\",\"stringCuid\":\"cjn5u5z1p0000nnhdf8t8qz3v\",\"stringRegex\":\"test-regex\",\"number\":42,\"numberGt\":5,\"numberLt\":3,\"numberGte\":1,\"numberLte\":1,\"numberMultipleOf\":4,\"numberInt\":10,\"exampleArray\":[\"one\",\"two\",\"three\"],\"arrayMin\":[\"minimum\"],\"arrayMax\":[\"a\",\"b\",\"c\"],\"date\":\"2024-05-05T10:00:00Z\",\"dateAfter\":\"2024-02-01T00:00:00Z\",\"dateBefore\":\"2024-05-01T00:00:00Z\",\"actualData\":\"2023-12-31T23:59:59Z\",\"object\":{\"foo\":\"bar\",\"bar\":123},\"objectNested\":{\"user\":{\"name\":\"Jo\",\"age\":25}},\"objectPassthrough\":{},\"objectLoose\":{},\"optional\":null,\"nullable\":null,\"enum\":\"A\",\"nativeEnum\":\"B\",\"unionPrimitives\":\"union value\",\"unionObjects\":{\"amount\":13,\"inventoryItemName\":\"Widget\"},\"default\":\"test\"}",
-              "call_id": "call_uXRKyqjGr0P9r5tB3nueLTPB",
+              "arguments": "{\"string\":\"Sample text\",\"stringMin\":\"Hello!\",\"stringMax\":\"ShortTxt\",\"stringEmail\":\"example@email.com\",\"stringEmoji\":\"😊\",\"stringUrl\":\"https://www.example.com\",\"stringUuid\":\"123e4567-e89b-12d3-a456-426614174000\",\"stringCuid\":\"cjld2cjxh0000qzrmn831i7rn\",\"stringRegex\":\"test-sampletext\",\"number\":42,\"numberGt\":4,\"numberLt\":5,\"numberGte\":2,\"numberLte\":1,\"numberMultipleOf\":4,\"numberInt\":7,\"exampleArray\":[\"foo\",\"bar\"],\"arrayMin\":[\"item1\"],\"arrayMax\":[\"one\",\"two\"],\"date\":\"2023-08-15T00:00:00Z\",\"dateAfter\":\"2024-02-01T10:00:00Z\",\"dateBefore\":\"2024-05-30T09:00:00Z\",\"actualData\":\"2023-09-20T12:00:00Z\",\"object\":{\"foo\":\"value\",\"bar\":24},\"objectNested\":{\"user\":{\"name\":\"Jane\",\"age\":22}},\"objectPassthrough\":{},\"objectLoose\":{},\"optional\":null,\"nullable\":null,\"enum\":\"A\",\"nativeEnum\":\"B\",\"unionPrimitives\":\"union type example\",\"unionObjects\":{\"amount\":100,\"inventoryItemName\":\"Widget\"},\"default\":\"test\"}",
+              "call_id": "call_l1hG41SptdZtMnyxVemnJevh",
               "name": "manySchemasTool"
             }
           ],
@@ -2703,15 +2833,18 @@
                   },
                   "stringMin": {
                     "type": "string",
-                    "description": "sample text with a minimum of 5 characters\nconstraints: minimum length 5"
+                    "minLength": 5,
+                    "description": "sample text with a minimum of 5 characters"
                   },
                   "stringMax": {
                     "type": "string",
-                    "description": "sample text with a maximum of 10 characters\nconstraints: maximum length 10"
+                    "maxLength": 10,
+                    "description": "sample text with a maximum of 10 characters"
                   },
                   "stringEmail": {
                     "type": "string",
-                    "description": "a sample email address\nconstraints: a valid email"
+                    "format": "email",
+                    "description": "a sample email address"
                   },
                   "stringEmoji": {
                     "type": "string",
@@ -2723,7 +2856,8 @@
                   },
                   "stringUuid": {
                     "type": "string",
-                    "description": "a valid sample uuid\nconstraints: a valid uuid"
+                    "format": "uuid",
+                    "description": "a valid sample uuid"
                   },
                   "stringCuid": {
                     "type": "string",
@@ -2731,7 +2865,8 @@
                   },
                   "stringRegex": {
                     "type": "string",
-                    "description": "a valid sample string that satisfies the regex\nconstraints: input must match this regex ^test-"
+                    "pattern": "^test-",
+                    "description": "a valid sample string that satisfies the regex"
                   },
                   "number": {
                     "type": "number",
@@ -2739,26 +2874,33 @@
                   },
                   "numberGt": {
                     "type": "number",
-                    "description": "any valid sample number greater than 3\nconstraints: greater than 3"
+                    "exclusiveMinimum": 3,
+                    "description": "any valid sample number greater than 3"
                   },
                   "numberLt": {
                     "type": "number",
-                    "description": "any valid sample number less than 6\nconstraints: lower than 6"
+                    "exclusiveMaximum": 6,
+                    "description": "any valid sample number less than 6"
                   },
                   "numberGte": {
                     "type": "number",
-                    "description": "any valid sample number greater than or equal to 1\nconstraints: greater than or equal to 1"
+                    "minimum": 1,
+                    "description": "any valid sample number greater than or equal to 1"
                   },
                   "numberLte": {
                     "type": "number",
-                    "description": "any valid sample number less than or equal to 1\nconstraints: lower than or equal to 1"
+                    "maximum": 1,
+                    "description": "any valid sample number less than or equal to 1"
                   },
                   "numberMultipleOf": {
                     "type": "number",
-                    "description": "any valid sample number that is a multiple of 2\nconstraints: multiple of 2"
+                    "multipleOf": 2,
+                    "description": "any valid sample number that is a multiple of 2"
                   },
                   "numberInt": {
                     "type": "integer",
+                    "minimum": -9007199254740991,
+                    "maximum": 9007199254740991,
                     "description": "any valid sample number that is an integer"
                   },
                   "exampleArray": {
@@ -2769,37 +2911,43 @@
                     "description": "any valid array of example strings"
                   },
                   "arrayMin": {
+                    "minItems": 1,
                     "type": "array",
                     "items": {
                       "type": "string"
                     },
-                    "description": "any valid sample array of strings with a minimum of 1 string\nconstraints: minimum length 1"
+                    "description": "any valid sample array of strings with a minimum of 1 string"
                   },
                   "arrayMax": {
+                    "maxItems": 5,
                     "type": "array",
                     "items": {
                       "type": "string"
                     },
-                    "description": "any valid sample array of strings with a maximum of 5 strings\nconstraints: maximum length 5"
+                    "description": "any valid sample array of strings with a maximum of 5 strings"
                   },
                   "date": {
-                    "description": "a valid sample date\nconstraints: a valid date-time",
+                    "description": "a valid sample date",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "dateAfter": {
-                    "description": "a valid sample date after 2024-01-01\nconstraints: a valid date-time",
+                    "description": "a valid sample date after 2024-01-01",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "dateBefore": {
-                    "description": "a valid sample date before today\nconstraints: a valid date-time",
+                    "description": "a valid sample date before today",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "actualData": {
-                    "description": "a valid sample date\nconstraints: a valid date-time",
+                    "description": "a valid sample date",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": true
                   },
                   "object": {
@@ -2827,11 +2975,11 @@
                         "properties": {
                           "name": {
                             "type": "string",
-                            "description": "constraints: minimum length 2"
+                            "minLength": 2
                           },
                           "age": {
                             "type": "number",
-                            "description": "constraints: greater than or equal to 18"
+                            "minimum": 18
                           }
                         },
                         "required": [
@@ -2999,16 +3147,16 @@
           "top_p": 1,
           "truncation": "disabled",
           "usage": {
-            "input_tokens": 767,
+            "input_tokens": 777,
             "input_tokens_details": {
               "cache_write_tokens": 0,
               "cached_tokens": 0
             },
-            "output_tokens": 312,
+            "output_tokens": 307,
             "output_tokens_details": {
               "reasoning_tokens": 0
             },
-            "total_tokens": 1079
+            "total_tokens": 1084
           },
           "user": null,
           "metadata": {}
@@ -3017,7 +3165,7 @@
       }
     },
     {
-      "hash": "9c02cbfeb38332b0",
+      "hash": "b28ed369e564d3fc",
       "request": {
         "url": "https://api.openai.com/v1/responses",
         "method": "POST",
@@ -3035,14 +3183,14 @@
             },
             {
               "type": "function_call",
-              "call_id": "call_uXRKyqjGr0P9r5tB3nueLTPB",
+              "call_id": "call_l1hG41SptdZtMnyxVemnJevh",
               "name": "manySchemasTool",
-              "arguments": "{\"string\":\"Sample text\",\"stringMin\":\"Hello!\",\"stringMax\":\"ShortText\",\"stringEmail\":\"email@example.com\",\"stringEmoji\":\"😀\",\"stringUrl\":\"https://example.com\",\"stringUuid\":\"123e4567-e89b-12d3-a456-426614174000\",\"stringCuid\":\"cjn5u5z1p0000nnhdf8t8qz3v\",\"stringRegex\":\"test-regex\",\"number\":42,\"numberGt\":5,\"numberLt\":3,\"numberGte\":1,\"numberLte\":1,\"numberMultipleOf\":4,\"numberInt\":10,\"exampleArray\":[\"one\",\"two\",\"three\"],\"arrayMin\":[\"minimum\"],\"arrayMax\":[\"a\",\"b\",\"c\"],\"date\":\"2024-05-05T10:00:00Z\",\"dateAfter\":\"2024-02-01T00:00:00Z\",\"dateBefore\":\"2024-05-01T00:00:00Z\",\"actualData\":\"2023-12-31T23:59:59.000Z\",\"object\":{\"foo\":\"bar\",\"bar\":123},\"objectNested\":{\"user\":{\"name\":\"Jo\",\"age\":25}},\"objectPassthrough\":{},\"objectLoose\":{},\"nullable\":null,\"enum\":\"A\",\"nativeEnum\":\"B\",\"unionPrimitives\":\"union value\",\"unionObjects\":{\"amount\":13,\"inventoryItemName\":\"Widget\"},\"default\":\"test\"}"
+              "arguments": "{\"string\":\"Sample text\",\"stringMin\":\"Hello!\",\"stringMax\":\"ShortTxt\",\"stringEmail\":\"example@email.com\",\"stringEmoji\":\"😊\",\"stringUrl\":\"https://www.example.com\",\"stringUuid\":\"123e4567-e89b-12d3-a456-426614174000\",\"stringCuid\":\"cjld2cjxh0000qzrmn831i7rn\",\"stringRegex\":\"test-sampletext\",\"number\":42,\"numberGt\":4,\"numberLt\":5,\"numberGte\":2,\"numberLte\":1,\"numberMultipleOf\":4,\"numberInt\":7,\"exampleArray\":[\"foo\",\"bar\"],\"arrayMin\":[\"item1\"],\"arrayMax\":[\"one\",\"two\"],\"date\":\"2023-08-15T00:00:00.000Z\",\"dateAfter\":\"2024-02-01T10:00:00.000Z\",\"dateBefore\":\"2024-05-30T09:00:00.000Z\",\"actualData\":\"2023-09-20T12:00:00.000Z\",\"object\":{\"foo\":\"value\",\"bar\":24},\"objectNested\":{\"user\":{\"name\":\"Jane\",\"age\":22}},\"objectPassthrough\":{},\"objectLoose\":{},\"nullable\":null,\"enum\":\"A\",\"nativeEnum\":\"B\",\"unionPrimitives\":\"union type example\",\"unionObjects\":{\"amount\":100,\"inventoryItemName\":\"Widget\"},\"default\":\"test\"}"
             },
             {
               "type": "function_call_output",
-              "call_id": "call_uXRKyqjGr0P9r5tB3nueLTPB",
-              "output": "{\"string\":\"Sample text\",\"stringMin\":\"Hello!\",\"stringMax\":\"ShortText\",\"stringEmail\":\"email@example.com\",\"stringEmoji\":\"😀\",\"stringUrl\":\"https://example.com\",\"stringUuid\":\"123e4567-e89b-12d3-a456-426614174000\",\"stringCuid\":\"cjn5u5z1p0000nnhdf8t8qz3v\",\"stringRegex\":\"test-regex\",\"number\":42,\"numberGt\":5,\"numberLt\":3,\"numberGte\":1,\"numberLte\":1,\"numberMultipleOf\":4,\"numberInt\":10,\"exampleArray\":[\"one\",\"two\",\"three\"],\"arrayMin\":[\"minimum\"],\"arrayMax\":[\"a\",\"b\",\"c\"],\"date\":\"2024-05-05T10:00:00.000Z\",\"dateAfter\":\"2024-02-01T00:00:00.000Z\",\"dateBefore\":\"2024-05-01T00:00:00.000Z\",\"actualData\":\"2023-12-31T23:59:59.000Z\",\"object\":{\"foo\":\"bar\",\"bar\":123},\"objectNested\":{\"user\":{\"name\":\"Jo\",\"age\":25}},\"objectPassthrough\":{},\"objectLoose\":{},\"nullable\":null,\"enum\":\"A\",\"nativeEnum\":\"B\",\"unionPrimitives\":\"union value\",\"unionObjects\":{\"amount\":13,\"inventoryItemName\":\"Widget\"},\"default\":\"test\"}"
+              "call_id": "call_l1hG41SptdZtMnyxVemnJevh",
+              "output": "{\"string\":\"Sample text\",\"stringMin\":\"Hello!\",\"stringMax\":\"ShortTxt\",\"stringEmail\":\"example@email.com\",\"stringEmoji\":\"😊\",\"stringUrl\":\"https://www.example.com\",\"stringUuid\":\"123e4567-e89b-12d3-a456-426614174000\",\"stringCuid\":\"cjld2cjxh0000qzrmn831i7rn\",\"stringRegex\":\"test-sampletext\",\"number\":42,\"numberGt\":4,\"numberLt\":5,\"numberGte\":2,\"numberLte\":1,\"numberMultipleOf\":4,\"numberInt\":7,\"exampleArray\":[\"foo\",\"bar\"],\"arrayMin\":[\"item1\"],\"arrayMax\":[\"one\",\"two\"],\"date\":\"2023-08-15T00:00:00.000Z\",\"dateAfter\":\"2024-02-01T10:00:00.000Z\",\"dateBefore\":\"2024-05-30T09:00:00.000Z\",\"actualData\":\"2023-09-20T12:00:00.000Z\",\"object\":{\"foo\":\"value\",\"bar\":24},\"objectNested\":{\"user\":{\"name\":\"Jane\",\"age\":22}},\"objectPassthrough\":{},\"objectLoose\":{},\"nullable\":null,\"enum\":\"A\",\"nativeEnum\":\"B\",\"unionPrimitives\":\"union type example\",\"unionObjects\":{\"amount\":100,\"inventoryItemName\":\"Widget\"},\"default\":\"test\"}"
             }
           ],
           "tools": [
@@ -3060,15 +3208,18 @@
                   },
                   "stringMin": {
                     "type": "string",
-                    "description": "sample text with a minimum of 5 characters\nconstraints: minimum length 5"
+                    "minLength": 5,
+                    "description": "sample text with a minimum of 5 characters"
                   },
                   "stringMax": {
                     "type": "string",
-                    "description": "sample text with a maximum of 10 characters\nconstraints: maximum length 10"
+                    "maxLength": 10,
+                    "description": "sample text with a maximum of 10 characters"
                   },
                   "stringEmail": {
                     "type": "string",
-                    "description": "a sample email address\nconstraints: a valid email"
+                    "format": "email",
+                    "description": "a sample email address"
                   },
                   "stringEmoji": {
                     "type": "string",
@@ -3080,7 +3231,8 @@
                   },
                   "stringUuid": {
                     "type": "string",
-                    "description": "a valid sample uuid\nconstraints: a valid uuid"
+                    "format": "uuid",
+                    "description": "a valid sample uuid"
                   },
                   "stringCuid": {
                     "type": "string",
@@ -3088,7 +3240,8 @@
                   },
                   "stringRegex": {
                     "type": "string",
-                    "description": "a valid sample string that satisfies the regex\nconstraints: input must match this regex ^test-"
+                    "pattern": "^test-",
+                    "description": "a valid sample string that satisfies the regex"
                   },
                   "number": {
                     "type": "number",
@@ -3096,26 +3249,33 @@
                   },
                   "numberGt": {
                     "type": "number",
-                    "description": "any valid sample number greater than 3\nconstraints: greater than 3"
+                    "exclusiveMinimum": 3,
+                    "description": "any valid sample number greater than 3"
                   },
                   "numberLt": {
                     "type": "number",
-                    "description": "any valid sample number less than 6\nconstraints: lower than 6"
+                    "exclusiveMaximum": 6,
+                    "description": "any valid sample number less than 6"
                   },
                   "numberGte": {
                     "type": "number",
-                    "description": "any valid sample number greater than or equal to 1\nconstraints: greater than or equal to 1"
+                    "minimum": 1,
+                    "description": "any valid sample number greater than or equal to 1"
                   },
                   "numberLte": {
                     "type": "number",
-                    "description": "any valid sample number less than or equal to 1\nconstraints: lower than or equal to 1"
+                    "maximum": 1,
+                    "description": "any valid sample number less than or equal to 1"
                   },
                   "numberMultipleOf": {
                     "type": "number",
-                    "description": "any valid sample number that is a multiple of 2\nconstraints: multiple of 2"
+                    "multipleOf": 2,
+                    "description": "any valid sample number that is a multiple of 2"
                   },
                   "numberInt": {
                     "type": "integer",
+                    "minimum": -9007199254740991,
+                    "maximum": 9007199254740991,
                     "description": "any valid sample number that is an integer"
                   },
                   "exampleArray": {
@@ -3126,37 +3286,43 @@
                     "description": "any valid array of example strings"
                   },
                   "arrayMin": {
+                    "minItems": 1,
                     "type": "array",
                     "items": {
                       "type": "string"
                     },
-                    "description": "any valid sample array of strings with a minimum of 1 string\nconstraints: minimum length 1"
+                    "description": "any valid sample array of strings with a minimum of 1 string"
                   },
                   "arrayMax": {
+                    "maxItems": 5,
                     "type": "array",
                     "items": {
                       "type": "string"
                     },
-                    "description": "any valid sample array of strings with a maximum of 5 strings\nconstraints: maximum length 5"
+                    "description": "any valid sample array of strings with a maximum of 5 strings"
                   },
                   "date": {
-                    "description": "a valid sample date\nconstraints: a valid date-time",
+                    "description": "a valid sample date",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "dateAfter": {
-                    "description": "a valid sample date after 2024-01-01\nconstraints: a valid date-time",
+                    "description": "a valid sample date after 2024-01-01",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "dateBefore": {
-                    "description": "a valid sample date before today\nconstraints: a valid date-time",
+                    "description": "a valid sample date before today",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "actualData": {
-                    "description": "a valid sample date\nconstraints: a valid date-time",
+                    "description": "a valid sample date",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": true
                   },
                   "object": {
@@ -3184,11 +3350,11 @@
                         "properties": {
                           "name": {
                             "type": "string",
-                            "description": "constraints: minimum length 2"
+                            "minLength": 2
                           },
                           "age": {
                             "type": "number",
-                            "description": "constraints: greater than or equal to 18"
+                            "minimum": 18
                           }
                         },
                         "required": [
@@ -3353,7 +3519,7 @@
           ],
           "tool_choice": "auto"
         },
-        "timestamp": 1789549097343
+        "timestamp": 1791857733711
       },
       "response": {
         "status": 200,
@@ -3362,11 +3528,11 @@
           "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
           "alt-svc": "h3=\":443\"; ma=86400",
           "cf-cache-status": "DYNAMIC",
-          "cf-ray": "a3beab22af9ad279-FRA",
+          "cf-ray": "a49ad653c931f833-ORD",
           "connection": "keep-alive",
           "content-type": "application/json",
-          "date": "Wed, 16 Sep 2026 08:58:21 GMT",
-          "openai-processing-ms": "4101",
+          "date": "Tue, 13 Oct 2026 02:15:37 GMT",
+          "openai-processing-ms": "3294",
           "openai-version": "2020-10-01",
           "server": "cloudflare",
           "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
@@ -3374,21 +3540,22 @@
           "x-ratelimit-limit-requests": "10000",
           "x-ratelimit-limit-tokens": "30000000",
           "x-ratelimit-remaining-requests": "9999",
-          "x-ratelimit-remaining-tokens": "29999773",
+          "x-ratelimit-remaining-tokens": "29999780",
           "x-ratelimit-reset-requests": "6ms",
           "x-ratelimit-reset-tokens": "0s",
-          "x-request-id": "req_84f34606710648c895bf9d35b293b5ec"
+          "x-request-id": "req_4e3a4564da0b4890ab3f7d4e14fac1b1"
         },
         "body": {
-          "id": "resp_08b7e4cc5094f4c3006aaa5a29777487d29f64c5328b061c14",
+          "id": "resp_0d23259a5293035f006acd9445cac487d1850d2b29daf5c5f4",
           "object": "response",
-          "created_at": 1789549097,
+          "created_at": 1791857733,
           "status": "completed",
+          "access_programs": null,
           "background": false,
           "billing": {
             "payer": "developer"
           },
-          "completed_at": 1789549100,
+          "completed_at": 1791857736,
           "error": null,
           "frequency_penalty": 0,
           "incomplete_details": null,
@@ -3399,7 +3566,7 @@
           "moderation": null,
           "output": [
             {
-              "id": "msg_08b7e4cc5094f4c3006aaa5a29fcb487d2a3c31c3ef299279b",
+              "id": "msg_0d23259a5293035f006acd94465c6c87d1a7004ff4bacfdd9a",
               "type": "message",
               "status": "completed",
               "content": [
@@ -3407,7 +3574,7 @@
                   "type": "output_text",
                   "annotations": [],
                   "logprobs": [],
-                  "text": "Here is the validated output from the manySchemasTool tool using valid sample data:\n\n{\n  \"string\": \"Sample text\",\n  \"stringMin\": \"Hello!\",\n  \"stringMax\": \"ShortText\",\n  \"stringEmail\": \"email@example.com\",\n  \"stringEmoji\": \"😀\",\n  \"stringUrl\": \"https://example.com\",\n  \"stringUuid\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"stringCuid\": \"cjn5u5z1p0000nnhdf8t8qz3v\",\n  \"stringRegex\": \"test-regex\",\n  \"number\": 42,\n  \"numberGt\": 5,\n  \"numberLt\": 3,\n  \"numberGte\": 1,\n  \"numberLte\": 1,\n  \"numberMultipleOf\": 4,\n  \"numberInt\": 10,\n  \"exampleArray\": [\"one\", \"two\", \"three\"],\n  \"arrayMin\": [\"minimum\"],\n  \"arrayMax\": [\"a\", \"b\", \"c\"],\n  \"date\": \"2024-05-05T10:00:00.000Z\",\n  \"dateAfter\": \"2024-02-01T00:00:00.000Z\",\n  \"dateBefore\": \"2024-05-01T00:00:00.000Z\",\n  \"actualData\": \"2023-12-31T23:59:59.000Z\",\n  \"object\": { \"foo\": \"bar\", \"bar\": 123 },\n  \"objectNested\": { \"user\": { \"name\": \"Jo\", \"age\": 25 } },\n  \"objectPassthrough\": {},\n  \"objectLoose\": {},\n  \"nullable\": null,\n  \"enum\": \"A\",\n  \"nativeEnum\": \"B\",\n  \"unionPrimitives\": \"union value\",\n  \"unionObjects\": { \"amount\": 13, \"inventoryItemName\": \"Widget\" },\n  \"default\": \"test\"\n}\n\nLet me know if you want validation details for any specific schema!"
+                  "text": "Here is the validated tool output using the manySchemasTool with valid sample data:\n\n{\n  \"string\": \"Sample text\",\n  \"stringMin\": \"Hello!\",\n  \"stringMax\": \"ShortTxt\",\n  \"stringEmail\": \"example@email.com\",\n  \"stringEmoji\": \"😊\",\n  \"stringUrl\": \"https://www.example.com\",\n  \"stringUuid\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"stringCuid\": \"cjld2cjxh0000qzrmn831i7rn\",\n  \"stringRegex\": \"test-sampletext\",\n  \"number\": 42,\n  \"numberGt\": 4,\n  \"numberLt\": 5,\n  \"numberGte\": 2,\n  \"numberLte\": 1,\n  \"numberMultipleOf\": 4,\n  \"numberInt\": 7,\n  \"exampleArray\": [\"foo\", \"bar\"],\n  \"arrayMin\": [\"item1\"],\n  \"arrayMax\": [\"one\", \"two\"],\n  \"date\": \"2023-08-15T00:00:00.000Z\",\n  \"dateAfter\": \"2024-02-01T10:00:00.000Z\",\n  \"dateBefore\": \"2024-05-30T09:00:00.000Z\",\n  \"actualData\": \"2023-09-20T12:00:00.000Z\",\n  \"object\": { \"foo\": \"value\", \"bar\": 24 },\n  \"objectNested\": { \"user\": { \"name\": \"Jane\", \"age\": 22 } },\n  \"objectPassthrough\": {},\n  \"objectLoose\": {},\n  \"nullable\": null,\n  \"enum\": \"A\",\n  \"nativeEnum\": \"B\",\n  \"unionPrimitives\": \"union type example\",\n  \"unionObjects\": { \"amount\": 100, \"inventoryItemName\": \"Widget\" },\n  \"default\": \"test\"\n}\n\nLet me know if you need this output displayed differently or explained!"
                 }
               ],
               "role": "assistant"
@@ -3468,15 +3635,18 @@
                   },
                   "stringMin": {
                     "type": "string",
-                    "description": "sample text with a minimum of 5 characters\nconstraints: minimum length 5"
+                    "minLength": 5,
+                    "description": "sample text with a minimum of 5 characters"
                   },
                   "stringMax": {
                     "type": "string",
-                    "description": "sample text with a maximum of 10 characters\nconstraints: maximum length 10"
+                    "maxLength": 10,
+                    "description": "sample text with a maximum of 10 characters"
                   },
                   "stringEmail": {
                     "type": "string",
-                    "description": "a sample email address\nconstraints: a valid email"
+                    "format": "email",
+                    "description": "a sample email address"
                   },
                   "stringEmoji": {
                     "type": "string",
@@ -3488,7 +3658,8 @@
                   },
                   "stringUuid": {
                     "type": "string",
-                    "description": "a valid sample uuid\nconstraints: a valid uuid"
+                    "format": "uuid",
+                    "description": "a valid sample uuid"
                   },
                   "stringCuid": {
                     "type": "string",
@@ -3496,7 +3667,8 @@
                   },
                   "stringRegex": {
                     "type": "string",
-                    "description": "a valid sample string that satisfies the regex\nconstraints: input must match this regex ^test-"
+                    "pattern": "^test-",
+                    "description": "a valid sample string that satisfies the regex"
                   },
                   "number": {
                     "type": "number",
@@ -3504,26 +3676,33 @@
                   },
                   "numberGt": {
                     "type": "number",
-                    "description": "any valid sample number greater than 3\nconstraints: greater than 3"
+                    "exclusiveMinimum": 3,
+                    "description": "any valid sample number greater than 3"
                   },
                   "numberLt": {
                     "type": "number",
-                    "description": "any valid sample number less than 6\nconstraints: lower than 6"
+                    "exclusiveMaximum": 6,
+                    "description": "any valid sample number less than 6"
                   },
                   "numberGte": {
                     "type": "number",
-                    "description": "any valid sample number greater than or equal to 1\nconstraints: greater than or equal to 1"
+                    "minimum": 1,
+                    "description": "any valid sample number greater than or equal to 1"
                   },
                   "numberLte": {
                     "type": "number",
-                    "description": "any valid sample number less than or equal to 1\nconstraints: lower than or equal to 1"
+                    "maximum": 1,
+                    "description": "any valid sample number less than or equal to 1"
                   },
                   "numberMultipleOf": {
                     "type": "number",
-                    "description": "any valid sample number that is a multiple of 2\nconstraints: multiple of 2"
+                    "multipleOf": 2,
+                    "description": "any valid sample number that is a multiple of 2"
                   },
                   "numberInt": {
                     "type": "integer",
+                    "minimum": -9007199254740991,
+                    "maximum": 9007199254740991,
                     "description": "any valid sample number that is an integer"
                   },
                   "exampleArray": {
@@ -3534,37 +3713,43 @@
                     "description": "any valid array of example strings"
                   },
                   "arrayMin": {
+                    "minItems": 1,
                     "type": "array",
                     "items": {
                       "type": "string"
                     },
-                    "description": "any valid sample array of strings with a minimum of 1 string\nconstraints: minimum length 1"
+                    "description": "any valid sample array of strings with a minimum of 1 string"
                   },
                   "arrayMax": {
+                    "maxItems": 5,
                     "type": "array",
                     "items": {
                       "type": "string"
                     },
-                    "description": "any valid sample array of strings with a maximum of 5 strings\nconstraints: maximum length 5"
+                    "description": "any valid sample array of strings with a maximum of 5 strings"
                   },
                   "date": {
-                    "description": "a valid sample date\nconstraints: a valid date-time",
+                    "description": "a valid sample date",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "dateAfter": {
-                    "description": "a valid sample date after 2024-01-01\nconstraints: a valid date-time",
+                    "description": "a valid sample date after 2024-01-01",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "dateBefore": {
-                    "description": "a valid sample date before today\nconstraints: a valid date-time",
+                    "description": "a valid sample date before today",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": false
                   },
                   "actualData": {
-                    "description": "a valid sample date\nconstraints: a valid date-time",
+                    "description": "a valid sample date",
                     "type": "string",
+                    "format": "date-time",
                     "x-date": true
                   },
                   "object": {
@@ -3592,11 +3777,11 @@
                         "properties": {
                           "name": {
                             "type": "string",
-                            "description": "constraints: minimum length 2"
+                            "minLength": 2
                           },
                           "age": {
                             "type": "number",
-                            "description": "constraints: greater than or equal to 18"
+                            "minimum": 18
                           }
                         },
                         "required": [
@@ -3764,16 +3949,16 @@
           "top_p": 1,
           "truncation": "disabled",
           "usage": {
-            "input_tokens": 1392,
+            "input_tokens": 1398,
             "input_tokens_details": {
               "cache_write_tokens": 0,
               "cached_tokens": 0
             },
-            "output_tokens": 444,
+            "output_tokens": 437,
             "output_tokens_details": {
               "reasoning_tokens": 0
             },
-            "total_tokens": 1836
+            "total_tokens": 1835
           },
           "user": null,
           "metadata": {}

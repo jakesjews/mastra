@@ -542,11 +542,11 @@ describe('execute OpenAI strict-mode schema preparation (issue #23795)', () => {
     nested: z.object({ subject: z.string(), note: z.string().optional() }),
   });
 
-  function makeCapturingModel(provider: string, supportsStructuredOutputs?: boolean) {
+  function makeCapturingModel(provider: string, supportsStructuredOutputs?: boolean, modelId = 'gpt-4o') {
     const captured: { options?: any } = {};
     const model = new MockLanguageModelV2({
       provider,
-      modelId: 'gpt-4o',
+      modelId,
       doStream: async (options: any) => {
         captured.options = options;
         return {
@@ -586,13 +586,13 @@ describe('execute OpenAI strict-mode schema preparation (issue #23795)', () => {
     await readStream(stream);
   }
 
-  function expectPreparedSchema(responseFormat: any) {
+  function expectPreparedSchema(responseFormat: any, { keepsArrayBounds = false } = {}) {
     expect(responseFormat.type).toBe('json');
     const sentSchema = responseFormat.schema;
     expect(sentSchema.additionalProperties).toBe(false);
     expect(sentSchema.required).toEqual(['tags', 'nested']);
-    expect(sentSchema.properties.tags.minItems).toBeUndefined();
-    expect(sentSchema.properties.tags.maxItems).toBeUndefined();
+    expect(sentSchema.properties.tags.minItems).toBe(keepsArrayBounds ? 1 : undefined);
+    expect(sentSchema.properties.tags.maxItems).toBe(keepsArrayBounds ? 3 : undefined);
     expect(sentSchema.properties.nested.required).toEqual(['subject', 'note']);
     expect(sentSchema.properties.nested.additionalProperties).toBe(false);
   }
@@ -608,8 +608,15 @@ describe('execute OpenAI strict-mode schema preparation (issue #23795)', () => {
   it('prepares the schema and opts into strict mode for OpenAI models', async () => {
     const { model, captured } = makeCapturingModel('openai.chat');
     await run(model);
-    expectPreparedSchema(captured.options.responseFormat);
+    // OpenAI enforces array bounds, so they are sent as keywords instead of description text.
+    expectPreparedSchema(captured.options.responseFormat, { keepsArrayBounds: true });
     expect(captured.options.providerOptions?.openai?.strictJsonSchema).toBe(true);
+  });
+
+  it('folds array bounds for fine-tuned OpenAI models, which do not support the keywords', async () => {
+    const { model, captured } = makeCapturingModel('openai.chat', undefined, 'ft:gpt-4o-2024-08-06:acme::abc123');
+    await run(model);
+    expectPreparedSchema(captured.options.responseFormat);
   });
 
   it('prepares the schema for OpenAI-compatible models that send strict json_schema by default', async () => {
